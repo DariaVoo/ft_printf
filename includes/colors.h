@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   colors.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: snorcros <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/12 12:39:03 by snorcros          #+#    #+#             */
-/*   Updated: 2019/10/13 16:02:07 by snorcros         ###   ########.fr       */
+/*   Created: 2019/10/06 15:02:09 by snorcros          #+#    #+#             */
+/*   Updated: 2019/10/06 15:02:13 by snorcros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdarg.h>
-#include "types.h"
+#ifndef COLORS_H
+# define COLORS_H
 
-typedef enum {
-	CHAR,
-	STRING
-} TYPE;
+# define BLACK "\033[30;1m"
+# define PURPLE "\033[36;1m"
+# define RED "\033[31;1m"
+# define GREEN "\033[32;1m"
+# define YELLOW "\033[33;1m"
+# define BLUE "\033[34;1m"
+# define MAGENTA "\033[35;1m"
+# define CYAN "\033[36;1m"
+# define WHITE "\033[37;1m"
+# define EOC "\033[6;0m"
 
-typedef struct s_fun_flag
-{
-	char	flag;
-	TYPE	type;
-	int		(*fun)(char *);
-}				t_fun_flag;
-
-t_fun_flag	flfun[] = 
-{
-	{'c', CHAR, ft_putchar},
-	{'s', STRING, ft_putstr},
-};
-
-int		printf(const char * restrict format, ...);
+#endif

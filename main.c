@@ -1,35 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: snorcros <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/12 12:39:03 by snorcros          #+#    #+#             */
-/*   Updated: 2019/10/13 16:02:07 by snorcros         ###   ########.fr       */
+/*   Created: 2019/10/13 15:34:25 by snorcros          #+#    #+#             */
+/*   Updated: 2019/10/13 15:36:26 by snorcros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdarg.h>
-#include "types.h"
+#include "libftprintf.h"
 
-typedef enum {
-	CHAR,
-	STRING
-} TYPE;
-
-typedef struct s_fun_flag
+int	main(void)
 {
-	char	flag;
-	TYPE	type;
-	int		(*fun)(char *);
-}				t_fun_flag;
-
-t_fun_flag	flfun[] = 
-{
-	{'c', CHAR, ft_putchar},
-	{'s', STRING, ft_putstr},
-};
-
-int		printf(const char * restrict format, ...);
+	ft_printf("this if char: %c", 'g');
+	return (0);
+}
