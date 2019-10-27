@@ -6,13 +6,12 @@
 /*   By: snorcros <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/12 12:39:03 by snorcros          #+#    #+#             */
-/*   Updated: 2019/10/13 16:02:07 by snorcros         ###   ########.fr       */
+/*   Updated: 2019/10/27 14:49:22 by snorcros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdarg.h>
-#include "types.h"
 
 typedef enum {
 	CHAR,

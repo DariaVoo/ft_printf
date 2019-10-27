@@ -6,23 +6,15 @@
 /*   By: snorcros <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/12 12:42:33 by snorcros          #+#    #+#             */
-/*   Updated: 2019/10/13 15:33:04 by snorcros         ###   ########.fr       */
+/*   Updated: 2019/10/27 14:48:20 by snorcros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*int		parse_format(char *str)
-{
-	size_t	i;
+#include "libftprintf.h"
 
-	i = 0;
-	while (i < 2)
-	{
-		if (*str == flfun[i].flag)
-			return (flfun[i].fun())
-	}
-}*/
 
-int		printf(const char * restrict format, ...)
+
+int		ft_printf(const char * restrict format, ...)
 {
 	int		count;
 	va_list	ap;
@@ -44,7 +36,7 @@ int		printf(const char * restrict format, ...)
 			while (i < 2)
 			{
 				if (*format == flfun[i].flag)
-					count += flfun[i].fun(va_arg(ap, flfun[i].TYPE));
+					count += flfun[i].fun(va_arg(ap, char *));
 				i++;
 			}
 		}

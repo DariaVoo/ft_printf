@@ -6,14 +6,14 @@
 #    By: snorcros <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/13 15:41:13 by snorcros          #+#    #+#              #
-#    Updated: 2019/10/13 15:56:19 by snorcros         ###   ########.fr        #
+#    Updated: 2019/10/27 14:49:40 by snorcros         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = out 
 SRC := main.c srcs/*.c
 OBJ := $(patsubst %.c, %.o, $(SRC))
-INClUDES := includes/types.h
+INClUDES := includes/*.h
 
 LIB_FLAG := -L libft/ -lft
 
