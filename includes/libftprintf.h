@@ -13,25 +13,34 @@
 #include "libft.h"
 #include <stdarg.h>
 
-typedef struct placeholder
+typedef struct s_funtype
 {
-    int         parameter;
+	char	flag;
+	char	*(*fun)(void *);
+}				t_funtype;
+
+typedef struct s_placeholder
+{
+	//int         parameter;
     char        *flags;
     int         width;
     int         precision;
-    int         length;
+    char        *length;
+    t_funtype	type;
 }               t_placeholder;
 
-typedef struct s_fun_flag
-{
-	char	flag;
-	int		(*fun)(char *);
-}				t_fun_flag;
-
-t_fun_flag	flfun[] = 
+t_funtype	types[] =
 {
 	{'c', ft_putchar},
 	{'s', ft_putstr},
+	{'m', NULL}
 };
 
-int		ft_printf(const char * restrict format, ...);
+int				ft_printf(const char * restrict format, ...);
+
+t_placeholder	new_placeholder();
+int 			set_type(t_placeholder *pPlaceholder, char *format);
+int 			set_flags(t_placeholder *pPlaceholder, char *format);
+int 			set_width(t_placeholder *pPlaceholder, char *format, va_list ap);
+int 			set_precision(t_placeholder *pPlaceholder, char *format);
+int 			set_length(t_placeholder *pPlaceholder, char *format);

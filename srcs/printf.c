@@ -12,6 +12,41 @@
 
 #include "libftprintf.h"
 
+t_placeholder parse(va_list ap, char *format)
+{
+	t_placeholder place;
+
+	place = new_placeholder();
+	if (place == (t_placeholder)NULL)
+		return ((t_placeholder)NULL);
+	if (set_type(&place, format))
+	{
+		format++;
+		return (place);
+	}
+	set_flags(&place, format);
+	set_width(&place, format, ap);
+	set_precision(&place, format);
+	set_length(&place, format);
+	set_type(&place, format);
+	return place;
+}
+
+int		print_this(t_placeholder place, char *str, size_t strlen)
+{
+	int i;
+	int count;
+
+	i = 0;
+	count = 0;
+	while (i < strlen)
+	{
+		count += ft_putchar(str[i]);
+		i++;
+	}
+	return (count);
+}
+
 
 
 int		ft_printf(const char * restrict format, ...)
@@ -33,9 +68,10 @@ int		ft_printf(const char * restrict format, ...)
 		if (*format == '%')
 		{
 			format++;
+			//parse
 			while (i < 2)
 			{
-				if (*format == flfun[i].flag)
+				//if (*format == flfun[i].flag)
 					count += flfun[i].fun(va_arg(ap, char *));
 				i++;
 			}
