@@ -17,7 +17,7 @@ t_placeholder parse(va_list ap, char *format)
 	t_placeholder place;
 
 	place = new_placeholder();
-	if (place == (t_placeholder)NULL)
+	if (!place == (t_placeholder)NULL)
 		return ((t_placeholder)NULL);
 	if (set_type(&place, format))
 	{
@@ -32,28 +32,52 @@ t_placeholder parse(va_list ap, char *format)
 	return place;
 }
 
-int		print_this(t_placeholder place, char *str, size_t strlen)
+char	*to_str_logic(t_placeholder place, va_list ap)
+{
+	char *ans;
+
+	if (place.type.flag != NULL)
+	{
+		ans = place.type.fun(ap);
+	}
+	return (ans);
+}
+
+
+int		print_this(char *str)
 {
 	int i;
 	int count;
 
 	i = 0;
 	count = 0;
-	while (i < strlen)
+	while (str[i] != '\0')
 	{
 		count += ft_putchar(str[i]);
 		i++;
 	}
+	free(str);
 	return (count);
 }
 
+char *ft_c(va_list ap)
+{
+	char *ans;
 
+	if (!(ans = ft_strnew(2))
+		return (NULL);
+	ans[0] = va_arg(ap, char);
+	ans[1] = '\0';
+	return (ans);
+}
 
-int		ft_printf(const char * restrict format, ...)
+int		ft_printf(const char * format, ...)
 {
 	int		count;
 	va_list	ap;
 	int		i;
+	t_placeholder place;
+	char *ans;
 
 	i = 0;
 	count = 0;
@@ -69,14 +93,13 @@ int		ft_printf(const char * restrict format, ...)
 		{
 			format++;
 			//parse
-			while (i < 2)
-			{
-				//if (*format == flfun[i].flag)
-					count += flfun[i].fun(va_arg(ap, char *));
-				i++;
-			}
+			place = parse(ap, format);
+			ans = to_str_logic(place, ap);
+			count += print_this(ans);
+
 		}
 	}
 	va_end(ap);
 	return (count);
 }
+
