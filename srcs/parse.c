@@ -20,10 +20,10 @@ int	set_type(t_placeholder *pPlaceholder, char *format)
 int	set_flags(t_placeholder *pPlaceholder, char *format)
 {
 	size_t i;
-	char flags[];
+	char flags[] = {'+', '-', '#', ' ', ','};
 
 	i = 0;
-	flags = {'+', '-', '#', ' ', ','};
+	//flags = {'+', '-', '#', ' ', ','};
 	while (i < 5)
 	{
 		if (flags[i] == *format)
@@ -90,10 +90,11 @@ int set_precision(t_placeholder *pPlaceholder, char *format)
 int set_length(t_placeholder *pPlaceholder, char *format)
 {
 	size_t i;
-	char l[];
+	char l[] = {'l', 'L', 'h'};
 
-	l = {'l', 'L', 'h'};
-	whiel (i < 3)
+	//l = {'l', 'L', 'h'};
+	i = 0;
+	while (i < 3)
 	{
 		if (*format == l[i] && *format != 'L')
 		{

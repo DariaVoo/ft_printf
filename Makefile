@@ -11,25 +11,25 @@
 # **************************************************************************** #
 
 NAME = out 
-SRC := main.c srcs/*.c
-OBJ := $(patsubst %.c, %.o, $(SRC))
-INClUDES := includes/*.h
-
+SRCS := srcs/*.c
+OBJS := *.o
+INClUDES := includes
+CFLAGS = -Wall -Wextra -Werror
 LIB_FLAG := -L libft/ -lft
 
 all: $(NAME)
 
-%.o : src/%.c $(INCLUDES)
-	@gcc -c $(CFLAGS) -I $(INCLUDES) $< -o $@
-	@echo $(patsubst src/%.c, %, $<)
+$(NAME): lib $(OBJS)
+	gcc $(CFLAGS) -o $(NAME) $(OBJS) -L libft -lft
 
-$(NAME): $(OBJ)
-	@make -C libft
-	@gcc -o $(NAME) -Wall -Wextra -Werror $(LIB_FLAG) $(OBJ)
-	@echo "DONE"
+$(OBJS):
+	gcc $(CFLAGS) -c $(SRCS) -I includes/ -I libft/includes/
+
+lib:
+	make -C libft
 
 clean:
-	@rm -f $(OBJ)
+	@rm -f $(OBJS)
 	@make -C libft clean
 
 fclean: clean
