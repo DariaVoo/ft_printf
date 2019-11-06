@@ -36,7 +36,7 @@ char	*to_str_logic(t_placeholder place, va_list ap)
 {
 	char *ans;
 
-	if (place.type.flag)
+	if (place.type.flag != NULL)
 	{
 		ans = place.type.fun(ap);
 	}
@@ -59,6 +59,7 @@ int		print_this(char *str)
 	free(str);
 	return (count);
 }
+
 
 int		ft_printf(const char * format, ...)
 {
@@ -89,3 +90,4 @@ int		ft_printf(const char * format, ...)
 	va_end(ap);
 	return (count);
 }
+
