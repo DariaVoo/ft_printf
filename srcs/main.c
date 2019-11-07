@@ -6,11 +6,11 @@
 /*   By: snorcros <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/13 15:34:25 by snorcros          #+#    #+#             */
-/*   Updated: 2019/11/03 11:59:08 by snorcros         ###   ########.fr       */
+/*   Updated: 2019/11/07 11:16:50 by snorcros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libftprintf.h"
+#include "libftprintf.h"
 
 int	main(void)
 {

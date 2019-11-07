@@ -6,7 +6,7 @@
 /*   By: snorcros <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/12 12:42:33 by snorcros          #+#    #+#             */
-/*   Updated: 2019/10/27 14:48:20 by snorcros         ###   ########.fr       */
+/*   Updated: 2019/11/07 10:43:50 by snorcros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ char	*to_str_logic(t_placeholder place, va_list ap)
 {
 	char *ans;
 
-	if (place.type.flag != NULL)
+	ans = NULL;
+	if (place.type.flag != 0)
 	{
 		ans = place.type.fun(ap);
 	}

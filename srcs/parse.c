@@ -4,6 +4,7 @@ int	set_type(t_placeholder *pPlaceholder, char *format)
 {
 	size_t i;
 
+	i = 0;
 	while (types[i].flag != 'm')
 	{
 		if (*format == types[i].flag)
