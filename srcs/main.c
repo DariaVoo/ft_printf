@@ -14,7 +14,7 @@
 
 int	main(void)
 {
-	ft_printf("kekeke");
-	//ft_printf("this if char: %c", 'g');
+	ft_printf("kekeke\n");
+	ft_printf("this is char: %c", 'g');
 	return (0);
 }

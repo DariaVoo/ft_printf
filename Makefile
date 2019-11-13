@@ -20,7 +20,7 @@ LIB_FLAG := -L libft/ -lft
 all: $(NAME)
 
 $(NAME): lib $(OBJS)
-	gcc $(CFLAGS) -o $(NAME) $(OBJS) -L libft -lft
+	gcc $(CFLAGS) -o $(NAME) $(OBJS) -I includes/ -L libft -lft
 
 $(OBJS):
 	gcc $(CFLAGS) -c $(SRCS) -I includes/ -I libft/includes/

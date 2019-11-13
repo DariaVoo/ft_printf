@@ -1,4 +1,5 @@
 #include "libftprintf.h"
+#include "funfortypes.h"
 
 int	set_type(t_placeholder *pPlaceholder, char *format)
 {

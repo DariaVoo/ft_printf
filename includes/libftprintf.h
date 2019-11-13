@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef LIBFTPRINTF_H
+# define LIBFTPRINTF_H
 #include "libft.h"
 #include <stdarg.h>
 
@@ -30,6 +32,14 @@ typedef struct s_placeholder
 }               t_placeholder;
 
 
+char			*ft_c(va_list ap);
+/*t_funtype	types[] =
+{
+		{'c', ft_c},
+		//{'s', ft_putstr},
+		{'m', NULL}
+};*/
+
 int				ft_printf(const char *format, ...);
 
 t_placeholder	new_placeholder();
@@ -42,13 +52,6 @@ int 			set_length(t_placeholder *pPlaceholder, char *format);
 //char			*type_to_char(t_funtype ftype, va_list ap);
 
 char			*to_str_logic(t_placeholder place, va_list ap);
-char			*ft_c(va_list ap);
 int				print_this(char *str);
 
-t_funtype	types[] =
-{
-		{'c', ft_c},
-		//{'s', ft_putstr},
-		{'m', NULL}
-};
-
+#endif
