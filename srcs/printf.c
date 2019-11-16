@@ -19,7 +19,7 @@ t_placeholder parse(va_list ap, char **format)
 	place = new_placeholder();
 	if (set_type(&place, *format))
 	{
-		//**format++;
+		*format += 1;
 		return (place);
 	}
 	*format += set_flags(&place, *format);
@@ -79,11 +79,12 @@ int		ft_printf(const char * format, ...)
 		if (*format == '%')
 		{
 			format++;
+			ans = (char *)format;//kostil'
 			//parse
-			place = parse(ap, (char **)&format);
+			place = parse(ap, &ans);
+			format = (const char *)ans;
 			ans = to_str_logic(place, ap);
 			count += print_this(ans);
-			format++;//сдвигает указатель на флаг, это должно происходить внутри функции
 		}
 	}
 	va_end(ap);

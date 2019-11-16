@@ -11,10 +11,12 @@
 /* ************************************************************************** */
 
 #include "libftprintf.h"
+#include <stdio.h>
 
 int	main(void)
 {
 	ft_printf("kekeke\n");
+	//ft_printf("%%\n");
 	ft_printf("this is char: %c\n", 'g');
 	ft_printf("this is int: %d\n", 2568);
 	return (0);

@@ -11,7 +11,6 @@ int	set_type(t_placeholder *pPlaceholder, char *format)
 		if (*format == types[i].flag)
 		{
 			pPlaceholder->type = types[i];
-	//		format++;
 			return (1);
 		}
 		i++;
@@ -46,13 +45,11 @@ int set_width(t_placeholder *pPlaceholder, char *format, va_list ap)
 	if (*format == '*' && *(format + 1) == '.')
 	{
 		pPlaceholder->width = va_arg(ap, int);
-	//	format++;
 		return (1);
 	}
 	else if (*format == '*' && *(format + 1) != '.')
 	{
 		pPlaceholder->precision = va_arg(ap, int);
-	//	format++;
 		return (1);
 	}
 	if ((w = ft_atoi(format)) > 0)
@@ -65,7 +62,6 @@ int set_width(t_placeholder *pPlaceholder, char *format, va_list ap)
 		{
 			w /= 10;
 			k++;
-	//		format++;
 		}
 		return (k);
 	}
@@ -90,7 +86,6 @@ int set_precision(t_placeholder *pPlaceholder, char *format)
 			{
 				p /= 10;
 				k++;
-			//	format++;
 			}
 			return (k);
 		}
