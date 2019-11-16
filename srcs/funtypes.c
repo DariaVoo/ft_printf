@@ -10,3 +10,8 @@ char *ft_c(va_list ap)
 	ans[1] = '\0';
 	return (ans);
 }
+
+char *ft_d(va_list ap)
+{
+	return (ft_itoa(va_arg(ap,int)));
+}

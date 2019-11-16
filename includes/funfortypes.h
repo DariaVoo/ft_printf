@@ -7,7 +7,7 @@
 t_funtype	types[] =
 		{
 				{'c', ft_c},
-				//{'s', ft_putstr},
+				{'d', ft_d},
 				{'m', NULL}
 		};
 #endif

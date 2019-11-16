@@ -12,23 +12,21 @@
 
 #include "libftprintf.h"
 
-t_placeholder parse(va_list ap, char *format)
+t_placeholder parse(va_list ap, char **format)
 {
 	t_placeholder place;
 
 	place = new_placeholder();
-	//if (!(place = new_placeholder())
-	//	return ((t_placeholder)NULL);
-	if (set_type(&place, format))
+	if (set_type(&place, *format))
 	{
-		format++;
+		//**format++;
 		return (place);
 	}
-	set_flags(&place, format);
-	set_width(&place, format, ap);
-	set_precision(&place, format);
-	set_length(&place, format);
-	set_type(&place, format);
+	*format += set_flags(&place, *format);
+	*format += set_width(&place, *format, ap);
+	*format += set_precision(&place, *format);
+	*format += set_length(&place, *format);
+	*format += set_type(&place, *format);
 	return place;
 }
 
@@ -82,10 +80,10 @@ int		ft_printf(const char * format, ...)
 		{
 			format++;
 			//parse
-			place = parse(ap, (char *)format);
+			place = parse(ap, (char **)&format);
 			ans = to_str_logic(place, ap);
 			count += print_this(ans);
-
+			format++;//сдвигает указатель на флаг, это должно происходить внутри функции
 		}
 	}
 	va_end(ap);

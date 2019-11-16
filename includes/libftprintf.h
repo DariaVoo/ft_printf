@@ -32,13 +32,8 @@ typedef struct s_placeholder
 }               t_placeholder;
 
 
-char			*ft_c(va_list ap);
-/*t_funtype	types[] =
-{
-		{'c', ft_c},
-		//{'s', ft_putstr},
-		{'m', NULL}
-};*/
+
+
 
 int				ft_printf(const char *format, ...);
 
@@ -53,5 +48,6 @@ int 			set_length(t_placeholder *pPlaceholder, char *format);
 
 char			*to_str_logic(t_placeholder place, va_list ap);
 int				print_this(char *str);
-
+char			*ft_c(va_list ap);
+char			*ft_d(va_list ap);
 #endif
