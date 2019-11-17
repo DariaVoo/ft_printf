@@ -15,6 +15,10 @@
 
 int	main(void)
 {
+	char *str = "aaaa\0";
+
+	printf("string: %s\n", str);
+	ft_printf("string: %s\n", str);
 	ft_printf("kekeke\n");
 	//ft_printf("%%\n");
 	ft_printf("this is char: %c\n", 'g');

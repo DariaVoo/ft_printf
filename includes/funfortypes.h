@@ -8,6 +8,7 @@ t_funtype	types[] =
 		{
 				{'c', ft_c},
 				{'d', ft_d},
+				{'s', ft_s},
 				{'m', NULL}
 		};
 #endif

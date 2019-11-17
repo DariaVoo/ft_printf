@@ -1,7 +1,7 @@
 #include "libftprintf.h"
 #include "funfortypes.h"
 
-int	set_type(t_placeholder *pPlaceholder, char *format)
+int	set_type(t_placeholder *pPlaceholder, const char *format)
 {
 	size_t i;
 
@@ -18,7 +18,7 @@ int	set_type(t_placeholder *pPlaceholder, char *format)
 	return 0;
 }
 
-int	set_flags(t_placeholder *pPlaceholder, char *format)
+int	set_flags(t_placeholder *pPlaceholder, const char *format)
 {
 	size_t i;
 	char flags[] = {'+', '-', '#', ' ', ','};
@@ -30,7 +30,6 @@ int	set_flags(t_placeholder *pPlaceholder, char *format)
 		if (flags[i] == *format)
 		{
 			pPlaceholder->flags = flags[i];
-	//		format++;
 			return (1);
 		}
 		i++;
@@ -38,7 +37,7 @@ int	set_flags(t_placeholder *pPlaceholder, char *format)
 	return (0);
 }
 
-int set_width(t_placeholder *pPlaceholder, char *format, va_list ap)
+int set_width(t_placeholder *pPlaceholder, const char *format, va_list ap)
 {
 	int w;
 
@@ -68,7 +67,7 @@ int set_width(t_placeholder *pPlaceholder, char *format, va_list ap)
 	return (0);
 }
 
-int set_precision(t_placeholder *pPlaceholder, char *format)
+int set_precision(t_placeholder *pPlaceholder, const char *format)
 {
 	int p;
 	int k;
@@ -93,7 +92,7 @@ int set_precision(t_placeholder *pPlaceholder, char *format)
 	return (0);
 }
 
-int set_length(t_placeholder *pPlaceholder, char *format)
+int set_length(t_placeholder *pPlaceholder, const char *format)
 {
 	size_t i;
 	char l[] = {'l', 'L', 'h'};

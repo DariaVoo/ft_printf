@@ -12,7 +12,7 @@
 
 #include "libftprintf.h"
 
-t_placeholder parse(va_list ap, char **format)
+t_placeholder parse(va_list ap, const char **format)
 {
 	t_placeholder place;
 
@@ -43,7 +43,7 @@ char	*to_str_logic(t_placeholder place, va_list ap)
 }
 
 
-int		print_this(char *str)
+int		print_this(t_placeholder place, char *str)
 {
 	int i;
 	int count;
@@ -55,7 +55,8 @@ int		print_this(char *str)
 		count += ft_putchar(str[i]);
 		i++;
 	}
-	free(str);
+	if (place.type.flag != 's')
+		free(str);
 	return (count);
 }
 
@@ -79,12 +80,10 @@ int		ft_printf(const char * format, ...)
 		if (*format == '%')
 		{
 			format++;
-			ans = (char *)format;//kostil'
 			//parse
-			place = parse(ap, &ans);
-			format = (const char *)ans;
+			place = parse(ap, &format);
 			ans = to_str_logic(place, ap);
-			count += print_this(ans);
+			count += print_this(place, ans);
 		}
 	}
 	va_end(ap);

@@ -38,16 +38,17 @@ typedef struct s_placeholder
 int				ft_printf(const char *format, ...);
 
 t_placeholder	new_placeholder();
-int 			set_type(t_placeholder *pPlaceholder, char *format);
-int 			set_flags(t_placeholder *pPlaceholder, char *format);
-int 			set_width(t_placeholder *pPlaceholder, char *format, va_list ap);
-int 			set_precision(t_placeholder *pPlaceholder, char *format);
-int 			set_length(t_placeholder *pPlaceholder, char *format);
+int 			set_type(t_placeholder *pPlaceholder, const char *format);
+int 			set_flags(t_placeholder *pPlaceholder, const char *format);
+int 			set_width(t_placeholder *pPlaceholder, const char *format, va_list ap);
+int 			set_precision(t_placeholder *pPlaceholder, const char *format);
+int 			set_length(t_placeholder *pPlaceholder, const char *format);
 
 //char			*type_to_char(t_funtype ftype, va_list ap);
 
 char			*to_str_logic(t_placeholder place, va_list ap);
-int				print_this(char *str);
+int				print_this(t_placeholder place, char *str);
 char			*ft_c(va_list ap);
 char			*ft_d(va_list ap);
+char 			*ft_s(va_list ap);
 #endif

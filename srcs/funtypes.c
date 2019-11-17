@@ -15,3 +15,9 @@ char *ft_d(va_list ap)
 {
 	return (ft_itoa(va_arg(ap,int)));
 }
+
+
+char *ft_s(va_list ap)
+{
+	return (va_arg(ap, char *));
+}
