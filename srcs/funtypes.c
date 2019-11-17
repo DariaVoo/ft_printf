@@ -1,4 +1,15 @@
-#include <libft.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   funtypes.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: snorcros <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/11/17 17:14:01 by snorcros          #+#    #+#             */
+/*   Updated: 2019/11/17 17:14:07 by snorcros         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libftprintf.h"
 
 char *ft_c(va_list ap)
@@ -36,4 +47,9 @@ char *ft_X(va_list ap)
 char *ft_o(va_list ap)
 {
 	return (ft_itoabase(va_arg(ap,unsigned int), (unsigned int)8));
+}
+
+char *ft_u(va_list ap)
+{
+	return (ft_itoabase(va_arg(ap,unsigned int), (unsigned int)10));
 }

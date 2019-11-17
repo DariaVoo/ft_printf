@@ -18,11 +18,12 @@ int	main(void)
 	char *str = "aaaa\0";
 	unsigned int ui = 933;
 
-
+	printf("printf 10 u: %u\n", ui);
 	printf("16 x: %x\n", ui);
 	printf("16 X: %X\n", ui);
 	printf("8 o: %o\n", ui);
 
+	ft_printf("10 u: %u\n", ui);
 	ft_printf("16 x: %x\n", ui);
 	ft_printf("16 X: %X\n", ui);
 	ft_printf("8 o: %o\n", ui);

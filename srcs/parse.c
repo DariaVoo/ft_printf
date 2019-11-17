@@ -41,12 +41,12 @@ int set_width(t_placeholder *pPlaceholder, const char *format, va_list ap)
 {
 	int w;
 
-	if (*format == '*' && *(format + 1) == '.')
+	if (*format == '*' && *(format + 1) != '.')
 	{
 		pPlaceholder->width = va_arg(ap, int);
 		return (1);
 	}
-	else if (*format == '*' && *(format + 1) != '.')
+	else if (*format == '*' && *(format + 1) == '.')
 	{
 		pPlaceholder->precision = va_arg(ap, int);
 		return (1);

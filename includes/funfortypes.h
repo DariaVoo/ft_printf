@@ -12,6 +12,7 @@ t_funtype	types[] =
 				{'x', ft_x},
 				{'X', ft_X},
 				{'o', ft_o},
+				{'u', ft_u},
 				{'m', NULL}
 		};
 #endif
