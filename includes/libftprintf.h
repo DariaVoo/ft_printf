@@ -51,4 +51,7 @@ int				print_this(t_placeholder place, char *str);
 char			*ft_c(va_list ap);
 char			*ft_d(va_list ap);
 char 			*ft_s(va_list ap);
+char 			*ft_x(va_list ap);
+char 			*ft_X(va_list ap);
+char 			*ft_o(va_list ap);
 #endif

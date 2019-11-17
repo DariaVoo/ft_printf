@@ -16,8 +16,17 @@
 int	main(void)
 {
 	char *str = "aaaa\0";
+	unsigned int ui = 933;
 
-	printf("string: %s\n", str);
+
+	printf("16 x: %x\n", ui);
+	printf("16 X: %X\n", ui);
+	printf("8 o: %o\n", ui);
+
+	ft_printf("16 x: %x\n", ui);
+	ft_printf("16 X: %X\n", ui);
+	ft_printf("8 o: %o\n", ui);
+	//printf("string: %s\n", str);
 	ft_printf("string: %s\n", str);
 	ft_printf("kekeke\n");
 	//ft_printf("%%\n");
