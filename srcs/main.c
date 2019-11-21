@@ -18,11 +18,25 @@ int	main(void)
 	//char *str = "aaaa\0";
 	//unsigned int ui = 933;
 	//long unsigned int lui = 933;
-	signed char kek = -128;
+	long long int lui = -933;
+	//signed char kek = -128;
 
+
+
+	printf("ft_printf 10 llu: %llu\n", lui);
+	printf("16 llx: %llx\n", lui);
+	printf("16 llX: %llX\n", lui);
+	printf("8 llo: %llo\n", lui);
+	ft_printf("%s","---------------------\n");
+	ft_printf("printf 10 llu: %llu\n", lui);
+	ft_printf("16 llx: %llx\n", lui);
+	ft_printf("16 llX: %llX\n", lui);
+	ft_printf("8 llo: %llo\n", lui);
+
+/*
 	ft_printf("signed char %hhi\n", kek);
 	printf("signed char %hhi\n", kek);
-/*
+
 	printf("this is char : %hi\n", -103);
 	printf("ft_printf 10 lu: %lu\n", lui);
 	printf("16 lx: %lx\n", lui);
