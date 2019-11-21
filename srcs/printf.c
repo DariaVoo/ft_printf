@@ -40,7 +40,6 @@ char	*to_str_logic(t_placeholder place, va_list ap)
 		ans = place.type.fun(ap);
 	} else if (place.length.fun != NULL)
 	{
-		place.length.fun(ap, place.type.flag);
 		ans = place.length.fun(ap, place.type.flag);
 	}
 	return (ans);
