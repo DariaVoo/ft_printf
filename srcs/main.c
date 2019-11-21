@@ -17,12 +17,13 @@ int	main(void)
 {
 	//char *str = "aaaa\0";
 	//unsigned int ui = 933;
-	long unsigned int lui = 933;
-	//signed char kek = -128;
+	//long unsigned int lui = 933;
+	signed char kek = -128;
 
-	//ft_printf("signed char %hhi\n", kek);
-	//printf("signed char %hhi\n", kek);
-	//printf("this is char : %hi\n", -103);
+	ft_printf("signed char %hhi\n", kek);
+	printf("signed char %hhi\n", kek);
+/*
+	printf("this is char : %hi\n", -103);
 	printf("ft_printf 10 lu: %lu\n", lui);
 	printf("16 lx: %lx\n", lui);
 	printf("16 lX: %lX\n", lui);
@@ -32,7 +33,7 @@ int	main(void)
 	ft_printf("16 lx: %lx\n", lui);
 	ft_printf("16 lX: %lX\n", lui);
 	ft_printf("8 lo: %lo\n", lui);
-/*
+
 	ft_printf("kekeke\n");
 	ft_printf("10 u: %u\n", ui);
 	ft_printf("16 x: %x\n", ui);

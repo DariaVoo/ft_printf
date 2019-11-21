@@ -18,10 +18,11 @@ t_funtype	types[] =
 
 t_funlenght	lengths[] =
 {
-		{"l", length_l},
+
 		{"ll", length_ll},
-		{"h", length_h},
 		{"hh", length_hh},
+		{"l", length_l},
+		{"h", length_h},
 		{"L", length_hh},
 		{"m", NULL}
 };
