@@ -35,13 +35,16 @@ char	*to_str_logic(t_placeholder place, va_list ap)
 	char *ans;
 
 	ans = NULL;
-	if (place.type.flag != 0)
+	if (place.type.flag != 'm' && place.length.flag[0] == 'm')
 	{
 		ans = place.type.fun(ap);
+	} else if (place.length.fun != NULL)
+	{
+		place.length.fun(ap, place.type.flag);
+		ans = place.length.fun(ap, place.type.flag);
 	}
 	return (ans);
 }
-
 
 int		print_this(t_placeholder place, char *str)
 {
@@ -82,8 +85,11 @@ int		ft_printf(const char * format, ...)
 			format++;
 			//parse
 			place = parse(ap, &format);
+			//ft_putstr("parse\n");
 			ans = to_str_logic(place, ap);
+			//ft_putstr("logic\n");
 			count += print_this(place, ans);
+			//ft_putstr("print\n");
 		}
 	}
 	va_end(ap);

@@ -12,28 +12,27 @@
 
 #include "libft.h"
 
-static int		ft_count_digits(unsigned int n)
+static int		ft_count_digits(unsigned long long n)
 {
 	int	count;
-	int buf;
 
-	buf = n;
 	count = 0;
-	while (buf > 0)
+	while (n > 0)
 	{
-		buf /= 16;
+		n /= 16;
 		count++;
 	}
 	return (count);
 }
 
-char			*ft_itoahex(unsigned int n, char tcase)
+char			*ft_itoahex(unsigned long long n, char tcase)
 {
 	char	*str_n;
 	int		count;
 	size_t	i;
 
 	count = ft_count_digits(n);
+
 	str_n = ft_strnew(count);
 	if (!str_n)
 		return (NULL);

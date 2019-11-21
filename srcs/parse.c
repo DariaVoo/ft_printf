@@ -95,18 +95,23 @@ int set_precision(t_placeholder *pPlaceholder, const char *format)
 int set_length(t_placeholder *pPlaceholder, const char *format)
 {
 	size_t i;
-	char l[] = {'l', 'L', 'h'};
 
-	//l = {'l', 'L', 'h'};
 	i = 0;
-	while (i < 3)
+	while (lengths[i].flag[0] != 'm')
 	{
-		if (*format == l[i] && *format != 'L')
+		if (*format == lengths[i].flag[0] && *(format + 1) == lengths[i].flag[1])
 		{
-			//format++;
-			pPlaceholder->length = l[i];
+			pPlaceholder->length.flag = lengths[i].flag;
+			pPlaceholder->length.fun = lengths[i].fun;
+			return (2);
+		}
+		else if (*format == lengths[i].flag[0])
+		{
+			pPlaceholder->length.flag = lengths[i].flag;
+			pPlaceholder->length.fun = lengths[i].fun;
 			return (1);
 		}
+		i++;
 	}
 	return (0);
 }

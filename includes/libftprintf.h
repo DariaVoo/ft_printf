@@ -21,13 +21,18 @@ typedef struct s_funtype
 	char	*(*fun)(va_list);
 }				t_funtype;
 
+typedef struct s_funlenght
+{
+	char	*flag;
+	char	*(*fun)(va_list, char);
+}				t_funlenght;
+
 typedef struct s_placeholder
 {
-	//int         parameter;
     char        flags;
     int         width;
     int         precision;
-    char        length;
+    t_funlenght	length;
     t_funtype	type;
 }               t_placeholder;
 
@@ -55,4 +60,10 @@ char 			*ft_x(va_list ap);
 char 			*ft_X(va_list ap);
 char 			*ft_o(va_list ap);
 char			*ft_u(va_list ap);
+
+char			*length_l(va_list ap, char typeflag);
+char			*length_ll(va_list ap, char typeflag);
+char			*length_h(va_list ap,  char typeflag);
+char			*length_hh(va_list ap, char typeflag);
+
 #endif

@@ -11,14 +11,15 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-static int		ft_count_digits(unsigned int n, unsigned int base)
+static int		ft_count_digits(unsigned long long n, unsigned int base)
 {
 	int	count;
-	int buf;
+	unsigned long long buf;
 
-	buf = n;
 	count = 0;
+	buf = n;
 	while (buf > 0)
 	{
 		buf /= base;
@@ -27,7 +28,7 @@ static int		ft_count_digits(unsigned int n, unsigned int base)
 	return (count);
 }
 
-char			*ft_itoabase(unsigned int n, unsigned int base)
+char			*ft_itoabase(unsigned long long n, unsigned int base)
 {
 	char	*str_n;
 	int		count;
