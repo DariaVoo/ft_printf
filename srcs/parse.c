@@ -79,7 +79,6 @@ int set_precision(t_placeholder *pPlaceholder, const char *format)
 		format++;
 		if ((p = ft_atoi(format)) > 0)
 		{
-
 			pPlaceholder->precision = p;
 			while (p > 0)
 			{

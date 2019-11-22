@@ -18,10 +18,16 @@ int	main(void)
 	//char *str = "aaaa\0";
 	//unsigned int ui = 933;
 	//long long unsigned int lui = 933;
-	long long int lli = -933;
-	long int li = -933;
-	short int si = -4;
-	signed char kek = -128;
+	//long long int lli = -933;
+	//long int li = -933;
+	//short int si = -4;
+	//signed char kek = -128;
+
+	printf("%-20s", "this is a test");
+	printf("$\n");
+	ft_printf("%-20s", "this is a test");
+	printf("$\n");
+	//printf("%20s", "\n$this is a test");
 
 /*	//signed
 	ft_printf("short int %hi\n", si);

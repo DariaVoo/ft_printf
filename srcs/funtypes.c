@@ -37,7 +37,7 @@ char *ft_s(va_list ap)
 char *ft_x(va_list ap)
 {
 	return (ft_itoahex(va_arg(ap, unsigned int), 'l'));
-}//поменять входные параметры itoa
+}
 
 char *ft_X(va_list ap)
 {

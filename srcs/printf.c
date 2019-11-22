@@ -35,12 +35,20 @@ char	*to_str_logic(t_placeholder place, va_list ap)
 	char *ans;
 
 	ans = NULL;
+	//1
 	if (place.type.flag != 'm' && place.length.flag[0] == 'm')
-	{
 		ans = place.type.fun(ap);
-	} else if (place.length.fun != NULL)
-	{
+	else if (place.length.fun != NULL)
 		ans = place.length.fun(ap, place.type.flag);
+	//2
+
+	//3
+	if (place.width != 0 && (size_t)place.width > ft_strlen(ans))
+	{
+		if (place.flags == '-')
+			ans = ft_stradd_back(ans, place.width, ' ');
+		else
+			ans = ft_stradd_front(ans, place.width, ' ');
 	}
 	return (ans);
 }
