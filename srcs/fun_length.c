@@ -3,7 +3,7 @@
 char	*length_l(va_list ap, char typeflag)
 {
 	if (typeflag == 'i' || typeflag == 'd')//error
-		return (ft_itoabase(va_arg (ap, long int), 10));
+		return (ft_itoa_signed(va_arg (ap, long int), 10));
 	if (typeflag == 'u')
 		return (ft_itoabase(va_arg (ap, unsigned long int), 10));
 	else if (typeflag == 'o')
@@ -18,7 +18,7 @@ char	*length_l(va_list ap, char typeflag)
 char	*length_ll(va_list ap, char typeflag)
 {
 	if (typeflag == 'i' || typeflag == 'd')//error
-		return (ft_itoabase(va_arg (ap, long int), 10));
+		return (ft_itoa_signed(va_arg (ap, long int), 10));
 	if (typeflag == 'u')
 		return (ft_itoabase(va_arg (ap, unsigned long long int), 10));
 	else if (typeflag == 'o')

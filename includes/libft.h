@@ -70,6 +70,7 @@ char				**ft_strsplit(char const *s, char c);
 char				*ft_itoa(int n);
 char				*ft_itoabase(unsigned long long n, unsigned int base);
 char				*ft_itoahex(unsigned long long n, char tcase);
+char				*ft_itoa_signed(long long n, unsigned int base);
 int					ft_putchar(char c);
 void				ft_putnbr(int n);
 void				ft_putstr(char const *s);

@@ -17,12 +17,30 @@ int	main(void)
 {
 	//char *str = "aaaa\0";
 	//unsigned int ui = 933;
-	//long unsigned int lui = 933;
-	long long int lui = -933;
-	//signed char kek = -128;
+	//long long unsigned int lui = 933;
+	long long int lli = -933;
+	long int li = -933;
+	short int si = -4;
+	signed char kek = -128;
 
+/*	//signed
+	ft_printf("short int %hi\n", si);
+	printf("short int %hi\n", si);
 
+	ft_printf("%s","---------------------\n");
+	ft_printf("signed char %hhi\n", kek);
+	printf("signed char %hhi\n", kek);
 
+	ft_printf("%s","---------------------\n");
+	printf("ft_printf 10 ld: %ld\n", li);
+	ft_printf("printf 10 ld: %ld\n", li);
+
+	ft_printf("%s","--------------------\n");
+	printf("ft_printf 10 lld: %lld\n", lli);
+	ft_printf("printf 10 lld: %lld\n", lli);
+
+ 	//unsigned
+	ft_printf("%s","---------------------\n");
 	printf("ft_printf 10 llu: %llu\n", lui);
 	printf("16 llx: %llx\n", lui);
 	printf("16 llX: %llX\n", lui);
@@ -33,9 +51,15 @@ int	main(void)
 	ft_printf("16 llX: %llX\n", lui);
 	ft_printf("8 llo: %llo\n", lui);
 
-/*
-	ft_printf("signed char %hhi\n", kek);
-	printf("signed char %hhi\n", kek);
+	printf("ft_printf 10 llu: %llu\n", lui);
+	printf("16 llx: %llx\n", lui);
+	printf("16 llX: %llX\n", lui);
+	printf("8 llo: %llo\n", lui);
+	ft_printf("%s","---------------------\n");
+	ft_printf("printf 10 llu: %llu\n", lui);
+	ft_printf("16 llx: %llx\n", lui);
+	ft_printf("16 llX: %llX\n", lui);
+	ft_printf("8 llo: %llo\n", lui);
 
 	printf("this is char : %hi\n", -103);
 	printf("ft_printf 10 lu: %lu\n", lui);

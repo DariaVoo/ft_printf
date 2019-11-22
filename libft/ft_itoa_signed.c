@@ -12,13 +12,18 @@
 
 #include "libft.h"
 
-static int		ft_count_digits(unsigned long long n, unsigned int base)
+static int		ft_count_digits(long long n, unsigned int base)
 {
 	int	count;
-	unsigned long long buf;
+	long long buf;
 
 	count = 0;
 	buf = n;
+	if (n <= 0)
+	{
+		buf *= -1;
+		count++;
+	}
 	while (buf > 0)
 	{
 		buf /= base;
@@ -27,7 +32,7 @@ static int		ft_count_digits(unsigned long long n, unsigned int base)
 	return (count);
 }
 
-char			*ft_itoabase(unsigned long long n, unsigned int base)
+char			*ft_itoa_signed(long long n, unsigned int base)
 {
 	char	*str_n;
 	int		count;
@@ -37,6 +42,11 @@ char			*ft_itoabase(unsigned long long n, unsigned int base)
 	str_n = ft_strnew(count);
 	if (!str_n)
 		return (NULL);
+	if (n < 0)
+	{
+		str_n[0] = '-';
+		n *= -1;
+	}
 	i = count - 1;
 	if (n == 0)
 		str_n[i] = 0 + 48;
