@@ -23,13 +23,24 @@ int	main(void)
 	//short int si = -4;
 	//signed char kek = -128;
 
+	printf("+ %+d\n", 23);
+	printf("space % d\n", 23);
+	printf("0 %015d\n", 13);
+	printf("# %#x\n", 12);
+	printf("---------------\n");
+
+	ft_printf("+ %+d\n", 23);
+	ft_printf("space % d\n", 23);
+	ft_printf("0 %015d\n", 13);
+	ft_printf("# %#x\n", 12);
+/*
 	printf("%-*s",20, "this is a test");
 	printf("$\n");
 	ft_printf("%-*s", 20, "this is a test");
 	printf("$\n");
 	//printf("%20s", "\n$this is a test");
 
-/*	//signed
+	//signed
 	ft_printf("short int %hi\n", si);
 	printf("short int %hi\n", si);
 

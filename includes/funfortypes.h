@@ -29,13 +29,13 @@ t_funlenght	lengths[] =
 };
 
 
-t_funlenght	flags[] =
+t_funflags	flags[] =
 {
 		{'+', flags_plus},
 		{'-', NULL},
 		{'#', flags_hash},
 		{' ', flags_space},
-		{'0', NULL},
+		{'0', flags_zero},
 		{'m', NULL}
 };
 #endif

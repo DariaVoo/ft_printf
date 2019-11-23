@@ -18,7 +18,7 @@
 typedef struct s_funflags
 {
 	char	flag;
-	char	*(*fun)(char *);
+	char	*(*fun)(char *, char);
 }				t_funflags;
 
 typedef struct s_funtype
@@ -41,10 +41,6 @@ typedef struct s_placeholder
     t_funlenght	length;
     t_funtype	type;
 }               t_placeholder;
-
-
-
-
 
 int				ft_printf(const char *format, ...);
 
@@ -71,9 +67,9 @@ char			*length_ll(va_list ap, char typeflag);
 char			*length_h(va_list ap,  char typeflag);
 char			*length_hh(va_list ap, char typeflag);
 
-char 			*flags_zero(char *str, t_placeholder place);
-char 			*flags_plus(char *str);
-char 			*flags_space(char *str);
-char 			*flags_hash(char *str);
+char 			*flags_zero(char *str, char place);
+char 			*flags_plus(char *str, char type);
+char 			*flags_space(char *str, char type);
+char 			*flags_hash(char *str, char type);
 
 #endif

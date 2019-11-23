@@ -42,7 +42,7 @@ char	*to_str_logic(t_placeholder place, va_list ap)
 		ans = place.length.fun(ap, place.type.flag);
 	//2
 	if (place.flags.flag != 'm' && place.flags.flag != '0' && place.flags.flag != '-')
-		ans = place.flags.fun(ans);
+		ans = place.flags.fun(ans, place.type.flag);
 	//3
 	if (place.width != 0 && (size_t)place.width > ft_strlen(ans))
 	{
@@ -51,7 +51,7 @@ char	*to_str_logic(t_placeholder place, va_list ap)
 		else
 			ans = ft_stradd_front(ans, place.width, ' ');
 		if (place.flags.flag == '0')
-			ans = flags_zero(ans, place);
+			ans = flags_zero(ans, place.type.flag);
 	}
 	return (ans);
 }

@@ -1,39 +1,39 @@
 #include "libftprintf.h"
 
-char *flags_plus(char *str)
+char *flags_plus(char *str, char type)
 {
-	if (str[0] != '-')
+	if (str[0] != '-' && type)
 		return (ft_stradd_front(str, ft_strlen(str) + 1, '+'));
 	return (str);
 }
 
-char *flags_space(char *str)
+char *flags_space(char *str, char type)
 {
-	if (str[0] != '-')
+	if (str[0] != '-' && type)
 		return (ft_stradd_front(str, ft_strlen(str) + 1, ' '));
 	return (str);
 }
 
-char *flags_zero(char *str, t_placeholder place)
+char *flags_zero(char *str, char type)
 {
-	if (place.type.flag == 'd' || place.type.flag == 'i' || place.type.flag == 'o'
-			|| place.type.flag == 'u' || place.type.flag == 'x' || place.type.flag == 'X')
+	if (type == 'd' || type == 'i' || type == 'o'
+			|| type == 'u' || type == 'x' || type == 'X')
 		return (ft_strreplace(str, ' ', '0'));
 	else
 		return (str);
 }
 
-char *flags_hash(char *str)
+char *flags_hash(char *str, char type)
 {
-	if (place.type.flag == 'o')
+	if (type == 'o')
 		return (ft_stradd_front(str, ft_strlen(str) + 1, '0'));
-	else if (place.type.flag == 'x')
+	else if (type == 'x')
 	{
 		str = ft_stradd_front(str,ft_strlen(str) + 2, '0');
 		str[1] = 'x';
 		return (str);
 	}
-	else if (place.type.flag == 'X')
+	else if (type == 'X')
 	{
 		str = ft_stradd_front(str,  ft_strlen(str) + 2, '0');
 		str[1] = 'X';
