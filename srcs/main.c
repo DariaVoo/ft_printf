@@ -23,9 +23,9 @@ int	main(void)
 	//short int si = -4;
 	//signed char kek = -128;
 
-	printf("%-20s", "this is a test");
+	printf("%-*s",20, "this is a test");
 	printf("$\n");
-	ft_printf("%-20s", "this is a test");
+	ft_printf("%-*s", 20, "this is a test");
 	printf("$\n");
 	//printf("%20s", "\n$this is a test");
 

@@ -21,15 +21,14 @@ int	set_type(t_placeholder *pPlaceholder, const char *format)
 int	set_flags(t_placeholder *pPlaceholder, const char *format)
 {
 	size_t i;
-	char flags[] = {'+', '-', '#', ' ', ','};
 
 	i = 0;
-	//flags = {'+', '-', '#', ' ', ','};
-	while (i < 5)
+	while (flags[i].flag != 'm')
 	{
-		if (flags[i] == *format)
+		if (flags[i].flag == *format)
 		{
-			pPlaceholder->flags = flags[i];
+			pPlaceholder->flags.flag = flags[i].flag;
+			pPlaceholder->flags.fun = flags[i].fun;
 			return (1);
 		}
 		i++;

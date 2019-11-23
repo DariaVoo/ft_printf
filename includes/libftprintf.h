@@ -15,6 +15,12 @@
 #include "libft.h"
 #include <stdarg.h>
 
+typedef struct s_funflags
+{
+	char	flag;
+	char	*(*fun)(char *);
+}				t_funflags;
+
 typedef struct s_funtype
 {
 	char	flag;
@@ -29,7 +35,7 @@ typedef struct s_funlenght
 
 typedef struct s_placeholder
 {
-    char        flags;
+    t_funflags	flags;
     int         width;
     int         precision;
     t_funlenght	length;
@@ -49,8 +55,6 @@ int 			set_width(t_placeholder *pPlaceholder, const char *format, va_list ap);
 int 			set_precision(t_placeholder *pPlaceholder, const char *format);
 int 			set_length(t_placeholder *pPlaceholder, const char *format);
 
-//char			*type_to_char(t_funtype ftype, va_list ap);
-
 char			*to_str_logic(t_placeholder place, va_list ap);
 int				print_this(t_placeholder place, char *str);
 char			*ft_c(va_list ap);
@@ -60,10 +64,16 @@ char 			*ft_x(va_list ap);
 char 			*ft_X(va_list ap);
 char 			*ft_o(va_list ap);
 char			*ft_u(va_list ap);
+char 			*ft_b(va_list ap);
 
 char			*length_l(va_list ap, char typeflag);
 char			*length_ll(va_list ap, char typeflag);
 char			*length_h(va_list ap,  char typeflag);
 char			*length_hh(va_list ap, char typeflag);
+
+char 			*flags_zero(char *str, t_placeholder place);
+char 			*flags_plus(char *str);
+char 			*flags_space(char *str);
+char 			*flags_hash(char *str);
 
 #endif

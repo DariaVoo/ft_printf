@@ -28,7 +28,6 @@ char *ft_d(va_list ap)
 	return (ft_itoa(va_arg(ap,int)));
 }
 
-
 char *ft_s(va_list ap)
 {
 	return (va_arg(ap, char *));
@@ -52,4 +51,9 @@ char *ft_o(va_list ap)
 char *ft_u(va_list ap)
 {
 	return (ft_itoabase(va_arg(ap,unsigned int), (unsigned int)10));
+}
+
+char *ft_b(va_list ap)
+{
+	return (ft_itoabase(va_arg(ap, unsigned int), (unsigned int)2));
 }
