@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-char *ft_stradd_front(char *str, size_t len, char c)
+char *ft_stradd_front(char *str, size_t len, char c, char type)
 {
 	char *ans;
 	size_t len_str;
@@ -23,6 +23,7 @@ char *ft_stradd_front(char *str, size_t len, char c)
 		return (NULL);
 	ans = ft_memset(ans, c, len - len_str);
 	ans = ft_strcat(ans, str);
-	//free(str);
+	if (type != 's' && type != 'c')
+		free(str);
 	return (ans);
 }

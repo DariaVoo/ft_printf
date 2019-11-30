@@ -33,7 +33,7 @@ t_funflags	flags[] =
 {
 		{'+', flags_plus},
 		{'-', NULL},
-		{'#', flags_hash},
+		{'#', flags_hash},//добавить десятичный разделитель для ef, изменить для g
 		{' ', flags_space},
 		{'0', flags_zero},
 		{'m', NULL}

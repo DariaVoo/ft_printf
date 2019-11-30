@@ -47,9 +47,9 @@ char	*to_str_logic(t_placeholder place, va_list ap)
 	if (place.width != 0 && (size_t)place.width > ft_strlen(ans))
 	{
 		if (place.flags.flag == '-')
-			ans = ft_stradd_back(ans, place.width, ' ');
+			ans = ft_stradd_back(ans, place.width, ' ', place.type.flag);
 		else
-			ans = ft_stradd_front(ans, place.width, ' ');
+			ans = ft_stradd_front(ans, place.width, ' ', place.type.flag);
 		if (place.flags.flag == '0')
 			ans = flags_zero(ans, place.type.flag);
 	}

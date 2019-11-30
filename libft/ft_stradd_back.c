@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-char *ft_stradd_back(char *str, size_t len, char c)
+char *ft_stradd_back(char *str, size_t len, char c, char type)
 {
 	char *ans;
 	size_t i;
@@ -27,6 +27,7 @@ char *ft_stradd_back(char *str, size_t len, char c)
 		ans[i] = c;
 		i++;
 	}
-//	free(str);
+	if (type != 's' && type != 'c')
+		free(str);
 	return (ans);
 }
