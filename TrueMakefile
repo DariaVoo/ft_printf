@@ -1,32 +1,41 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
+#    Mainfile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: snorcros <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2019/10/13 13:19:23 by snorcros          #+#    #+#              #
-#    Updated: 2019/10/13 13:24:26 by snorcros         ###   ########.fr        #
+#    Created: 2019/10/13 15:41:13 by snorcros          #+#    #+#              #
+#    Updated: 2019/12/01 17:03:36 by snorcros         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libftprintf.a
-SRC = srcs/ft_printf.c
-OBJ = $(patsubst srcs%.c, %.o, $(SRC))
-HEADER = includes
+NAME = out 
+SRCS := srcs/*.c
+OBJS := *.o
+INClUDES := includes
+CFLAGS = -Wall -Wextra -Werror
+LIB_FLAG := -L libft/ -lft
 
 all: $(NAME)
 
-$(NAME): $(SRC0)
-		@ar rc $@ $^
+$(NAME): lib $(OBJS)
+	gcc $(CFLAGS) -o $(NAME) $(OBJS) -I includes/ -L libft -lft
 
-%.o: %.c $(HEADER)
-		@make -C libft
-		@gcc -Wall -Wextra -Werror -c $< -I $(HEADER)
+$(OBJS):
+	gcc $(CFLAGS) -c $(SRCS) -I includes/ -I libft/includes/
+
+lib:
+	make -C libft
+
 clean:
-		@rm -f $(OBJ)
+	@rm -f $(OBJS)
+	@make -C libft clean
 
 fclean: clean
-		@rm -f $(NAME)
+	@rm -f $(NAME)
+	@make -C libft fclean
 
-re: fclean all
+re: fclean $(NAME)
+
+.PHONY: all clean fclean re
