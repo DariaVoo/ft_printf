@@ -15,6 +15,13 @@
 
 int	main(void)
 {
+	int b = 3;
+	void *p = &b;
+
+	printf("pointer %p\n", p);
+	ft_printf("pointer %p\n", p);
+
+
 /*	char *str = "aaaa\0";
 	unsigned int ui = 933;
 	long unsigned int lui = 933;

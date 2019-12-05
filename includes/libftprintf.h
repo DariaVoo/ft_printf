@@ -61,6 +61,7 @@ char 			*ft_X(va_list ap);
 char 			*ft_o(va_list ap);
 char			*ft_u(va_list ap);
 char 			*ft_b(va_list ap);
+char			*ft_p(va_list ap);
 
 char			*length_l(va_list ap, char typeflag);
 char			*length_ll(va_list ap, char typeflag);
