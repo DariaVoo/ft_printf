@@ -15,7 +15,7 @@ int	set_type(t_placeholder *pPlaceholder, const char *format)
 		}
 		i++;
 	}
-	return 0;
+	return (0);
 }
 
 int	set_flags(t_placeholder *pPlaceholder, const char *format)

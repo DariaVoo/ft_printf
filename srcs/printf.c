@@ -90,16 +90,17 @@ int		ft_printf(const char * format, ...)
 			count += ft_putchar(*format);
 			format++;
 		}
-		if (*format == '%')
+		if (*format == '%' && *(format + 1) != '%')
 		{
 			format++;
-			//parse
 			place = parse(ap, &format);
-			//ft_putstr("parse\n");
 			ans = to_str_logic(place, ap);
-			//ft_putstr("logic\n");
 			count += print_this(place, ans);
-			//ft_putstr("print\n");
+		}
+		else if (*format == '%' && (*(format + 1) == '%' || *(format + 1) == '\0'))
+		{
+			count += ft_putchar(*format);
+			format += 2;
 		}
 	}
 	va_end(ap);

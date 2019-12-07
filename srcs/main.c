@@ -15,14 +15,16 @@
 
 int	main(void)
 {
-	int b = 3;
+
+	printf("%%\n");
+	ft_printf("%%\n");
+/*	int b = 3;
 	void *p = &b;
 
 	printf("pointer %p\n", p);
 	ft_printf("pointer %p\n", p);
 
-
-/*	char *str = "aaaa\0";
+	char *str = "aaaa\0";
 	unsigned int ui = 933;
 	long unsigned int lui = 933;
 	long long unsigned int llui = 933;
@@ -41,13 +43,13 @@ int	main(void)
 	ft_printf("space % d\n", 23);
 	ft_printf("0 %015d\n", 13);
 	ft_printf("# %#x\n", 12);
-*/
+
 	printf("%-*s",20, "this is a test");
 	printf("$\n");
 	ft_printf("%-*s", 20, "this is a test");
 	printf("$\n");
 	//printf("%20s", "\n$this is a test");
-/*
+
 	//signed
 	ft_printf("short int %hi\n", si);
 	printf("short int %hi\n", si);
