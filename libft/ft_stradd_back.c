@@ -12,10 +12,10 @@
 
 #include "libft.h"
 
-char *ft_stradd_back(char *str, size_t len, char c, char type)
+char	*ft_stradd_back(char *str, size_t len, char c, char type)
 {
-	char *ans;
-	size_t i;
+	char	*ans;
+	size_t	i;
 
 	if (len <= (i = ft_strlen(str)))
 		return (str);

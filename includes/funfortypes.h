@@ -3,7 +3,7 @@
 
 #include "libftprintf.h"
 
-t_funtype	types[] =
+t_funtype		types[] =
 {
 		{'c', ft_c},
 		{'d', ft_d},
@@ -18,7 +18,7 @@ t_funtype	types[] =
 		{'m', NULL}
 };
 
-t_funlenght	lengths[] =
+t_funlenght		lengths[] =
 {
 
 		{"ll", length_ll},
@@ -30,7 +30,7 @@ t_funlenght	lengths[] =
 };
 
 
-t_funflags	flags[] =
+t_funflags		flags[] =
 {
 		{'+', flags_plus},
 		{'-', NULL},

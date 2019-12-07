@@ -12,10 +12,10 @@
 
 #include "libft.h"
 
-char *ft_strreplace(char *str, char a, char b)
+char	*ft_strreplace(char *str, char a, char b)
 {
-	size_t i;
-	
+	size_t	i;
+
 	i = 0;
 	while (str[i] != '\0')
 	{

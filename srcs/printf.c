@@ -12,7 +12,7 @@
 
 #include "libftprintf.h"
 
-t_placeholder parse(va_list ap, const char **format)
+t_placeholder	parse(va_list ap, const char **format)
 {
 	t_placeholder place;
 
@@ -30,7 +30,7 @@ t_placeholder parse(va_list ap, const char **format)
 	return place;
 }
 
-char	*to_str_logic(t_placeholder place, va_list ap)
+char			*to_str_logic(t_placeholder place, va_list ap)
 {
 	char *ans;
 
@@ -56,10 +56,10 @@ char	*to_str_logic(t_placeholder place, va_list ap)
 	return (ans);
 }
 
-int		print_this(t_placeholder place, char *str)
+int				print_this(t_placeholder place, char *str)
 {
-	int i;
-	int count;
+	int	i;
+	int	count;
 
 	i = 0;
 	count = 0;
@@ -73,13 +73,12 @@ int		print_this(t_placeholder place, char *str)
 	return (count);
 }
 
-
-int		ft_printf(const char * format, ...)
+int				ft_printf(const char *format, ...)
 {
-	int		count;
-	va_list	ap;
-	t_placeholder place;
-	char *ans;
+	int				count;
+	va_list			ap;
+	t_placeholder	place;
+	char			*ans;
 
 	count = 0;
 	va_start(ap, format);
@@ -106,4 +105,3 @@ int		ft_printf(const char * format, ...)
 	va_end(ap);
 	return (count);
 }
-
