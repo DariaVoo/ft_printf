@@ -68,7 +68,7 @@ int				print_this(t_placeholder place, char *str)
 		count += ft_putchar(str[i]);
 		i++;
 	}
-	if (place.type.flag != 's')
+	if (place.type.flag != 's' || (ft_strcmp((const char *)str, "(null)") == 0))
 		free(str);
 	return (count);
 }
