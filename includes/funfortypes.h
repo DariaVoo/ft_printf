@@ -6,6 +6,7 @@
 t_funtype		types[] =
 {
 		{'c', ft_c},
+		{'%', ft_percent},
 		{'d', ft_d},
 		{'i', ft_d},
 		{'s', ft_s},

@@ -23,6 +23,17 @@ char	*ft_c(va_list ap)
 	return (ans);
 }
 
+char	*ft_percent(va_list ap)
+{
+	char *ans;
+
+	if (!(ans = ft_strnew(2)) || ap == NULL)
+		return (NULL);
+	ans[0] = '%';
+	ans[1] = '\0';
+	return (ans);
+}
+
 char	*ft_d(va_list ap)
 {
 	return (ft_itoa(va_arg(ap, int)));
@@ -30,7 +41,15 @@ char	*ft_d(va_list ap)
 
 char	*ft_s(va_list ap)
 {
-	return (va_arg(ap, char *));
+	char	*str;
+
+	/*if (va_arg(ap, char *) == NULL)
+	{
+		str = ft_strnew(6);
+		str = ft_strcpy(str, "(null)");
+	}*/
+	str = va_arg(ap, char *);
+	return (str);
 }
 
 char	*ft_x(va_list ap)

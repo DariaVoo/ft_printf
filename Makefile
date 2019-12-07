@@ -6,7 +6,7 @@
 #    By: snorcros <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/13 13:19:23 by snorcros          #+#    #+#              #
-#    Updated: 2019/12/01 17:46:03 by snorcros         ###   ########.fr        #
+#    Updated: 2019/12/07 15:34:18 by snorcros         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,7 +69,6 @@ $(OBJ_DIR)%.o : $(PRINTF_DIR)%.c $(HEADERS)
 	gcc $(CFLAGS) -c -I $(INCLUDES) -I $(LIBFT_HEADERS_DIR) $< -o $@
 
 $(LIBFT):
-#	cd $(LIBFT_DIR) && make
 	make -sC $(LIBFT_DIR)
 	
 clean:

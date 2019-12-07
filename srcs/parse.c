@@ -39,6 +39,20 @@ int	set_flags(t_placeholder *placeholder, const char *format)
 	{
 		if (flags[i].flag == *format)
 		{
+			if ((flags[i].flag == '-' && *(format + 1) == '0') ||
+				(flags[i].flag == '0' && *(format + 1) == '-'))
+			{
+				placeholder->flags.flag = flags[1].flag;
+				placeholder->flags.fun = flags[1].fun;
+				return (2);
+			}
+			else if ((flags[i].flag == '+' && *(format + 1) == ' ') ||
+				(flags[i].flag == ' ' && *(format + 1) == '+'))
+			{
+				placeholder->flags.flag = flags[0].flag;
+				placeholder->flags.fun = flags[0].fun;
+				return (2);
+			}
 			placeholder->flags.flag = flags[i].flag;
 			placeholder->flags.fun = flags[i].fun;
 			return (1);

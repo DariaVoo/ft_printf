@@ -93,6 +93,8 @@ int				ft_printf(const char *format, ...)
 		{
 			format++;
 			place = parse(ap, &format);
+			if (place.type.flag == 'm')
+				break ;
 			ans = to_str_logic(place, ap);
 			count += print_this(place, ans);
 		}
