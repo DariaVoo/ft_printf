@@ -15,10 +15,10 @@
 
 int	main(void)
 {
-
+/*
 	printf("%%\n");
 	ft_printf("%%\n");
-/*	int b = 3;
+	int b = 3;
 	void *p = &b;
 
 	printf("pointer %p\n", p);
@@ -32,14 +32,14 @@ int	main(void)
 	long int li = -933;
 	short int si = -4;
 	signed char kek = -128;
-
-	printf("+ %+d\n", 23);
+*/
+	printf("+ %+010d\n", 23);
 	printf("space % d\n", 23);
 	printf("0 %015d\n", 13);
 	printf("# %#x\n", 12);
 	printf("---------------\n");
 
-	ft_printf("+ %+d\n", 23);
+	ft_printf("+ %+010d\n", 23);//в принтф добавляет сначала + а потом нули
 	ft_printf("space % d\n", 23);
 	ft_printf("0 %015d\n", 13);
 	ft_printf("# %#x\n", 12);
@@ -49,7 +49,7 @@ int	main(void)
 	ft_printf("%-*s", 20, "this is a test");
 	printf("$\n");
 	//printf("%20s", "\n$this is a test");
-
+/*
 	//signed
 	ft_printf("short int %hi\n", si);
 	printf("short int %hi\n", si);

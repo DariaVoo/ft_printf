@@ -18,7 +18,8 @@ char 	*flags_minus(char *str, t_placeholder place)
 }
 
 char	*flags_plus(char *str, t_placeholder place)
-{
+{//оригинал сначала добавляет нули а потом ставит +
+	//Исправить проверка на знак
 	if (str[0] != '-' && place.type.flag)
 		return (ft_stradd_front(str, ft_strlen(str) + 1, '+', place.type.flag));
 	return (str);
@@ -35,7 +36,7 @@ char	*flags_zero(char *str, t_placeholder place)
 {
 	if (place.type.flag == 'd' || place.type.flag == 'i' || place.type.flag == 'o'
 			|| place.type.flag == 'u' || place.type.flag == 'x' || place.type.flag == 'X')
-		return (ft_stradd_front(ans, place.width, '0', place.type.flag););
+		return (ft_stradd_front(str, place.width, '0', place.type.flag));
 	else
 		return (str);
 }
