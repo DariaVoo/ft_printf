@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
+# include <limits.h>
 
 # define BUFF_SIZE 500
 # define FD_MAX    10240

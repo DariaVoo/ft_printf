@@ -38,7 +38,7 @@ char			*ft_itoa(int n)
 	int		count;
 	size_t	i;
 
-	if (n == -2147483648)
+	if (n == INT_MIN)
 		return (ft_strdup("-2147483648"));
 	count = ft_count_digits(n);
 	str_n = ft_strnew(count);

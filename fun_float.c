@@ -1,13 +1,13 @@
 
 #include "libftprintf.h"
 
-static int		ft_count_digits(long double n, unsigned int base)
+static int		ft_count_digits(long double n)
 {
 	int	count;
-	unsigned long long buf;
+	long long int buf;
 
 	count = 0;
-	buf = (unsigned long long)n;
+	buf = (long long int)n;
 	buf = n;
 	if (n <= 0)
 	{
@@ -16,26 +16,21 @@ static int		ft_count_digits(long double n, unsigned int base)
 	}
 	while (buf > 0)
 	{
-		buf /= base;
+		buf /= 10;
 		count++;
 	}
 	return (count);
 }
 
-
-static int		ft_count_digits_mantiss(long  double n, unsigned int base)
+static int		ft_count_digits_mantiss(long  double n)
 {
 	int			count;
 	long double buf;
 	int			buf2;
 
 	count = 0;
-	buf = n;
-	if (n <= 0)
-	{
-		buf *= -1;
-		count++;
-	}
+	buf = (long long int)n;
+	buf = n - buf;
 	while (buf > 0)
 	{
 		buf = buf * 10;
@@ -46,7 +41,28 @@ static int		ft_count_digits_mantiss(long  double n, unsigned int base)
 	return (count);
 }
 
-char			*ft_itoadouble(long double n, unsigned int base)
+static int		order_to_str(long long int n, char *str)
+{
+	size_t i;
+	long long int buf;
+
+	i = 0;
+	buf = n;
+	if (n <= 0)
+	{
+		str[i] = '-';
+		buf *= -1;
+		i++;
+	}
+	if (n == 0)
+		str_n[i] = 0 + 48;
+	while (buf > 0)
+	{
+
+	}
+	return (count);
+}
+char			*ft_itoadouble(long double n)
 {
 	char	*str_n;
 	int		count;
@@ -63,7 +79,6 @@ char			*ft_itoadouble(long double n, unsigned int base)
 	{
 
 		str_n[i] = '-';
-
 	}
 	if (n == 0)
 		str_n[i] = 0 + 48;
