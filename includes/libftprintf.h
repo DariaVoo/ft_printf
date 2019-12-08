@@ -14,12 +14,14 @@
 # define LIBFTPRINTF_H
 #include "libft.h"
 #include <stdarg.h>
+#include <inttypes.h>
 
-typedef struct s_funflags
-{
-	char	flag;
-	char	*(*fun)(char *, char);
-}				t_funflags;
+#define FLG_NULL	0b00000000
+#define FLG_PLUS	0b00000001
+#define FLG_MINUS	0b00000010
+#define FLG_HASH	0b00000100
+#define FLG_SPACE	0b00001000
+#define FLG_ZERO	0b00010000
 
 typedef struct s_funtype
 {
@@ -35,12 +37,19 @@ typedef struct s_funlenght
 
 typedef struct s_placeholder
 {
-    t_funflags	flags;
+    uint8_t		flags;
     int         width;
     int         precision;
     t_funlenght	length;
     t_funtype	type;
 }               t_placeholder;
+
+typedef struct s_funflags
+{
+	uint8_t inint;
+	char	flag;
+	char	*(*fun)(char *, t_placeholder);
+}				t_funflags;
 
 int				ft_printf(const char *format, ...);
 
@@ -69,9 +78,11 @@ char			*length_ll(va_list ap, char typeflag);
 char			*length_h(va_list ap,  char typeflag);
 char			*length_hh(va_list ap, char typeflag);
 
-char 			*flags_zero(char *str, char place);
-char 			*flags_plus(char *str, char type);
-char 			*flags_space(char *str, char type);
-char 			*flags_hash(char *str, char type);
+char 			*flags_zero(char *str, t_placeholder place);
+char 			*flags_plus(char *str, t_placeholder place);
+char 			*flags_space(char *str, t_placeholder place);
+char 			*flags_hash(char *str, t_placeholder place);
+char 			*flags_minus(char *str, t_placeholder place);
+char			*get_flags(t_placeholder placeholder, char *str);
 
 #endif

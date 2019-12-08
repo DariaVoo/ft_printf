@@ -33,34 +33,40 @@ int	set_type(t_placeholder *placeholder, const char *format)
 int	set_flags(t_placeholder *placeholder, const char *format)
 {
 	size_t i;
+	int		count_flags;
+
+	i = 0;
+	count_flags = 0;
+	while (flags[i].flag != 'm') {
+		if (flags[i].flag == *format) {
+			placeholder->flags |= flags[i].inint;
+			format++;
+			i = 0;
+			count_flags++;
+		}
+		i++;
+	}
+	if (placeholder->flags & FLG_MINUS == FLG_MINUS)
+		placeholder->flags ^ FLG_ZERO;
+	if (placeholder->flags & FLG_PLUS == FLG_PLUS)
+		placeholder->flags ^ FLG_SPACE;
+	return (count_flags);
+}
+
+char	*get_flags(t_placeholder placeholder, char *str)
+{
+	size_t	i;
 
 	i = 0;
 	while (flags[i].flag != 'm')
 	{
-		if (flags[i].flag == *format)
-		{
-			if ((flags[i].flag == '-' && *(format + 1) == '0') ||
-				(flags[i].flag == '0' && *(format + 1) == '-'))
-			{
-				placeholder->flags.flag = flags[1].flag;
-				placeholder->flags.fun = flags[1].fun;
-				return (2);
-			}
-			else if ((flags[i].flag == '+' && *(format + 1) == ' ') ||
-				(flags[i].flag == ' ' && *(format + 1) == '+'))
-			{
-				placeholder->flags.flag = flags[0].flag;
-				placeholder->flags.fun = flags[0].fun;
-				return (2);
-			}
-			placeholder->flags.flag = flags[i].flag;
-			placeholder->flags.fun = flags[i].fun;
-			return (1);
-		}
+		if ((placeholder.flags & flags[i].inint) == flags[i].inint)
+			str = flags[i].fun(str, placeholder);
 		i++;
 	}
-	return (0);
+	return (str);
 }
+
 
 int	set_width(t_placeholder *placeholder, const char *format, va_list ap)
 {

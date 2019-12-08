@@ -41,18 +41,12 @@ char			*to_str_logic(t_placeholder place, va_list ap)
 	else if (place.length.fun != NULL)
 		ans = place.length.fun(ap, place.type.flag);
 	//2
-	if (place.flags.flag != 'm' && place.flags.flag != '0' && place.flags.flag != '-')
-		ans = place.flags.fun(ans, place.type.flag);
+	if (place.flags != 0)
+		ans = get_flags(place, ans);
 	//3
-	if (place.width != 0 && (size_t)place.width > ft_strlen(ans))
-	{
-		if (place.flags.flag == '-')
-			ans = ft_stradd_back(ans, place.width, ' ', place.type.flag);
-		else
+	if (place.width != 0 && (size_t)place.width > ft_strlen(ans)
+			&& (place.flags & FLG_MINUS) == 0)
 			ans = ft_stradd_front(ans, place.width, ' ', place.type.flag);
-		if (place.flags.flag == '0')
-			ans = flags_zero(ans, place.type.flag);
-	}
 	return (ans);
 }
 

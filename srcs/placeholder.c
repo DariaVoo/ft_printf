@@ -16,7 +16,7 @@ t_placeholder new_placeholder()
 {
 	t_placeholder buf;
 
-	buf.flags.flag = 'm';
+	buf.flags = FLG_NULL;
 	buf.length.flag = "m\0";
 	buf.precision = 0;
 	buf.width = 0;
