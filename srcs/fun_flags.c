@@ -18,18 +18,19 @@ char 	*flags_minus(char *str, t_placeholder place)
 }
 
 char	*flags_plus(char *str, t_placeholder place)
-{//оригинал сначала добавляет нули а потом ставит +
-	//Исправить проверка на знак
-	if (str[0] != '-' && place.type.flag)
+{
+	if (place.sign == 0)
 		return (ft_stradd_front(str, ft_strlen(str) + 1, '+', place.type.flag));
-	return (str);
+	else
+		return (ft_stradd_front(str, ft_strlen(str) + 1, '-', place.type.flag));
 }
 
 char	*flags_space(char *str, t_placeholder place)
 {
-	if (str[0] != '-' && place.type.flag)
+	if (place.sign == 0)
 		return (ft_stradd_front(str, ft_strlen(str) + 1, ' ', place.type.flag));
-	return (str);
+	else
+		return (ft_stradd_front(str, ft_strlen(str) + 1, '-', place.type.flag));
 }
 
 char	*flags_zero(char *str, t_placeholder place)

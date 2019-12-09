@@ -48,13 +48,6 @@ char	*ft_s(va_list ap)
 	if (str == NULL)
 	{
 		str = ft_strnew(6);
-		/*str[0] = '(';
-		str[1] = 'n';
-		str[2] = 'u';
-		str[3] = 'l';
-		str[4] = 'l';
-		str[5] = ')';
-*/
 		str = ft_strcpy(str, "(null)\0");
 	}
 	return (str);

@@ -21,6 +21,20 @@ t_placeholder new_placeholder()
 	buf.precision = 0;
 	buf.width = 0;
 	buf.type.flag = 'm';
+	buf.sign = 0;
 	return (buf);
 }
 
+char	*delete_sign(char *str)
+{
+	size_t i;
+
+	i = 0;
+	while (str[i + 1] != '\0')
+	{
+		str[i] = str[i + 1];
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
+}

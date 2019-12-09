@@ -30,6 +30,14 @@ int	set_type(t_placeholder *placeholder, const char *format)
 	return (0);
 }
 
+char	*get_sign(t_placeholder placeholder, char *str)
+{
+	if (placeholder.sign != 0)
+		return (ft_stradd_front(str, ft_strlen(str) + 1, '-', placeholder.type.flag));
+	else
+		return (str);
+}
+
 int	set_flags(t_placeholder *placeholder, const char *format)
 {
 	size_t i;
@@ -43,13 +51,14 @@ int	set_flags(t_placeholder *placeholder, const char *format)
 			format++;
 			i = 0;
 			count_flags++;
+			continue ;
 		}
 		i++;
 	}
-	if (placeholder->flags & FLG_MINUS == FLG_MINUS)
-		placeholder->flags ^ FLG_ZERO;
-	if (placeholder->flags & FLG_PLUS == FLG_PLUS)
-		placeholder->flags ^ FLG_SPACE;
+	if ((placeholder->flags & FLG_MINUS) == FLG_MINUS)
+		placeholder->flags ^= FLG_ZERO;
+	if ((placeholder->flags & FLG_PLUS) == FLG_PLUS)
+		placeholder->flags ^= FLG_SPACE;
 	return (count_flags);
 }
 

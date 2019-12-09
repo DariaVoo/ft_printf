@@ -37,11 +37,12 @@ typedef struct s_funlenght
 
 typedef struct s_placeholder
 {
-    uint8_t		flags;
-    int         width;
-    int         precision;
-    t_funlenght	length;
-    t_funtype	type;
+    uint8_t			flags;
+    int     	    width;
+    int 	        precision;
+    t_funlenght		length;
+    t_funtype		type;
+    unsigned char	sign;
 }               t_placeholder;
 
 typedef struct s_funflags
@@ -54,11 +55,13 @@ typedef struct s_funflags
 int				ft_printf(const char *format, ...);
 
 t_placeholder	new_placeholder();
+char			*delete_sign(char *str);
 int 			set_type(t_placeholder *pPlaceholder, const char *format);
 int 			set_flags(t_placeholder *pPlaceholder, const char *format);
 int 			set_width(t_placeholder *pPlaceholder, const char *format, va_list ap);
 int 			set_precision(t_placeholder *pPlaceholder, const char *format);
 int 			set_length(t_placeholder *pPlaceholder, const char *format);
+char			*get_sign(t_placeholder placeholder, char *str);
 
 char			*to_str_logic(t_placeholder place, va_list ap);
 int				print_this(t_placeholder place, char *str);

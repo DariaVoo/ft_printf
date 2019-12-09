@@ -34,22 +34,25 @@ int	main(void)
 	signed char kek = -128;
 */
 	printf("+ %+010d\n", 23);
-	printf("space % d\n", 23);
-	printf("0 %015d\n", 13);
-	printf("# %#x\n", 12);
+	printf("+ %+010d\n", -23);
+	printf("0 %010d\n", -23);
+	//printf("space % d\n", 23);
+	//printf("0 %015d\n", 13);
+	//printf("# %#x\n", 12);
 	printf("---------------\n");
-
+	ft_printf("+ %+010d\n", -23);//в принтф добавляет сначала + а потом нули
 	ft_printf("+ %+010d\n", 23);//в принтф добавляет сначала + а потом нули
-	ft_printf("space % d\n", 23);
-	ft_printf("0 %015d\n", 13);
-	ft_printf("# %#x\n", 12);
-
+	ft_printf("0 %010d\n", -23);
+	ft_printf("0 %010d\n", 23);
+	//ft_printf("space % d\n", 23);
+	//ft_printf("0 %015d\n", 13);
+	//ft_printf("# %#x\n", 12);
+/*
 	printf("%-*s",20, "this is a test");
 	printf("$\n");
 	ft_printf("%-*s", 20, "this is a test");
 	printf("$\n");
 	//printf("%20s", "\n$this is a test");
-/*
 	//signed
 	ft_printf("short int %hi\n", si);
 	printf("short int %hi\n", si);
