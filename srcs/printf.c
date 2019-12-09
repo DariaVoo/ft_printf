@@ -30,14 +30,15 @@ t_placeholder	parse(va_list ap, const char **format)
 	return place;
 }
 
-unsigned char	check_flag(char *str, t_placeholder place)
+char	*check_flag(char *str, t_placeholder *place)
 {
-	if (*str == '-' && place.type.flag != 's' && place.type.flag != 'c' && place.flags != 0)
+	if (*str == '-' && place->type.flag != 's' && place->type.flag != 'c' && place->flags != 0)
 	{
+		place->sign = 1;
 		str = delete_sign(str);
-		return (1);
+		return (delete_sign(str));
 	}
-	return (0);
+	return (str);
 }
 
 char			*to_str_logic(t_placeholder place, va_list ap)
@@ -47,23 +48,9 @@ char			*to_str_logic(t_placeholder place, va_list ap)
 	ans = NULL;
 	//1
 	if (place.type.flag != 'm' && place.length.flag[0] == 'm')
-	{
-		ans = place.type.fun(ap);
-		if (*ans == '-' && place.type.flag != 's' && place.type.flag != 'c')
-		{
-			place.sign = 1;
-			ans = delete_sign(ans);
-		}
-	}
+		ans = check_flag(place.type.fun(ap), &place);
 	else if (place.length.fun != NULL)
-	{
-		ans = place.length.fun(ap, place.type.flag);
-		if (*ans == '-' && place.type.flag != 's' && place.type.flag != 'c')
-		{
-			place.sign = 1;
-			ans = delete_sign(ans);
-		}
-	}
+		ans = check_flag(place.length.fun(ap, place.type.flag), &place);
 	//2
 	if (place.flags != 0)
 		ans = get_flags(place, ans);
