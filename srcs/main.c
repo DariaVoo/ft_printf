@@ -23,7 +23,7 @@ int	main(void)
 
 	printf("pointer %p\n", p);
 	ft_printf("pointer %p\n", p);
-
+*/
 	char *str = "aaaa\0";
 	unsigned int ui = 933;
 	long unsigned int lui = 933;
@@ -31,17 +31,18 @@ int	main(void)
 	long long int lli = -933;
 	long int li = -933;
 	short int si = -4;
-	signed char kek = -128;
-*/
+	signed char kek = -124;
+
 	printf("+ %+010d\n", 23);
 	printf("+ %+010d\n", -23);
 	printf("0 %010d\n", -23);
+	printf("0 %010d\n", 23);
 	//printf("space % d\n", 23);
 	//printf("0 %015d\n", 13);
 	//printf("# %#x\n", 12);
 	printf("---------------\n");
-	ft_printf("+ %+010d\n", -23);//в принтф добавляет сначала + а потом нули
-	ft_printf("+ %+010d\n", 23);//в принтф добавляет сначала + а потом нули
+	ft_printf("+ %+010d\n", 23);
+	ft_printf("+ %+010d\n", -23);
 	ft_printf("0 %010d\n", -23);
 	ft_printf("0 %010d\n", 23);
 	//ft_printf("space % d\n", 23);
@@ -53,7 +54,9 @@ int	main(void)
 	ft_printf("%-*s", 20, "this is a test");
 	printf("$\n");
 	//printf("%20s", "\n$this is a test");
+ 	//length
 	//signed
+	ft_printf("length signed\n");
 	ft_printf("short int %hi\n", si);
 	printf("short int %hi\n", si);
 
@@ -68,25 +71,16 @@ int	main(void)
 	ft_printf("%s","--------------------\n");
 	printf("ft_printf 10 lld: %lld\n", lli);
 	ft_printf("printf 10 lld: %lld\n", lli);
+	ft_printf("%s","---------------------\n");
 
  	//unsigned
-	ft_printf("%s","---------------------\n");
-	printf("ft_printf 10 llu: %llu\n", llui);
+	ft_printf("length unsigned\n");
+	printf("printf 10 llu: %llu\n", llui);
 	printf("16 llx: %llx\n", llui);
 	printf("16 llX: %llX\n", llui);
 	printf("8 llo: %llo\n", llui);
 	ft_printf("%s","---------------------\n");
-	ft_printf("printf 10 llu: %llu\n", llui);
-	ft_printf("16 llx: %llx\n", llui);
-	ft_printf("16 llX: %llX\n", llui);
-	ft_printf("8 llo: %llo\n", llui);
-
-	printf("ft_printf 10 llu: %llu\n", llui);
-	printf("16 llx: %llx\n", llui);
-	printf("16 llX: %llX\n", llui);
-	printf("8 llo: %llo\n", llui);
-	ft_printf("%s","---------------------\n");
-	ft_printf("printf 10 llu: %llu\n", llui);
+	ft_printf("ft_printf 10 llu: %llu\n", llui);
 	ft_printf("16 llx: %llx\n", llui);
 	ft_printf("16 llX: %llX\n", llui);
 	ft_printf("8 llo: %llo\n", llui);
@@ -101,18 +95,17 @@ int	main(void)
 	ft_printf("16 lx: %lx\n", lui);
 	ft_printf("16 lX: %lX\n", lui);
 	ft_printf("8 lo: %lo\n", lui);
-
+*/
+	/**easy test
 	ft_printf("kekeke\n");
 	ft_printf("10 u: %u\n", ui);
 	ft_printf("16 x: %x\n", ui);
 	ft_printf("16 X: %X\n", ui);
 	ft_printf("8 o: %o\n", ui);
-	//printf("string: %s\n", str);
 	ft_printf("string: %s\n", str);
 	ft_printf("kekeke\n");
-	//ft_printf("%%\n");
 	ft_printf("this is char: %c\n", 'g');
 	ft_printf("this is int: %d\n", 2568);
-*/
+	 */
 	return (0);
 }

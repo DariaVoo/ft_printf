@@ -56,9 +56,9 @@ int	set_flags(t_placeholder *placeholder, const char *format)
 		i++;
 	}
 	if ((placeholder->flags & FLG_MINUS) == FLG_MINUS)
-		placeholder->flags ^= FLG_ZERO;
+		placeholder->flags &= ~FLG_ZERO;
 	if ((placeholder->flags & FLG_PLUS) == FLG_PLUS)
-		placeholder->flags ^= FLG_SPACE;
+		placeholder->flags &= ~FLG_SPACE;
 	return (count_flags);
 }
 
