@@ -15,6 +15,17 @@
 
 int	main(void)
 {
+	printf("% +d\n", -42);
+	ft_printf("% +d\n", -42);
+
+	/**need to fix
+	 * ft_printf("%#x", 0);
+	printf("%#08x\n", 42);
+	ft_printf("%#08x\n", 42);
+	 */
+/*
+	printf("%   %\n", "test");
+	ft_printf("%   %\n", "test");
 /*
 	printf("%%\n");
 	ft_printf("%%\n");
@@ -23,7 +34,7 @@ int	main(void)
 
 	printf("pointer %p\n", p);
 	ft_printf("pointer %p\n", p);
-*/
+
 	char *str = "aaaa\0";
 	unsigned int ui = 933;
 	long unsigned int lui = 933;

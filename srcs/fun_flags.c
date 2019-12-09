@@ -19,6 +19,8 @@ char 	*flags_minus(char *str, t_placeholder place)
 
 char	*flags_plus(char *str, t_placeholder place)
 {
+	if (place.type.flag == '%')
+		return (str);
 	if (place.sign == 0)
 		return (ft_stradd_front(str, ft_strlen(str) + 1, '+', place.type.flag));
 	else
@@ -27,6 +29,8 @@ char	*flags_plus(char *str, t_placeholder place)
 
 char	*flags_space(char *str, t_placeholder place)
 {
+	if (place.type.flag == '%')
+		return (str);
 	if (place.sign == 0)
 		return (ft_stradd_front(str, ft_strlen(str) + 1, ' ', place.type.flag));
 	else
@@ -44,8 +48,8 @@ char	*flags_zero(char *str, t_placeholder place)
 
 char	*flags_hash(char *str, t_placeholder place)
 {
-	if (*str == '0')
-		return (str);
+//	if (*str == '0')
+//		return (str);
 	if (place.type.flag == 'o')
 		return (ft_stradd_front(str, ft_strlen(str) + 1, '0', place.type.flag));
 	else if (place.type.flag == 'x')

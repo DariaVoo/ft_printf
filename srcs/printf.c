@@ -35,7 +35,6 @@ char	*check_flag(char *str, t_placeholder *place)
 	if (*str == '-' && place->type.flag != 's' && place->type.flag != 'c' && place->flags != 0)
 	{
 		place->sign = 1;
-		str = delete_sign(str);
 		return (delete_sign(str));
 	}
 	return (str);
@@ -96,7 +95,7 @@ int				ft_printf(const char *format, ...)
 			count += ft_putchar(*format);
 			format++;
 		}
-		if (*format == '%' && *(format + 1) != '%')
+		if (*format == '%')
 		{
 			format++;
 			place = parse(ap, &format);
@@ -105,11 +104,11 @@ int				ft_printf(const char *format, ...)
 			ans = to_str_logic(place, ap);
 			count += print_this(place, ans);
 		}
-		else if (*format == '%' && (*(format + 1) == '%' || *(format + 1) == '\0'))
+		/*else if (*format == '%' && (*(format + 1) == '%' || *(format + 1) == '\0'))
 		{
 			count += ft_putchar(*format);
 			format += 2;
-		}
+		}*/
 	}
 	va_end(ap);
 	return (count);
