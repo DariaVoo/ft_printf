@@ -39,7 +39,7 @@ char			*ft_itoa_signed(long long n, unsigned int base)
 	size_t	i;
 
 	if (n == LLONG_MIN)
-		return (ft_strdup("−9223372036854775808"));
+		return (ft_strdup("-9223372036854775808"));
 	count = ft_count_digits(n, base);
 	str_n = ft_strnew(count);
 	if (!str_n)

@@ -57,7 +57,7 @@ char			*to_str_logic(t_placeholder place, va_list ap)
 		ans = get_flags(place, ans);
 	//3
 	if (place.width != 0 && (size_t)place.width > ft_strlen(ans)
-			&& (place.flags & FLG_MINUS) == 0)
+			&& (place.flags & FLG_MINUS) == 0 && (place.flags & FLG_ZERO) == 0)
 		ans = ft_stradd_front(ans, place.width, ' ', place.type.flag);
 	if ((place.flags & FLG_PLUS) == 0 && (place.flags & FLG_SPACE) == 0)
 		ans = get_sign(place, ans);

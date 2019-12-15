@@ -42,6 +42,8 @@ char	*flags_zero(char *str, t_placeholder place)
 	if (place.type.flag == 'd' || place.type.flag == 'i' || place.type.flag == 'o'
 			|| place.type.flag == 'u' || place.type.flag == 'x' || place.type.flag == 'X')
 	{
+		if (place.width == 0)
+			return (str);
 		if (place.sign == 0 && (place.flags & FLG_SPACE) == 0 && (place.flags & FLG_PLUS) == 0)
 			return (ft_stradd_front(str, place.width, '0', place.type.flag));
 		else

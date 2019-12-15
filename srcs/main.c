@@ -15,7 +15,18 @@
 
 int	main(void)
 {
-/*
+
+	/*
+	  //работает тут, а в тестах какая-то дичь
+	printf("%lld\n", LLONG_MIN);
+	ft_printf("%lld\n", LLONG_MIN);
+
+	printf("%05d\n", -42);
+	ft_printf("%05d\n", -42);
+
+	printf("%0d\n", -42);
+	ft_printf("%0d\n", -42);
+
 	printf("%-#6o", 2500);
 	printf("$\n");
 	ft_printf("%-#6o", 2500);
