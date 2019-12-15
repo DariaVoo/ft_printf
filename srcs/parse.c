@@ -114,9 +114,11 @@ int	set_precision(t_placeholder *placeholder, const char *format)
 	{
 		k++;
 		format++;
-		if ((p = ft_atoi(format)) > 0)
+		if ((p = ft_atoi(format)) >= 0)
 		{
 			placeholder->precision = p;
+			if (p == 0)
+				k++;
 			while (p > 0)
 			{
 				p /= 10;

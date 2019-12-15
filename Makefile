@@ -31,7 +31,7 @@ SRC_LIBFT_LST = ft_atoi.c		ft_bzero.c		ft_memccpy.c	ft_memchr.c		ft_lstmerge.c\
 		  ft_lstnew.c	ft_lstdelone.c	ft_lstdel.c		ft_lstadd.c		ft_lstiter.c \
 		  ft_qsort.c	ft_lstsize.c	ft_lstlast.c	ft_lsti.c		ft_lstreverse.c\
 		  free_table.c  ft_itoabase.c   ft_itoahex.c    ft_itoa_signed.c\
-		  ft_stradd_front.c ft_stradd_back.c    ft_strreplace.c
+		  ft_stradd_front.c ft_stradd_back.c    ft_strreplace.c ft_strcat_front.c
 
 LIBFT_DIR = libft/
 HEADER_LIBFT = $(LIBFT_DIR)includes
