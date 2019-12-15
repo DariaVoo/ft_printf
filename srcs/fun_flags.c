@@ -48,21 +48,21 @@ char	*flags_zero(char *str, t_placeholder place)
 
 char	*flags_hash(char *str, t_placeholder place)
 {
-//	if (*str == '0')
-//		return (str);
+	if (*str == '0' && *(str + 1) == '\0')
+		return (str);
 	if (place.type.flag == 'o')
 		return (ft_stradd_front(str, ft_strlen(str) + 1, '0', place.type.flag));
 	else if (place.type.flag == 'x')
 	{
-		str = ft_stradd_front(str, ft_strlen(str) + 2, '0', place.type.flag);
+		if ((place.flags & FLG_ZERO) == 0)
+			str = ft_stradd_front(str, ft_strlen(str) + 2, '0', place.type.flag);
 		str[1] = 'x';
-		return (str);
 	}
 	else if (place.type.flag == 'X')
 	{
-		str = ft_stradd_front(str, ft_strlen(str) + 2, '0', place.type.flag);
+		if ((place.flags & FLG_ZERO) == 0)
+			str = ft_stradd_front(str, ft_strlen(str) + 2, '0', place.type.flag);
 		str[1] = 'X';
-		return (str);
 	}
 	return (str);
 }

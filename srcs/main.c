@@ -18,11 +18,12 @@ int	main(void)
 	printf("% +d\n", -42);
 	ft_printf("% +d\n", -42);
 
-	/**need to fix
-	 * ft_printf("%#x", 0);
+	printf("%#x\n", 0);
+	ft_printf("%#x\n", 0);
 	printf("%#08x\n", 42);
 	ft_printf("%#08x\n", 42);
-	 */
+	printf("%# 8x\n", 42);
+	ft_printf("%# 8x\n", 42);
 /*
 	printf("%   %\n", "test");
 	ft_printf("%   %\n", "test");
