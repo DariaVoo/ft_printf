@@ -15,13 +15,14 @@
 
 int	main(void)
 {
-
+	printf("@moulitest: %o\n", 0);
+	ft_printf("@moulitest: %o\n", 0);
+/*
 	printf("%#-08x", 42);
 	printf("$\n");
 	ft_printf("%#-08x", 42);
 	printf("$\n");
 
-/*
  * printf("%#x\n", 0);
 	ft_printf("%#x\n", 0);
 	printf("%#08x\n", 42);

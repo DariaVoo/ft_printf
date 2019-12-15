@@ -19,6 +19,8 @@ static int		ft_count_digits(unsigned long long n, unsigned int base)
 
 	count = 0;
 	buf = n;
+	if (n == 0)
+		return (1);
 	while (buf > 0)
 	{
 		buf /= base;
