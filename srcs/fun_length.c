@@ -60,7 +60,7 @@ char	*length_h(va_list ap, char typeflag)
 char	*length_hh(va_list ap, char typeflag)
 {
 	if (typeflag == 'i' || typeflag == 'd')
-		return (ft_itoa((signed char)va_arg(ap, int)));
+		return (ft_itoa((short)va_arg(ap, int)));
 	if (typeflag == 'u')
 		return (ft_itoabase((unsigned char)va_arg(ap, unsigned int), 10));
 	else if (typeflag == 'o')
