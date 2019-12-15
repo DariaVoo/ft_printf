@@ -15,9 +15,12 @@
 
 int	main(void)
 {
+	printf("% u\n", 4294967295);
+	ft_printf("% u\n", 4294967295);
+	/*
 	printf("%hd\n", 32768);
 	ft_printf("%hd\n", 32768);
-	/*
+
 	printf("%0+5d\n", -42);
 	ft_printf("%0+5d\n", -42);
 

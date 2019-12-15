@@ -19,7 +19,7 @@ char 	*flags_minus(char *str, t_placeholder place)
 
 char	*flags_plus(char *str, t_placeholder place)
 {
-	if (place.type.flag == '%')
+	if (place.type.flag == '%' || place.type.flag == 'u')
 		return (str);
 	if (place.sign == 0)
 		return (ft_stradd_front(str, ft_strlen(str) + 1, '+', place.type.flag));
@@ -29,7 +29,7 @@ char	*flags_plus(char *str, t_placeholder place)
 
 char	*flags_space(char *str, t_placeholder place)
 {
-	if (place.type.flag == '%')
+	if (place.type.flag == '%' || place.type.flag == 'u')
 		return (str);
 	if (place.sign == 0)
 		return (ft_stradd_front(str, ft_strlen(str) + 1, ' ', place.type.flag));
