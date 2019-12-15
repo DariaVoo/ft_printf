@@ -15,9 +15,18 @@
 
 int	main(void)
 {
+/*
+	printf("%-#6o", 2500);
+	printf("$\n");
+	ft_printf("%-#6o", 2500);
+	printf("$\n");
+
+	printf("%.2c\n", NULL);//надо добавить
+	ft_printf("%.2c\n", NULL);
+
 	printf("%#08x\n", 42);
 	ft_printf("%#08x\n", 42);
-	/*
+
 	printf("printf :%.0%\n");
 	ft_printf("ft :%.0%\n");
 
