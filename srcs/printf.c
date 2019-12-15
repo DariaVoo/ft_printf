@@ -104,11 +104,6 @@ int				ft_printf(const char *format, ...)
 			ans = to_str_logic(place, ap);
 			count += print_this(place, ans);
 		}
-		/*else if (*format == '%' && (*(format + 1) == '%' || *(format + 1) == '\0'))
-		{
-			count += ft_putchar(*format);
-			format += 2;
-		}*/
 	}
 	va_end(ap);
 	return (count);
