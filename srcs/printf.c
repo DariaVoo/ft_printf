@@ -53,11 +53,24 @@ char			*to_str_logic(t_placeholder place, va_list ap)
 	else if (place.length.fun != NULL)
 		ans = check_flag(place.length.fun(ap, place.type.flag), &place);
 	//precision
-	if (place.precision != 0) {
+	if (place.precision > 0)
+	{
 		if ((size_t)place.precision > ft_strlen(ans) && *ans != '\0')
 			ans = ft_stradd_front(ans, place.precision, '0', place.type.flag);
 		else if (place.type.flag == 's')
 			ans = ft_strcut(ans, ft_strlen(ans) - place.precision);
+	}//костыль
+	else if (place.precision == 0 || (place.precision == -1 && place.width != 0))
+	{//костыль
+		free(ans);
+		ans = ft_strnew(1);
+		if (place.type.flag != 'o')//костыль
+			place.flags = FLG_NULL;
+	}//костыль
+	else if (place.precision == -1 && place.width == 0 && place.type.flag != 'o')
+	{//костыль
+		free(ans);
+		return (NULL);
 	}
 	//flags
 	if (place.flags != 0)
@@ -71,19 +84,23 @@ char			*to_str_logic(t_placeholder place, va_list ap)
 	return (ans);
 }
 
-int				print_this(char *str)
+int				print_this(t_placeholder place, char *str)
 {
 	int	i;
 	int	count;
 
 	i = 0;
 	count = 0;
-	if (str)
+	if (!str)
+		return (0);
+	if (*str != '\0' && str)
 		while (str[i] != '\0')
 		{
 			count += ft_putchar(str[i]);
 			i++;
 		}
+	else if (*str == '\0' && place.type.flag == 'c')
+		count += write(1, "\0", 1);
 	free(str);
 	return (count);
 }
@@ -111,7 +128,7 @@ int				ft_printf(const char *format, ...)
 			if (place.type.flag == 'm')
 				break ;
 			ans = to_str_logic(place, ap);
-			count += print_this(ans);
+			count += print_this(place, ans);
 		}
 	}
 	va_end(ap);

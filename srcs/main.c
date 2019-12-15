@@ -12,18 +12,32 @@
 
 #include "libftprintf.h"
 #include <stdio.h>
-
+/*
 int	main(void)
 {
+	printf("@moulitest: %5.x$ %5.0x$\n", 0, 0);
+	ft_printf("@moulitest: %5.x$ %5.0x$\n\n", 0, 0);
+	printf("@moulitest: %5.o$ %5.0o$\n", 0, 0);
+	ft_printf("@moulitest: %5.o$ %5.0o$\n\n", 0, 0);
+	printf("@moulitest: %.x$ %.0x$\n", 0, 0);
+	ft_printf("@moulitest: %.x$ %.0x$\n\n", 0, 0);
+	printf("@moulitest: %.o$ %.0o$\n", 0, 0);
+	ft_printf("@moulitest: %.o$ %.0o$\n\n", 0, 0);
+	printf("@moulitest: %#.o$ %#.0o$\n", 0, 0);
+	ft_printf("@moulitest: %#.o$ %#.0o$\n\n", 0, 0);
+
+	//ft_printf("%5.0x$\n", 0);
+	//ft_printf("%c", 0);
+	/*
 	printf("%-5.2s is a string\n", "");
 	ft_printf("%-5.2s is a string\n", "");
-	/*
+
 	printf("%-5.2s is a string\n", "this");
 	ft_printf("%-5.2s is a string\n", "this");
 
 	//printf("%.2s is a string\n", "");
 	//ft_printf("%.2s is a string\n", "");
-	/*
+
 	  //работает тут, а в тестах какая-то дичь
 	printf("%lld\n", LLONG_MIN);
 	ft_printf("%lld\n", LLONG_MIN);
@@ -107,7 +121,7 @@ int	main(void)
 	//ft_printf("space % d\n", 23);
 	//ft_printf("0 %015d\n", 13);
 	//ft_printf("# %#x\n", 12);
-/*
+
 	printf("%-*s",20, "this is a test");
 	printf("$\n");
 	ft_printf("%-*s", 20, "this is a test");
@@ -154,7 +168,7 @@ int	main(void)
 	ft_printf("16 lx: %lx\n", lui);
 	ft_printf("16 lX: %lX\n", lui);
 	ft_printf("8 lo: %lo\n", lui);
-*/
+
 	/**easy test
 	ft_printf("kekeke\n");
 	ft_printf("10 u: %u\n", ui);
@@ -165,6 +179,7 @@ int	main(void)
 	ft_printf("kekeke\n");
 	ft_printf("this is char: %c\n", 'g');
 	ft_printf("this is int: %d\n", 2568);
-	 */
+
 	return (0);
 }
+*/
