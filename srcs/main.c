@@ -15,9 +15,12 @@
 
 int	main(void)
 {
-	printf("@moulitest: %o\n", 0);
-	ft_printf("@moulitest: %o\n", 0);
+	printf("%0+5d\n", -42);
+	ft_printf("%0+5d\n", -42);
 /*
+ * printf("@moulitest: %o\n", 0);
+	ft_printf("@moulitest: %o\n", 0);
+
 	printf("%#-08x", 42);
 	printf("$\n");
 	ft_printf("%#-08x", 42);
