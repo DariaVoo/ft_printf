@@ -142,7 +142,7 @@ int	set_length(t_placeholder *placeholder, const char *format)
 			placeholder->length.fun = lengths[i].fun;
 			return (2);
 		}
-		else if (*format == lengths[i].flag[0])
+		else if (*format == lengths[i].flag[0] && i > 1)
 		{
 			placeholder->length.flag = lengths[i].flag;
 			placeholder->length.fun = lengths[i].fun;
