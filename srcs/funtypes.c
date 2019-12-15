@@ -42,13 +42,20 @@ char	*ft_d(va_list ap)
 char	*ft_s(va_list ap)
 {
 	char	*str;
+	char	*buf;
 
-
-	str = va_arg(ap, char *);
-	if (str == NULL)
+	buf = va_arg(ap, char *);
+	if (buf == NULL)
 	{
 		str = ft_strnew(6);
 		str = ft_strcpy(str, "(null)\0");
+	}
+	else if (*buf == '\0')
+		str = ft_strnew(1);
+	else
+	{
+		str = ft_strnew(ft_strlen(buf));
+		str = ft_strcpy(str, buf);
 	}
 	return (str);
 }

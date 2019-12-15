@@ -26,7 +26,7 @@ SRC = ft_atoi.c		ft_bzero.c		ft_memccpy.c	ft_memchr.c		ft_lstmerge.c\
 	  ft_lstnew.c	ft_lstdelone.c	ft_lstdel.c		ft_lstadd.c		ft_lstiter.c \
 	  ft_qsort.c	ft_lstsize.c	ft_lstlast.c	ft_lsti.c		ft_lstreverse.c\
 	  free_table.c  ft_itoabase.c   ft_itoahex.c    ft_itoa_signed.c\
-	  ft_stradd_front.c ft_stradd_back.c    ft_strreplace.c ft_strcat_front.c
+	  ft_stradd_front.c ft_stradd_back.c    ft_strreplace.c ft_strcat_front.c ft_strcut.c
 
 SRC0 = ft_atoi.o	ft_bzero.o		ft_memccpy.o	ft_memchr.o		ft_lstmerge.o\
 	  ft_memcmp.o	ft_memcpy.o		ft_memmove.o 	ft_memset.o		ft_lstremove_if.o\
@@ -42,7 +42,7 @@ SRC0 = ft_atoi.o	ft_bzero.o		ft_memccpy.o	ft_memchr.o		ft_lstmerge.o\
 	  ft_putnbr.o	ft_putchar_fd.o	ft_putstr_fd.o	ft_putendl_fd.o get_next_line.o\
 	  ft_lstnew.o	ft_lstdelone.o	ft_lstdel.o		ft_lstadd.o		ft_lstiter.o\
 	  ft_qsort.o	ft_lstsize.o	ft_lstlast.o	ft_lsti.o		ft_lstreverse.o\
-	  free_table.o  ft_itoabase.o   ft_itoahex.o    ft_itoa_signed.o\
+	  free_table.o  ft_itoabase.o   ft_itoahex.o    ft_itoa_signed.o ft_strcut.o\
 	  ft_stradd_front.o ft_stradd_back.o ft_strreplace.o ft_strcat_front.o
 
 HEADER = includes

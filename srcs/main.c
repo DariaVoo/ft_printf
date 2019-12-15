@@ -15,7 +15,14 @@
 
 int	main(void)
 {
+	printf("%-5.2s is a string\n", "");
+	ft_printf("%-5.2s is a string\n", "");
+	/*
+	printf("%-5.2s is a string\n", "this");
+	ft_printf("%-5.2s is a string\n", "this");
 
+	//printf("%.2s is a string\n", "");
+	//ft_printf("%.2s is a string\n", "");
 	/*
 	  //работает тут, а в тестах какая-то дичь
 	printf("%lld\n", LLONG_MIN);

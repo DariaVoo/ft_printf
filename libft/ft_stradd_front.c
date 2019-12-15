@@ -19,10 +19,11 @@ char	*ft_stradd_front(char *str, size_t len, char c, char type)
 
 	if (len <= (len_str = ft_strlen(str)))
 		return (str);
-	if (!str || !(ans = ft_strnew(len)))
+	if (!(ans = ft_strnew(len)))
 		return (NULL);
 	ans = ft_memset(ans, c, len - len_str);
-	ans = ft_strcat(ans, str);
+	if (str)
+		ans = ft_strcat(ans, str);
 	if (type != 's' && type != 'c')
 		free(str);
 	return (ans);

@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: snorcros <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/09 12:31:30 by snorcros          #+#    #+#             */
-/*   Updated: 2019/09/12 22:00:13 by snorcros         ###   ########.fr       */
+/*   Created: 2019/08/05 15:21:56 by snorcros          #+#    #+#             */
+/*   Updated: 2019/09/09 15:23:21 by snorcros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_stradd_back(char *str, size_t len, char c, char type)
+char		*ft_strcut(char *dest, size_t len_res)
 {
-	char	*ans;
 	size_t	i;
+	char	*ans;
 
-	if (len <= (i = ft_strlen(str)))
-		return (str);
-	if (!(ans = ft_strnew(len)))
+	i = 0;
+	if (!dest || !(ans = ft_strnew(len_res)))
 		return (NULL);
-	if (str)
-		ans = ft_strcat(ans, str);
-	while (i < len)
+	while (i < len_res)
 	{
-		ans[i] = c;
+		ans[i] = dest[i];
 		i++;
 	}
-	if (type != 's' && type != 'c')
-		free(str);
+	ans[i] = '\0';
+	free(dest);
 	return (ans);
 }

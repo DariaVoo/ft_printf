@@ -45,17 +45,24 @@ char			*to_str_logic(t_placeholder place, va_list ap)
 	char *ans;
 
 	ans = NULL;
-	//1
+	//type
 	if (place.type.flag == '%')
 		return (place.type.fun(ap));
 	if (place.type.flag != 'm' && place.length.flag[0] == 'm')
 		ans = check_flag(place.type.fun(ap), &place);
 	else if (place.length.fun != NULL)
 		ans = check_flag(place.length.fun(ap, place.type.flag), &place);
-	//2
+	//precision
+	if (place.precision != 0) {
+		if ((size_t)place.precision > ft_strlen(ans) && *ans != '\0')
+			ans = ft_stradd_front(ans, place.precision, '0', place.type.flag);
+		else if (place.type.flag == 's')
+			ans = ft_strcut(ans, ft_strlen(ans) - place.precision);
+	}
+	//flags
 	if (place.flags != 0)
 		ans = get_flags(place, ans);
-	//3
+	//width
 	if (place.width != 0 && (size_t)place.width > ft_strlen(ans)
 			&& (place.flags & FLG_MINUS) == 0 && (place.flags & FLG_ZERO) == 0)
 		ans = ft_stradd_front(ans, place.width, ' ', place.type.flag);
@@ -64,20 +71,20 @@ char			*to_str_logic(t_placeholder place, va_list ap)
 	return (ans);
 }
 
-int				print_this(t_placeholder place, char *str)
+int				print_this(char *str)
 {
 	int	i;
 	int	count;
 
 	i = 0;
 	count = 0;
-	while (str[i] != '\0')
-	{
-		count += ft_putchar(str[i]);
-		i++;
-	}
-	if (place.type.flag != 's' || (ft_strcmp((const char *)str, "(null)") == 0))
-		free(str);
+	if (str)
+		while (str[i] != '\0')
+		{
+			count += ft_putchar(str[i]);
+			i++;
+		}
+	free(str);
 	return (count);
 }
 
@@ -104,7 +111,7 @@ int				ft_printf(const char *format, ...)
 			if (place.type.flag == 'm')
 				break ;
 			ans = to_str_logic(place, ap);
-			count += print_this(place, ans);
+			count += print_this(ans);
 		}
 	}
 	va_end(ap);
