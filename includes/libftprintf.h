@@ -66,7 +66,7 @@ char			*get_sign(t_placeholder placeholder, char *str);
 t_placeholder	parse(va_list ap, const char **format);
 char			*check_flag(char *str, t_placeholder *place);
 char			*to_str_logic(t_placeholder place, va_list ap);
-int				print_this(char *str);
+int				print_this(t_placeholder place, char *str);
 char			*ft_c(va_list ap);
 char			*ft_d(va_list ap);
 char 			*ft_s(va_list ap);
