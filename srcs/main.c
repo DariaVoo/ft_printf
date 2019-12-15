@@ -15,9 +15,12 @@
 
 int	main(void)
 {
+	printf("%#08x\n", 42);
+	ft_printf("%#08x\n", 42);
+	/*
 	printf("printf :%.0%\n");
 	ft_printf("ft :%.0%\n");
-/*
+
 	printf("% u\n", 4294967295);
 	ft_printf("% u\n", 4294967295);
 

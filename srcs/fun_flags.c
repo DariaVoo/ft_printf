@@ -59,7 +59,7 @@ char	*flags_hash(char *str, t_placeholder place)
 		return (ft_stradd_front(str, ft_strlen(str) + 1, '0', place.type.flag));
 	else if (place.type.flag == 'x')
 	{
-		if (place.width != 0)
+		if (place.width != 0 && (place.flags & FLG_MINUS) != 0)
 			str = ft_strcat_front(str, "0x", place.width - 1, 2);
 		else if ((place.flags & FLG_ZERO) == 0)
 			str = ft_stradd_front(str, ft_strlen(str) + 2, '0', place.type.flag);
