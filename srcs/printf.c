@@ -32,7 +32,9 @@ t_placeholder	parse(va_list ap, const char **format)
 
 char	*check_flag(char *str, t_placeholder *place)
 {
-	if (*str == '-' && place->type.flag != 's'
+	if (*str == '\0' && place->type.flag == 'c')
+		place->flags &= FLG_NULL;
+	else if (*str == '-' && place->type.flag != 's'
 		&& place->type.flag != 'c' && (place->flags != 0 || place->precision != -1))
 	{
 		place->sign = 1;
@@ -81,7 +83,9 @@ char			*to_str_logic(t_placeholder place, va_list ap)
 	//flags
 	ans = get_flags(place, ans);
 	//width
-	if (place.width != 0 && (size_t)place.width > ft_strlen(ans)
+	if (ft_strlen(ans) == 0 && place.width != 0 && place.type.flag == 'c')
+		ans = ft_stradd_front(ans, place.width - 1, ' ', place.type.flag);
+	else if (place.width != 0 && (size_t)place.width > ft_strlen(ans)
 		&& (place.flags & FLG_MINUS) == 0 && (place.flags & FLG_ZERO) == 0)
 		ans = ft_stradd_front(ans, place.width, ' ', place.type.flag);
 	if ((place.flags & FLG_PLUS) == 0 && (place.flags & FLG_SPACE) == 0)
@@ -98,13 +102,13 @@ int				print_this(t_placeholder place, char *str)
 	count = 0;
 	if (!str)
 		return (0);
-	if (*str != '\0' && str)
-		while (str[i] != '\0')
-		{
-			count += ft_putchar(str[i]);
-			i++;
-		}
-	else if (*str == '\0' && place.type.flag == 'c')
+	while (str[i] != '\0')
+	{
+		count += ft_putchar(str[i]);
+		i++;
+	}
+	if (place.type.flag == 'c' && str[i] == '\0' &&
+	((i < place.width && place.width != 0) || *str == '\0'))
 		count += write(1, "\0", 1);
 	free(str);
 	return (count);

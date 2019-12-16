@@ -15,9 +15,12 @@
 
 int	main(void)
 {
+	printf("%2c$\n", 0);
+	ft_printf("%2c$\n", 0);
+	/*
 	printf("%.0s$\n", "aaa");
 	ft_printf("%.0s$\n", "aaa");
-	/*
+
 	printf("@moulitest: %.d$ %.0d$\n", 42, 43);
 	ft_printf("@moulitest: %.d$ %.0d$\n\n", 42, 43);
 
