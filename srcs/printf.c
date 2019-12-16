@@ -32,12 +32,35 @@ t_placeholder	parse(va_list ap, const char **format)
 
 char	*check_flag(char *str, t_placeholder *place)
 {
-	if (*str == '-' && place->type.flag != 's' && place->type.flag != 'c' && place->flags != 0)
+	if (*str == '-' && place->type.flag != 's'
+		&& place->type.flag != 'c' && (place->flags != 0 || place->precision != -1))
 	{
 		place->sign = 1;
 		return (delete_sign(str));
 	}
 	return (str);
+}
+
+char *get_precision(t_placeholder *place, char *ans)
+{
+	if (place->type.flag == 'c' || (place->type.flag == 'o' && (place->flags & FLG_HASH) != 0))
+		return (ans);
+	else if (place->precision == 0 && *ans == '0')
+	{
+		free(ans);
+		place->flags &= FLG_NULL;
+		return (ft_strnew(1));
+	}
+	else if ((place->type.flag == 'd' || place->type.flag == 'i' || place->type.flag == 'o'
+		|| place->type.flag == 'u' || place->type.flag == 'x' || place->type.flag == 'X')
+		&& (place->precision > 0 && (size_t)place->precision > ft_strlen(ans) && *ans != '\0'))
+	{
+		place->flags &= ~FLG_ZERO;
+		ans = ft_stradd_front(ans, place->precision, '0', place->type.flag);
+	}
+	else if (place->type.flag == 's' && place->precision >= 0)
+		ans = ft_strcut(ans, ft_strlen(ans) - place->precision);
+	return (ans);
 }
 
 char			*to_str_logic(t_placeholder place, va_list ap)
@@ -53,31 +76,13 @@ char			*to_str_logic(t_placeholder place, va_list ap)
 	else if (place.length.fun != NULL)
 		ans = check_flag(place.length.fun(ap, place.type.flag), &place);
 	//precision
-	if (place.precision > 0)
-	{
-		if ((size_t)place.precision > ft_strlen(ans) && *ans != '\0')
-			ans = ft_stradd_front(ans, place.precision, '0', place.type.flag);
-		else if (place.type.flag == 's')
-			ans = ft_strcut(ans, ft_strlen(ans) - place.precision);
-	}//костыль
-	else if (place.precision == 0 || (place.precision == -1 && place.width != 0))
-	{//костыль
-		free(ans);
-		ans = ft_strnew(1);
-		if (place.type.flag != 'o')//костыль
-			place.flags = FLG_NULL;
-	}//костыль
-	else if (place.precision == -1 && place.width == 0 && place.type.flag != 'o')
-	{//костыль
-		free(ans);
-		return (NULL);
-	}
+	if (place.precision != -1)
+		ans = get_precision(&place, ans);
 	//flags
-	if (place.flags != 0)
-		ans = get_flags(place, ans);
+	ans = get_flags(place, ans);
 	//width
 	if (place.width != 0 && (size_t)place.width > ft_strlen(ans)
-			&& (place.flags & FLG_MINUS) == 0 && (place.flags & FLG_ZERO) == 0)
+		&& (place.flags & FLG_MINUS) == 0 && (place.flags & FLG_ZERO) == 0)
 		ans = ft_stradd_front(ans, place.width, ' ', place.type.flag);
 	if ((place.flags & FLG_PLUS) == 0 && (place.flags & FLG_SPACE) == 0)
 		ans = get_sign(place, ans);

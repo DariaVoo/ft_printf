@@ -32,12 +32,13 @@ int	set_type(t_placeholder *placeholder, const char *format)
 
 char	*get_sign(t_placeholder placeholder, char *str)
 {
-	if (placeholder.sign != 0 && placeholder.width == 0)
+	if (placeholder.sign != 0 && placeholder.width > placeholder.precision && placeholder.precision > 0)
+		str[0] = '-';
+	else if (placeholder.sign != 0 && placeholder.width == 0)
 		return (ft_stradd_front(str, ft_strlen(str) + 1, '-', placeholder.type.flag));
 	else if (placeholder.sign != 0 && placeholder.width != 0)
 		return (ft_strcat_front(str, "-", placeholder.width - 1, 1));
-	else
-		return (str);
+	return (str);
 }
 
 int	set_flags(t_placeholder *placeholder, const char *format)
@@ -116,7 +117,7 @@ int	set_precision(t_placeholder *placeholder, const char *format)
 	{
 		k++;
 		format++;
-		if ((p = ft_atoi(format)) > 0)
+		if ((p = ft_atoi(format)) >= 0)
 		{
 			placeholder->precision = p;
 			while (p > 0)
@@ -124,15 +125,10 @@ int	set_precision(t_placeholder *placeholder, const char *format)
 				p /= 10;
 				k++;
 			}
+			if (p == 0 && *format == '0')
+				k++;
 			return (k);
 		}
-		else if (p == 0 && *format == '0')
-		{
-			placeholder->precision = p;
-			k++;
-			return (k);
-		}
-		placeholder->precision = -1;
 		return (k);
 	}
 	return (0);

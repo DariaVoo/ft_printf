@@ -12,9 +12,15 @@
 
 #include "libftprintf.h"
 #include <stdio.h>
-/*
+
 int	main(void)
 {
+	printf("%.0s$\n", "aaa");
+	ft_printf("%.0s$\n", "aaa");
+	/*
+	printf("@moulitest: %.d$ %.0d$\n", 42, 43);
+	ft_printf("@moulitest: %.d$ %.0d$\n\n", 42, 43);
+
 	printf("@moulitest: %5.x$ %5.0x$\n", 0, 0);
 	ft_printf("@moulitest: %5.x$ %5.0x$\n\n", 0, 0);
 	printf("@moulitest: %5.o$ %5.0o$\n", 0, 0);
@@ -23,9 +29,10 @@ int	main(void)
 	ft_printf("@moulitest: %.x$ %.0x$\n\n", 0, 0);
 	printf("@moulitest: %.o$ %.0o$\n", 0, 0);
 	ft_printf("@moulitest: %.o$ %.0o$\n\n", 0, 0);
-	printf("@moulitest: %#.o$ %#.0o$\n", 0, 0);
-	ft_printf("@moulitest: %#.o$ %#.0o$\n\n", 0, 0);
+	printf("@moulitest: %#.o$ %#.0o$\n", 5, 5);
+	ft_printf("@moulitest: %#.o$ %#.0o$\n\n", 5, 5);
 
+	//ft_printf("@moulitest: %#.d$ %#.0d$\n\n", 0, 0);
 	//ft_printf("%5.0x$\n", 0);
 	//ft_printf("%c", 0);
 	/*
@@ -179,7 +186,6 @@ int	main(void)
 	ft_printf("kekeke\n");
 	ft_printf("this is char: %c\n", 'g');
 	ft_printf("this is int: %d\n", 2568);
-
+*/
 	return (0);
 }
-*/
