@@ -15,9 +15,21 @@
 
 int	main(void)
 {
+	printf("{%*3d}\n", 5, 0);
+	ft_printf("{%*3d}\n", 5, 0);
+	/*
+	printf("%*.*d\n", 0, 3, 0);
+	ft_printf("%*.*d\n", 0, 3, 0);
+	printf("%#.3o\n", 1);
+	ft_printf("%#.3o\n", 1);
+	*
+	printf("%.p$ %.0p\n", 0, 0);
+	ft_printf("%.p$ %.0p", 0, 0);
+	//NEED TO FIXprintf("aaaaa%   $");
+	*
 	printf("%2c$\n", 0);
 	ft_printf("%2c$\n", 0);
-	/*
+
 	printf("%.0s$\n", "aaa");
 	ft_printf("%.0s$\n", "aaa");
 

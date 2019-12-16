@@ -59,7 +59,7 @@ char			*delete_sign(char *str);
 int 			set_type(t_placeholder *pPlaceholder, const char *format);
 int 			set_flags(t_placeholder *pPlaceholder, const char *format);
 int 			set_width(t_placeholder *pPlaceholder, const char *format, va_list ap);
-int 			set_precision(t_placeholder *pPlaceholder, const char *format);
+int 			set_precision(t_placeholder *pPlaceholder, const char *format, va_list ap);
 int 			set_length(t_placeholder *pPlaceholder, const char *format);
 char			*get_sign(t_placeholder placeholder, char *str);
 

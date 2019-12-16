@@ -58,7 +58,9 @@ char	*flags_hash(char *str, t_placeholder place)
 	if (*str == '0' && *(str + 1) == '\0')
 		return (str);
 	if (place.type.flag == 'o')
-		if (place.width == 0)
+		if (place.precision > place.width)
+			return (str);
+		else if (place.width == 0)
 			return (ft_stradd_front(str, ft_strlen(str) + 1, '0', place.type.flag));
 		else
 			return (ft_strcat_front(str, "0", place.width - 1, 1));

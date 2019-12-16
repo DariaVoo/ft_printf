@@ -107,7 +107,7 @@ int	set_width(t_placeholder *placeholder, const char *format, va_list ap)
 	return (0);
 }
 
-int	set_precision(t_placeholder *placeholder, const char *format)
+int	set_precision(t_placeholder *placeholder, const char *format, va_list ap)
 {
 	int p;
 	int k;
@@ -117,7 +117,19 @@ int	set_precision(t_placeholder *placeholder, const char *format)
 	{
 		k++;
 		format++;
-		if ((p = ft_atoi(format)) >= 0)
+		if (*format == '*')
+		{
+			placeholder->precision = va_arg(ap, int);
+			p = placeholder->precision;
+			while (p > 0)
+			{
+				p /= 10;
+				k++;
+			}
+			if (p == 0 && *format == '0')
+				k++;
+		}
+		else if ((p = ft_atoi(format)) >= 0)
 		{
 			placeholder->precision = p;
 			while (p > 0)
@@ -127,7 +139,6 @@ int	set_precision(t_placeholder *placeholder, const char *format)
 			}
 			if (p == 0 && *format == '0')
 				k++;
-			return (k);
 		}
 		return (k);
 	}

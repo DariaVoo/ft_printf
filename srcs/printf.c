@@ -24,7 +24,7 @@ t_placeholder	parse(va_list ap, const char **format)
 	}
 	*format += set_flags(&place, *format);
 	*format += set_width(&place, *format, ap);
-	*format += set_precision(&place, *format);
+	*format += set_precision(&place, *format, ap);
 	*format += set_length(&place, *format);
 	*format += set_type(&place, *format);
 	return place;
@@ -45,7 +45,8 @@ char	*check_flag(char *str, t_placeholder *place)
 
 char *get_precision(t_placeholder *place, char *ans)
 {
-	if (place->type.flag == 'c' || (place->type.flag == 'o' && (place->flags & FLG_HASH) != 0))
+	if (place->type.flag == 'c' || (place->type.flag == 'o' &&
+	(place->flags & FLG_HASH) != 0 && *ans == '0'))
 		return (ans);
 	else if (place->precision == 0 && *ans == '0')
 	{
@@ -108,11 +109,26 @@ int				print_this(t_placeholder place, char *str)
 		i++;
 	}
 	if (place.type.flag == 'c' && str[i] == '\0' &&
-	((i < place.width && place.width != 0) || *str == '\0'))
+		((i < place.width && place.width != 0) || *str == '\0'))
 		count += write(1, "\0", 1);
 	free(str);
 	return (count);
 }
+
+/*int				print_ban(const char *format)
+{
+	int	i;
+
+	i = 0;
+	if (!format || *format == '\0')
+		return (-1);
+	while (format[i] != '\0')
+	{
+		write(1, &format[i], 1);
+		i++;
+	}
+	return (i);
+}*/
 
 int				ft_printf(const char *format, ...)
 {
@@ -135,7 +151,10 @@ int				ft_printf(const char *format, ...)
 			format++;
 			place = parse(ap, &format);
 			if (place.type.flag == 'm')
-				break ;
+			{
+				//return (print_ban(format));
+				return (-1);
+			}
 			ans = to_str_logic(place, ap);
 			count += print_this(place, ans);
 		}

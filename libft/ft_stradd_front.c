@@ -24,7 +24,7 @@ char	*ft_stradd_front(char *str, size_t len, char c, char type)
 	ans = ft_memset(ans, c, len - len_str);
 	if (str)
 		ans = ft_strcat(ans, str);
-	if (type != 's' && type != 'c')
+	if (type != 's' && type != 'c')//delete
 		free(str);
 	return (ans);
 }
