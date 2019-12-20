@@ -15,8 +15,8 @@
 
 int	main(void)
 {
-	printf("%.0f\n", 3.14);
-	ft_printf("%.0f\n", 3.14);
+	printf("%.60f\n", 3.14);
+	ft_printf("%.60f\n", 3.14);
 	/*
 	printf("{%*3d}\n", 5, 0);
 	ft_printf("{%*3d}\n", 5, 0);

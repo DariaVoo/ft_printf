@@ -50,20 +50,40 @@ size_t	strcount_digit(char *str)
 	count = 0;
 	while (str[count] != '.' && str[count] != '\0')
 		count++;
+	count++;
+	return (count);
+}
+
+size_t	str_len_mantiss(char *str)
+{
+	size_t i;
+	size_t count;
+
+	i = 0;
+	count = 0;
+	while (str[i] != '.' && str[i] != '\0')
+		i++;
+	while (str[i] != '\0')
+	{
+		i++;
+		count++;
+	}
 	return (count);
 }
 
 char *get_precision_float(t_placeholder *place, char *ans)
 {
 	size_t len;
+	size_t count_digit;
 
-	len = ft_strlen(ans);
+	count_digit = strcount_digit(ans);
+	len = ft_strlen(ans) - count_digit;
 	if (place->precision == 0)
-		return (ft_strcut(ans, strcount_digit(ans)));
+		return (ft_strcut(ans, count_digit));
 	else if (place->precision > len)
-		return (ft_stradd_back(ans, place->precision, '0', place->type.flag));
+		return (ft_stradd_back(ans, place->precision + count_digit, '0', place->type.flag));
 	else
-		return (ft_strcut(ans, ft_strlen(ans) - place->precision));
+		return (ft_strcut(ans, ft_strlen(ans) + count_digit - place->precision));
 	return (ans);
 }
 
