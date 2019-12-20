@@ -93,6 +93,7 @@ add_executable(ft_printf
         libft/ft_strreplace.c
         libft/ft_strcat_front.c
         libft/ft_strcut.c
+        libft/ft_itoadouble.c
         srcs/fun_length.c
         srcs/funtypes.c
         srcs/main.c

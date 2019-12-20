@@ -85,6 +85,11 @@ char	*ft_b(va_list ap)
 	return (ft_itoabase(va_arg(ap, unsigned int), (unsigned int)2));
 }
 
+char	*ft_f(va_list ap)
+{
+	return (ft_itoadouble(va_arg(ap, double)));
+}
+
 char	*ft_p(va_list ap)
 {
 	char *str;

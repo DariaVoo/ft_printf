@@ -1,4 +1,4 @@
-#include "libftprintf.h"
+#include "libft.h"
 
 static int		ft_count_digits(unsigned long long n)
 {
@@ -59,7 +59,10 @@ static char 			*get_mantiss(long double n, char *str_n, int count_digits)
 	i = count_digits;
 	n -= (unsigned long long)n;
 	if (n != 0)
+	{
 		str_n[i] = '.';
+		i++;
+	}
 	while (n > 0)
 	{
 		n *= 10;
@@ -76,17 +79,15 @@ char			*ft_itoadouble(long double n)
 	char	*str_n;
 	int		count;
 	int		count_digits;
-	int		buff;
-	size_t	i;
 
-	count_digits = ft_count_digits(n, base);
-	count = count_digits + ft_count_digits_mantiss(n, base);
+	count_digits = ft_count_digits(n);
+	count = count_digits + ft_count_digits_mantiss(n);
 	str_n = ft_strnew(count + 1);
 	if (!str_n)
 		return (NULL);
 	str_n = get_int((unsigned long long)n, str_n, count_digits);
-	if (*str_n == '0')
-		return (*str_n);
+	if (str_n[0] == '0')
+		return (str_n);
 	str_n = get_mantiss(n, str_n, count_digits);
 	return (str_n);
 }

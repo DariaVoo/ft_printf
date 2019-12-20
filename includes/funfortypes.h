@@ -16,12 +16,12 @@ t_funtype		types[] =
 		{'u', ft_u},
 		{'b', ft_b},
 		{'p', ft_p},
+		{'f', ft_f},
 		{'m', NULL}
 };
 
 t_funlenght		lengths[] =
 {
-
 		{"ll", length_ll},
 		{"hh", length_hh},
 		{"l", length_l},
