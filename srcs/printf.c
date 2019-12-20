@@ -77,20 +77,29 @@ char *get_precision_float(t_placeholder *place, char *ans)
 	size_t count_digit;
 
 	count_digit = strcount_digit(ans);
-	len = ft_strlen(ans) - count_digit;
+	len = str_len_mantiss(ans);
 	if (place->precision == 0)
 		return (ft_strcut(ans, count_digit));
 	else if (place->precision > len)
 		return (ft_stradd_back(ans, place->precision + count_digit, '0', place->type.flag));
 	else
-		return (ft_strcut(ans, ft_strlen(ans) + count_digit - place->precision));
+	{
+		if (ans[place->precision +  count_digit] >= '5')
+		{
+			if (ans[place->precision + count_digit] != '0')
+				ans[place->precision + count_digit - 1] += 1;
+			else
+
+				return (ft_strcut(ans, place->precision + count_digit));
+		}
+	}
 	return (ans);
 }
 
 char *get_precision(t_placeholder *place, char *ans)
 {
 	if (place->type.flag == 'c' || (place->type.flag == 'o' &&
-	(place->flags & FLG_HASH) != 0 && *ans == '0'))
+									(place->flags & FLG_HASH) != 0 && *ans == '0'))
 		return (ans);
 	if (place->type.flag == 'f')
 		return (get_precision_float(place, ans));
@@ -101,8 +110,8 @@ char *get_precision(t_placeholder *place, char *ans)
 		return (ft_strnew(1));
 	}
 	else if ((place->type.flag == 'd' || place->type.flag == 'i' || place->type.flag == 'o'
-		|| place->type.flag == 'u' || place->type.flag == 'x' || place->type.flag == 'X')
-		&& (place->precision > 0 && (size_t)place->precision > ft_strlen(ans) && *ans != '\0'))
+			  || place->type.flag == 'u' || place->type.flag == 'x' || place->type.flag == 'X')
+			 && (place->precision > 0 && (size_t)place->precision > ft_strlen(ans) && *ans != '\0'))
 	{
 		place->flags &= ~FLG_ZERO;
 		ans = ft_stradd_front(ans, place->precision, '0', place->type.flag);
