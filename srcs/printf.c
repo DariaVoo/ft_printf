@@ -43,11 +43,37 @@ char	*check_flag(char *str, t_placeholder *place)
 	return (str);
 }
 
+size_t	strcount_digit(char *str)
+{
+	size_t count;
+
+	count = 0;
+	while (str[count] != '.' && str[count] != '\0')
+		count++;
+	return (count);
+}
+
+char *get_precision_float(t_placeholder *place, char *ans)
+{
+	size_t len;
+
+	len = ft_strlen(ans);
+	if (place->precision == 0)
+		return (ft_strcut(ans, strcount_digit(ans)));
+	else if (place->precision > len)
+		return (ft_stradd_back(ans, place->precision, '0', place->type.flag));
+	else
+		return (ft_strcut(ans, ft_strlen(ans) - place->precision));
+	return (ans);
+}
+
 char *get_precision(t_placeholder *place, char *ans)
 {
 	if (place->type.flag == 'c' || (place->type.flag == 'o' &&
 	(place->flags & FLG_HASH) != 0 && *ans == '0'))
 		return (ans);
+	if (place->type.flag == 'f')
+		return (get_precision_float(place, ans));
 	else if (place->precision == 0 && *ans == '0')
 	{
 		free(ans);

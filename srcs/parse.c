@@ -23,6 +23,8 @@ int	set_type(t_placeholder *placeholder, const char *format)
 		if (*format == types[i].flag)
 		{
 			placeholder->type = types[i];
+			if (types[i].flag == 'f' && placeholder->precision < 0)
+				placeholder->precision = 6;
 			return (1);
 		}
 		i++;
