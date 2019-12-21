@@ -8,7 +8,8 @@ static size_t	strcount_digit(char *str)
 	count = 0;
 	while (str[count] != '.' && str[count] != '\0')
 		count++;
-	count++;
+	if (str[count + 1] != '\0')
+		count++;
 	return (count);
 }
 

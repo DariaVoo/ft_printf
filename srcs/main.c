@@ -34,13 +34,14 @@ int	main(void)
 	ft_printf("%5.40Lf\n", neginf);
 	printf("%5.40Lf\n", nan);
 	ft_printf("%5.40Lf\n", nan);
-*/
+
 	printf("%.50f\n", -3.14);
 	printf("%.30f\n", -3.14);
 	ft_printf("%.30f\n", -3.14);
+ */
 	double a = 20;
-	printf("%.30f\n", a);
-	ft_printf("%.30f\n", a);
+	printf("%.0f\n", a);
+	ft_printf("%.0f\n", a);
 	/*
 	printf("{%*3d}\n", 5, 0);
 	ft_printf("{%*3d}\n", 5, 0);
