@@ -87,7 +87,27 @@ char	*ft_b(va_list ap)
 
 char	*ft_f(va_list ap)
 {
-	return (ft_itoadouble(va_arg(ap, double)));
+	long double number;
+	char 		*str;
+
+	number =  va_arg(ap, double);
+	if (number != number)
+	{
+		str = ft_strnew(5);
+		if (number > 0)
+			return (ft_strcpy(str, "nan\0"));
+		else
+			return (ft_strcpy(str, "-nan\0"));
+	}
+	else if (number != 0 && number * 10 == number)
+	{
+		str = ft_strnew(5);
+		if (number > 0)
+			return (ft_strcpy(str, "inf\0"));
+		else
+			return (ft_strcpy(str, "-inf\0"));
+	}
+	return (ft_itoadouble(number));
 }
 
 char	*ft_p(va_list ap)

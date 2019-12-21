@@ -34,6 +34,12 @@ char			*check_flag(char *str, t_placeholder *place)
 {
 	if (*str == '\0' && place->type.flag == 'c')
 		place->flags &= FLG_NULL;
+	else if (place->type.flag == 'f' && (*str == 'n' || *str == 'i'
+			|| *(str + 1) == 'i' || *(str + 1) == 'n'))
+	{
+		place->flags &= FLG_NULL;
+		place->precision = 0;
+	}
 	else if (*str == '-' && place->type.flag != 's' && place->type.flag != 'f'
 		&& place->type.flag != 'c' && (place->flags != 0 || place->precision != -1))
 	{
@@ -91,21 +97,6 @@ int				print_this(t_placeholder place, char *str)
 	free(str);
 	return (count);
 }
-
-/*int				print_ban(const char *format)
-{
-	int	i;
-
-	i = 0;
-	if (!format || *format == '\0')
-		return (-1);
-	while (format[i] != '\0')
-	{
-		write(1, &format[i], 1);
-		i++;
-	}
-	return (i);
-}*/
 
 int				ft_printf(const char *format, ...)
 {

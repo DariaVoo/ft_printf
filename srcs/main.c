@@ -15,9 +15,18 @@
 
 int	main(void)
 {
+	long double posinf = 5.0 / 0.0;
+	long double neginf = -5.0 / 0.0;
+	long double nan = 0.0 / 0.0;
 
-	printf("%10.4f\n", -3.7123999);
-	ft_printf("%10.4f\n", -3.7123999);
+	printf("%.40Lf\n", -3.444999);
+	ft_printf("%.40Lf\n", -3.444999);
+	printf("%5.40Lf\n", posinf);
+	ft_printf("%5.40Lf\n", posinf);
+	printf("%5.40Lf\n", neginf);
+	ft_printf("%5.40Lf\n", neginf);
+	printf("%5.40Lf\n", nan);
+	ft_printf("%5.40Lf\n", nan);
 /*
 	printf("%.50f\n", -3.14);
 	printf("%.30f\n", -3.14);

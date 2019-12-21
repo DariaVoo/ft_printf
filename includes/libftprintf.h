@@ -13,6 +13,7 @@
 #ifndef LIBFTPRINTF_H
 # define LIBFTPRINTF_H
 #include "libft.h"
+#include "colors.h"
 #include <stdarg.h>
 #include <inttypes.h>
 
@@ -85,6 +86,8 @@ char			*length_l(va_list ap, char typeflag);
 char			*length_ll(va_list ap, char typeflag);
 char			*length_h(va_list ap,  char typeflag);
 char			*length_hh(va_list ap, char typeflag);
+char			*length_L(va_list ap, char typeflag);
+char			*length_z(va_list ap, char typeflag);
 
 char 			*flags_zero(char *str, t_placeholder place);
 char 			*flags_plus(char *str, t_placeholder place);

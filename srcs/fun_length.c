@@ -19,7 +19,7 @@ char	*length_l(va_list ap, char typeflag)
 	if (typeflag == 'u')
 		return (ft_itoabase(va_arg(ap, unsigned long int), 10));
 	else if (typeflag == 'f')
-		return (ft_itoabase(va_arg(ap, unsigned long int), 8));
+		return (ft_f(ap));
 	else if (typeflag == 'o')
 		return (ft_itoabase(va_arg(ap, unsigned long int), 8));
 	else if (typeflag == 'x')
@@ -71,5 +71,47 @@ char	*length_hh(va_list ap, char typeflag)
 		return (ft_itoahex((signed char)va_arg(ap, unsigned int), 'l'));
 	else if (typeflag == 'X')
 		return (ft_itoahex((signed char)va_arg(ap, unsigned int), 'u'));
+	return (NULL);
+}
+
+char	*length_L(va_list ap, char typeflag)
+{
+	long double number;
+	char 		*str;
+
+	number =  va_arg(ap, long double);
+	if (typeflag == 'f') {
+		if (number != number) {
+
+			str = ft_strnew(5);
+			if (number > 0)
+				return (ft_strcpy(str, "nan\0"));
+			else
+				return (ft_strcpy(str, "-nan\0"));
+
+		} else if (number != 0 && number * 10 == number) {
+			str = ft_strnew(5);
+			if (number > 0)
+				return (ft_strcpy(str, "inf\0"));
+			else
+				return (ft_strcpy(str, "-inf\0"));
+		}
+		return (ft_itoadouble(number));
+	}
+	return (ft_strnew(1));
+}
+
+char	*length_z(va_list ap, char typeflag)
+{
+	if (typeflag == 'i' || typeflag == 'd')//error
+		return (ft_itoa_signed(va_arg(ap, size_t), 10));
+	if (typeflag == 'u')
+		return (ft_itoabase(va_arg(ap, size_t), 10));
+	else if (typeflag == 'o')
+		return (ft_itoabase(va_arg(ap, size_t), 8));
+	else if (typeflag == 'x')
+		return (ft_itoahex(va_arg(ap, size_t), 'l'));
+	else if (typeflag == 'X')
+		return (ft_itoahex(va_arg(ap, size_t), 'u'));
 	return (NULL);
 }
