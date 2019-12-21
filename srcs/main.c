@@ -15,11 +15,18 @@
 
 int	main(void)
 {
-	long double posinf = 5.0 / 0.0;
-	long double neginf = -5.0 / 0.0;
+
+/*
 	long double nan = 0.0 / 0.0;
 
-	printf("%.40Lf\n", -3.444999);
+	printf("%Lf\n", 0.0 / 0.0);//втф
+	ft_printf("%Lf\n", 0.0 / 0.0);
+	printf("%Lf\n", nan);
+	ft_printf("%Lf\n", nan);
+
+	long double posinf = 5.0 / 0.0;
+	long double neginf = -5.0 / 0.0;
+	printf("%.40Lf\n", -3.444999);//WTF
 	ft_printf("%.40Lf\n", -3.444999);
 	printf("%5.40Lf\n", posinf);
 	ft_printf("%5.40Lf\n", posinf);
@@ -27,10 +34,13 @@ int	main(void)
 	ft_printf("%5.40Lf\n", neginf);
 	printf("%5.40Lf\n", nan);
 	ft_printf("%5.40Lf\n", nan);
-/*
+*/
 	printf("%.50f\n", -3.14);
 	printf("%.30f\n", -3.14);
-	ft_printf("%.30f\n", 3.14);
+	ft_printf("%.30f\n", -3.14);
+	double a = 20;
+	printf("%.30f\n", a);
+	ft_printf("%.30f\n", a);
 	/*
 	printf("{%*3d}\n", 5, 0);
 	ft_printf("{%*3d}\n", 5, 0);

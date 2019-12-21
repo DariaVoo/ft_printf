@@ -7,7 +7,7 @@ static int		ft_count_digits(long double n)
 
 	count = 0;
 	buf = n;
-	if (n == 0)
+	if (buf == 0)
 		return (1);
 	if (n < 0)
 	{
@@ -50,7 +50,7 @@ static char			*get_int(long double n, char *str_n, int count_digits)
 
 	i = count_digits - 1;
 	buf = n;
-	if (n == 0)
+	if (buf == 0)
 		str_n[i] = 0 + 48;
 	if (n < 0)
 	{
@@ -75,11 +75,8 @@ static char 			*get_mantiss(long double n, char *str_n, int count_digits)
 		n = n * (-1) - (unsigned long long)(n * (-1));
 	else
 		n -= (unsigned long long)n;
-	if (n != 0)
-	{
-		str_n[i] = '.';
-		i++;
-	}
+	str_n[i] = '.';
+	i++;
 	while (n > 0)
 	{
 		n *= 10;
@@ -98,7 +95,6 @@ char			*ft_itoadouble(long double n)
 	int		count_digits;
 
 	count_digits = ft_count_digits(n);
-	count = ft_count_digits_mantiss(n);
 	count = count_digits + ft_count_digits_mantiss(n);
 	str_n = ft_strnew(count + 1);
 	if (!str_n)
