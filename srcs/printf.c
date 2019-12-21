@@ -73,27 +73,28 @@ size_t	str_len_mantiss(char *str)
 
 char *get_precision_float(t_placeholder *place, char *ans)
 {
-	size_t len;
 	size_t count_digit;
+	size_t	i;
 
 	count_digit = strcount_digit(ans);
-	len = str_len_mantiss(ans);
 	if (place->precision == 0)
 		return (ft_strcut(ans, count_digit));
-	else if (place->precision > len)
+	else if (place->precision > str_len_mantiss(ans))
 		return (ft_stradd_back(ans, place->precision + count_digit, '0', place->type.flag));
-	else
+	if (ans[place->precision + count_digit] >= '5')
 	{
-		if (ans[place->precision +  count_digit] >= '5')
-		{
-			if (ans[place->precision + count_digit] != '0')
-				ans[place->precision + count_digit - 1] += 1;
-			else
-
-				return (ft_strcut(ans, place->precision + count_digit));
+		i = 1;
+		if (ans[place->precision + count_digit - i] != '9')
+			ans[place->precision + count_digit - i] += 1;
+		else {
+			while (ans[place->precision + count_digit - i] == '9') {
+				ans[place->precision + count_digit - i] = '0';
+				i++;
+			}
+			ans[place->precision + count_digit - i] += 1;
 		}
 	}
-	return (ans);
+	return (ft_strcut(ans, place->precision + count_digit));
 }
 
 char *get_precision(t_placeholder *place, char *ans)

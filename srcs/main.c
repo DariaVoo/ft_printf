@@ -15,6 +15,10 @@
 
 int	main(void)
 {
+
+	printf("%.4f\n", 3.7999999);
+	ft_printf("%.4f\n", 3.7999999);
+
 	printf("%.50f\n", 3.14);
 	printf("%.30f\n", 3.14);
 	ft_printf("%.30f\n", 3.14);
