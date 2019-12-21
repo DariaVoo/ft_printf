@@ -88,6 +88,7 @@ char			*length_h(va_list ap,  char typeflag);
 char			*length_hh(va_list ap, char typeflag);
 char			*length_L(va_list ap, char typeflag);
 char			*length_z(va_list ap, char typeflag);
+char			*length_j(va_list ap, char typeflag);
 
 char 			*flags_zero(char *str, t_placeholder place);
 char 			*flags_plus(char *str, t_placeholder place);

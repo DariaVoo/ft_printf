@@ -15,9 +15,9 @@
 
 int	main(void)
 {
-
-/*
-	long double nan = 0.0 / 0.0;
+	printf("%010s is a string\n", "this");
+	ft_printf("%010s is a string", "this");
+/*	long double nan = 0.0 / 0.0;
 
 	printf("%Lf\n", 0.0 / 0.0);//втф
 	ft_printf("%Lf\n", 0.0 / 0.0);
@@ -38,7 +38,7 @@ int	main(void)
 	printf("%.50f\n", -3.14);
 	printf("%.30f\n", -3.14);
 	ft_printf("%.30f\n", -3.14);
- */
+
 	double a = 20;
 	printf("%.0f\n", a);
 	ft_printf("%.0f\n", a);

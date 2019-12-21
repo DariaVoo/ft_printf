@@ -28,6 +28,7 @@ t_funlenght		lengths[] =
 		{"h", length_h},
 		{"L", length_L},
 		{"z", length_z},
+		{"j", length_j},
 		{"m", NULL}
 };
 
