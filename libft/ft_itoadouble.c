@@ -1,6 +1,6 @@
 #include "libft.h"
 
-static int		ft_count_digits(unsigned long long n)
+static int		ft_count_digits(long double n)
 {
 	int	count;
 	unsigned long long buf;
@@ -9,6 +9,11 @@ static int		ft_count_digits(unsigned long long n)
 	buf = n;
 	if (n == 0)
 		return (1);
+	if (n < 0)
+	{
+		buf = n * (-1);
+		count++;
+	}
 	while (buf > 0)
 	{
 		buf /= 10;
@@ -24,8 +29,10 @@ static int		ft_count_digits_mantiss(long  double n)
 	int			buf2;
 
 	count = 0;
-	buf = (unsigned long long int)n;
-	buf = n - buf;
+	if (n < 0)
+		buf = n * (-1) - (unsigned long long)(n * (-1));
+	else
+		buf = n - (unsigned long long int)n;
 	while (buf > 0)
 	{
 		buf *= 10;
@@ -36,17 +43,24 @@ static int		ft_count_digits_mantiss(long  double n)
 	return (count);
 }
 
-static char			*get_int(unsigned long long n, char *str_n, int count_digits)
+static char			*get_int(long double n, char *str_n, int count_digits)
 {
 	size_t i;
+	unsigned long long buf;
 
 	i = count_digits - 1;
+	buf = n;
 	if (n == 0)
 		str_n[i] = 0 + 48;
-	while (n > 0)
+	if (n < 0)
 	{
-		str_n[i--] = n % 10 + 48;
-		n /= 10;
+		buf = n * (-1);
+		str_n[0] = '-';
+	}
+	while (buf > 0)
+	{
+		str_n[i--] = buf % 10 + 48;
+		buf /= 10;
 	}
 	return (str_n);
 }
@@ -57,7 +71,10 @@ static char 			*get_mantiss(long double n, char *str_n, int count_digits)
 	int buf;
 
 	i = count_digits;
-	n -= (unsigned long long)n;
+	if (n < 0)
+		n = n * (-1) - (unsigned long long)(n * (-1));
+	else
+		n -= (unsigned long long)n;
 	if (n != 0)
 	{
 		str_n[i] = '.';
@@ -81,11 +98,12 @@ char			*ft_itoadouble(long double n)
 	int		count_digits;
 
 	count_digits = ft_count_digits(n);
+	count = ft_count_digits_mantiss(n);
 	count = count_digits + ft_count_digits_mantiss(n);
 	str_n = ft_strnew(count + 1);
 	if (!str_n)
 		return (NULL);
-	str_n = get_int((unsigned long long)n, str_n, count_digits);
+	str_n = get_int(n, str_n, count_digits);
 	if (str_n[0] == '0')
 		return (str_n);
 	str_n = get_mantiss(n, str_n, count_digits);

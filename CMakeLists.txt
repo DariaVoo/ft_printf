@@ -96,6 +96,7 @@ add_executable(ft_printf
         libft/ft_itoadouble.c
         srcs/fun_length.c
         srcs/funtypes.c
+        srcs/precision.c
         srcs/main.c
         srcs/parse.c
         srcs/fun_flags.c

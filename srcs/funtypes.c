@@ -100,7 +100,6 @@ char	*ft_p(va_list ap)
 		free(str);
 		str = ft_strnew(5);
 		str = ft_strcpy(str, "(nil)\0");
-
 	}
 	else
 	{

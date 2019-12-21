@@ -18,6 +18,8 @@ char	*length_l(va_list ap, char typeflag)
 		return (ft_itoa_signed(va_arg(ap, long int), 10));
 	if (typeflag == 'u')
 		return (ft_itoabase(va_arg(ap, unsigned long int), 10));
+	else if (typeflag == 'f')
+		return (ft_itoabase(va_arg(ap, unsigned long int), 8));
 	else if (typeflag == 'o')
 		return (ft_itoabase(va_arg(ap, unsigned long int), 8));
 	else if (typeflag == 'x')
