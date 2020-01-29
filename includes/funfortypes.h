@@ -37,9 +37,9 @@ t_funflags		flags[] =
 {
 		{ FLG_ZERO,'0', flags_zero},
 		{ FLG_PLUS, '+', flags_plus},
-		{ FLG_MINUS, '-', flags_minus},
 		{ FLG_HASH, '#', flags_hash},//добавить десятичный разделитель для ef, изменить для g
 		{ FLG_SPACE, ' ', flags_space},
+		{ FLG_MINUS, '-', flags_minus},
 		{ FLG_NULL, 'm', NULL}
 };
 #endif
