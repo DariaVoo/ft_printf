@@ -56,10 +56,13 @@ typedef struct s_funflags
 int				ft_printf(const char *format, ...);
 
 t_placeholder	new_placeholder();
+int				placeholder_isempty(t_placeholder place);
+int				placeholder_isnotempty(t_placeholder place);
 char			*delete_sign(char *str);
 int 			set_type(t_placeholder *pPlaceholder, const char *format);
 int 			set_flags(t_placeholder *pPlaceholder, const char *format);
 int 			set_width(t_placeholder *pPlaceholder, const char *format, va_list ap);
+char			*get_width(t_placeholder place, char *ans);
 int 			set_precision(t_placeholder *pPlaceholder, const char *format, va_list ap);
 char			*get_precision(t_placeholder *place, char *ans);
 char			*get_precision_float(t_placeholder *place, char *ans);
@@ -80,6 +83,7 @@ char			*ft_u(va_list ap);
 char 			*ft_b(va_list ap);
 char			*ft_p(va_list ap);
 char			*ft_f(va_list ap);
+char			*ft_Z(va_list ap);
 char			*ft_percent(va_list ap);
 
 char			*length_l(va_list ap, char typeflag);

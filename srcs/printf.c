@@ -12,26 +12,54 @@
 
 #include "libftprintf.h"
 
+t_placeholder	check_place(t_placeholder *place, const char **format, int shamt)
+{
+	int	count;
+
+	if (placeholder_isnotempty(*place) && *(*format + shamt) != '\0')
+	{
+		count = shamt;
+		//count += write(1, "%", 1);
+		*format += count;
+		while (*(*format) != '\0') // && *(*format) != '%')
+		{
+			count += ft_putchar(*(char *)*format);
+			*format += 1;
+		}
+		place->width = count;
+		place->length.flag = "non";
+	}
+	else
+		*format += shamt;
+	return (*place);
+}
+
 t_placeholder	parse(va_list ap, const char **format)
 {
-	t_placeholder place;
+	t_placeholder	place;
+	size_t 			shamt;
 
+	shamt = 0;
 	place = new_placeholder();
 	if (set_type(&place, *format))
 	{
 		*format += 1;
 		return (place);
 	}
-	*format += set_flags(&place, *format);
-	*format += set_width(&place, *format, ap);
-	*format += set_precision(&place, *format, ap);
-	*format += set_length(&place, *format);
-	*format += set_type(&place, *format);
-	return place;
+	shamt += set_flags(&place, *format);
+	shamt += set_width(&place, *format + shamt, ap);
+	shamt += set_precision(&place, *format + shamt, ap);
+	shamt += set_length(&place, *format + shamt);
+	shamt += set_type(&place, *format + shamt);
+	*format += shamt;
+	return (place);
+	//return check_place(&place, format, shamt);
 }
 
 char			*check_flag(char *str, t_placeholder *place)
 {
+	if (place->type.flag == 'c')
+		place->flags &= ~FLG_ZERO;
 	if (*str == '\0' && place->type.flag == 'c')
 		place->flags &= FLG_NULL;
 	else if (place->type.flag == 'f' && (*str == 'n' || *str == 'i'
@@ -47,6 +75,23 @@ char			*check_flag(char *str, t_placeholder *place)
 		return (delete_sign(str));
 	}
 	return (str);
+}
+
+char	*get_width(t_placeholder place, char *ans)
+{
+	//set sign
+	if ((place.flags & FLG_PLUS) == 0 && (place.flags & FLG_SPACE) == 0)
+		ans = get_sign(place, ans);
+	//set width
+	if (place.width != 0)
+	{
+		if (ft_strlen(ans) == 0  && place.type.flag == 'c')
+			ans = ft_stradd_front(ans, place.width - 1, ' ', place.type.flag);
+		else if ((size_t) place.width > ft_strlen(ans)
+				 && (place.flags & FLG_MINUS) == 0 && ((place.flags & FLG_ZERO) == 0 || place.type.flag == 's'))
+			ans = ft_stradd_front(ans, place.width, ' ', place.type.flag);
+	}
+	return (ans);
 }
 
 char			*to_str_logic(t_placeholder place, va_list ap)
@@ -66,14 +111,8 @@ char			*to_str_logic(t_placeholder place, va_list ap)
 		ans = get_precision(&place, ans);
 	//flags
 	ans = get_flags(place, ans);
-	//width
-	if (ft_strlen(ans) == 0 && place.width != 0 && place.type.flag == 'c')
-		ans = ft_stradd_front(ans, place.width - 1, ' ', place.type.flag);
-	else if (place.width != 0 && (size_t)place.width > ft_strlen(ans)
-		&& (place.flags & FLG_MINUS) == 0 && ((place.flags & FLG_ZERO) == 0 || place.type.flag == 's'))
-		ans = ft_stradd_front(ans, place.width, ' ', place.type.flag);
-	if ((place.flags & FLG_PLUS) == 0 && (place.flags & FLG_SPACE) == 0)
-		ans = get_sign(place, ans);
+	//width and set sign
+	ans = get_width(place, ans);
 	return (ans);
 }
 
@@ -118,11 +157,12 @@ int				ft_printf(const char *format, ...)
 		{
 			format++;
 			place = parse(ap, &format);
-			if (place.type.flag == 'm')
-			{
-				//return (print_ban(format));
+			if (ft_strcmp(place.length.flag, "non") == 0)
+				return (place.width);
+			else if (placeholder_isempty(place) || (place.type.flag == 'm' && place.length.flag[0] != 'm'))
 				return (-1);
-			}
+			else if (place.type.flag == 'm')
+				break ;
 			ans = to_str_logic(place, ap);
 			count += print_this(place, ans);
 		}

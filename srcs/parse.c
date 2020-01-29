@@ -34,12 +34,13 @@ int	set_type(t_placeholder *placeholder, const char *format)
 
 char	*get_sign(t_placeholder placeholder, char *str)
 {
-	if (placeholder.sign != 0 && placeholder.width > placeholder.precision && placeholder.precision > 0)
-		str[0] = '-';
-	else if (placeholder.sign != 0 && placeholder.width == 0)
-		return (ft_stradd_front(str, ft_strlen(str) + 1, '-', placeholder.type.flag));
-	else if (placeholder.sign != 0 && placeholder.width != 0)
-		return (ft_strcat_front(str, "-", placeholder.width - 1, 1));
+	if (placeholder.sign != 0)
+	{
+		if (placeholder.width == 0)
+			return (ft_stradd_front(str, ft_strlen(str) + 1, '-', placeholder.type.flag));
+		else if (placeholder.width != 0)
+			return (ft_strcat_front(str, "-", placeholder.width - 1, 1));
+	}
 	return (str);
 }
 

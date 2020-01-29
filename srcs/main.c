@@ -15,6 +15,35 @@
 
 int	main(void)
 {
+	printf("%3.7d", -2375);
+	printf("$\n");
+	ft_printf("%3.7d", -2375);
+	printf("$\n");
+	return (0);
+}
+
+/*ft_printf("% h");
+	printf("$\n");
+	//ft_printf("% ");
+	printf("$\n");
+	/*printf("%5+dxx", -42);
+	printf("$\n");
+	printf("%5+d", -42);
+	printf("$\n");
+	printf("%5+   ");
+	printf("$\n");
+	printf("%+5 kekeriki");
+	printf("$\n");
+	printf("%+5");
+	printf("$\n");
+	printf("%jzd", 4);
+
+	printf("{%*3d}\n", 5, 0);
+	ft_printf("{%*3d}", 5, 0);
+
+	printf("%05c\n", 42);
+	ft_printf("%05c", 42);
+	/*
 	printf("%010s is a string\n", "this");
 	ft_printf("%010s is a string", "this");
 /*	long double nan = 0.0 / 0.0;
@@ -229,6 +258,7 @@ int	main(void)
 	ft_printf("kekeke\n");
 	ft_printf("this is char: %c\n", 'g');
 	ft_printf("this is int: %d\n", 2568);
-*/
+*
 	return (0);
 }
+*/
