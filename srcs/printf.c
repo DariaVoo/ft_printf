@@ -110,7 +110,7 @@ char			*to_str_logic(t_placeholder place, va_list ap)
 	if (place.precision != -1)
 		ans = get_precision(&place, ans);
 	//flags
-	ans = get_flags(place, ans);
+	ans = get_flags(place, ans);//here
 	//width and set sign
 	ans = get_width(place, ans);
 	return (ans);

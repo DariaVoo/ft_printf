@@ -36,7 +36,8 @@ char	*get_sign(t_placeholder placeholder, char *str)
 {
 	if (placeholder.sign != 0)
 	{
-		if (placeholder.width == 0 || placeholder.precision >= placeholder.width)
+		if (placeholder.width == 0 ||
+			(placeholder.precision >= placeholder.width && placeholder.width != 0))
 			return (ft_stradd_front(str, ft_strlen(str) + 1, '-', placeholder.type.flag));
 		else if (placeholder.width != 0)
 			return (ft_strcat_front(str, "-", placeholder.width - 1, 1));

@@ -71,10 +71,11 @@ char *get_precision(t_placeholder *place, char *ans)
 	}
 	else if ((place->type.flag == 'd' || place->type.flag == 'i' || place->type.flag == 'o'
 			  || place->type.flag == 'u' || place->type.flag == 'x' || place->type.flag == 'X')
-			 && (place->precision > 0 && (size_t)place->precision > ft_strlen(ans) && *ans != '\0'))
+			 && (place->precision > 0 && *ans != '\0'))
 	{
 		place->flags &= ~FLG_ZERO;
-		ans = ft_stradd_front(ans, place->precision, '0', place->type.flag);
+		if ((size_t)place->precision > ft_strlen(ans))
+			ans = ft_stradd_front(ans, place->precision, '0', place->type.flag);
 	}
 	else if (place->type.flag == 's' && place->precision >= 0)
 		ans = ft_strcut(ans, ft_strlen(ans) - place->precision);
