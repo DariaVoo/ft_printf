@@ -79,6 +79,6 @@ char *get_precision(t_placeholder *place, char *ans)
 			ans = ft_stradd_front(ans, place->precision, '0', place->type.flag);
 	}
 	else if (place->type.flag == 's' && place->precision >= 0)
-		ans = ft_strcut(ans, ft_strlen(ans) - place->precision);
+		ans = ft_strcut(ans, place->precision);
 	return (ans);
 }

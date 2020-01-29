@@ -15,15 +15,12 @@
 
 int	main(void)
 {
-	printf("%+.0d", 0);
+	printf("%.3s%.2s", "holla", "bitch");
 	printf("$\n");
-	ft_printf("%+.0d", 0);
+	ft_printf("%.3s%.2s", "holla", "bitch");
 	printf("$\n\n");
 
-	printf("%+5.0d", 0);
-	printf("$\n");
-	ft_printf("%+5.0d", 0);
-	printf("$\n\n");
+
 	return (0);
 }
 
