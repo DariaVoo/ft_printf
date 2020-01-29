@@ -15,20 +15,14 @@
 
 int	main(void)
 {
-	printf("% -3d", 0);
+	printf("%+.0d", 0);
 	printf("$\n");
-	ft_printf("% -3d", 0);
+	ft_printf("%+.0d", 0);
 	printf("$\n\n");
 
-	printf("% -8.5d", 34);
+	printf("%+5.0d", 0);
 	printf("$\n");
-	ft_printf("% -8.5d", 34);
-	printf("$\n\n");
-
-
-	printf("% -8.5d", -34);
-	printf("$\n");
-	ft_printf("% -8.5d", -34);
+	ft_printf("%+5.0d", 0);
 	printf("$\n\n");
 	return (0);
 }
