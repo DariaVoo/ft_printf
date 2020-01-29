@@ -16,9 +16,9 @@
 int	main(void)
 {
 
-	printf("%-5d", -42);
+	printf("%3.3d", -8462);
 	printf("$\n");
-	ft_printf("%-5d", -42);
+	ft_printf("%3.3d", -8462);
 	printf("$\n\n");
 
 	printf("%3.7d", -2375);
