@@ -80,13 +80,13 @@ char	*flags_hash(char *str, t_placeholder place)
 			return (ft_strcat_front(str, "0", place.width - 1, 1));
 	else if (place.type.flag == 'x' && !only_zero(str))
 	{
-		if (place.width != 0 && (place.flags & FLG_MINUS) != 0)
+		if ((place.flags & FLG_MINUS) != 0 && place.width == (int)ft_strlen(str))
 			str = ft_strcat_front(str, "0x", place.width - 1, 2);
 		else if ((place.flags & FLG_ZERO) == 0)
 			str = ft_stradd_front(str, ft_strlen(str) + 2, '0', place.type.flag);
 		str[1] = 'x';
 	}
-	else if (place.type.flag == 'X')
+	else if (place.type.flag == 'X' && !only_zero(str))
 	{
 		if (place.width != 0)
 			str = ft_strcat_front(str, "0X", place.width - 1, 2);

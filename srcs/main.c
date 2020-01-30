@@ -15,9 +15,9 @@
 
 int	main(void)
 {
-	printf("%#.3x", 0);
+	printf("%#-5x", 52625);
 	printf("$\n");
-	ft_printf("%#.3x", 0);
+	ft_printf("%#-5x", 52625);
 	printf("$\n\n");
 
 	return (0);
