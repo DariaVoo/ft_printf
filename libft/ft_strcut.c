@@ -19,7 +19,7 @@ char		*ft_strcut(char *dest, size_t len_res)
 
 	i = 0;
 	if (len_res == ft_strlen(dest))
-		return (ft_strnew(1));
+		return (dest);
 	if (!dest || !(ans = ft_strnew(len_res)))
 		return (NULL);
 	while (i < len_res)

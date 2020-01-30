@@ -15,9 +15,9 @@
 
 int	main(void)
 {
-	printf("%-4d", -2464);
+	printf("%3.6s", NULL);
 	printf("$\n");
-	ft_printf("%-4d", -2464);
+	ft_printf("%3.6s", NULL);
 	printf("$\n\n");
 
 	return (0);
