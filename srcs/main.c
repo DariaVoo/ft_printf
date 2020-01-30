@@ -15,9 +15,9 @@
 
 int	main(void)
 {
-	printf("%3.6s", NULL);
+	printf("%#.3x", 0);
 	printf("$\n");
-	ft_printf("%3.6s", NULL);
+	ft_printf("%#.3x", 0);
 	printf("$\n\n");
 
 	return (0);

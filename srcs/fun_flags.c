@@ -53,6 +53,20 @@ char	*flags_zero(char *str, t_placeholder place)
 		return (str);
 }
 
+int		only_zero(char *str)
+{
+	size_t i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] != '0')
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
 char	*flags_hash(char *str, t_placeholder place)
 {
 	if (*str == '0' && *(str + 1) == '\0')
@@ -64,7 +78,7 @@ char	*flags_hash(char *str, t_placeholder place)
 			return (ft_stradd_front(str, ft_strlen(str) + 1, '0', place.type.flag));
 		else
 			return (ft_strcat_front(str, "0", place.width - 1, 1));
-	else if (place.type.flag == 'x')
+	else if (place.type.flag == 'x' && !only_zero(str))
 	{
 		if (place.width != 0 && (place.flags & FLG_MINUS) != 0)
 			str = ft_strcat_front(str, "0x", place.width - 1, 2);
