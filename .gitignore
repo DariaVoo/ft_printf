@@ -5,3 +5,4 @@ cmake-build-debug
 *.a
 objects
 out
+pft/

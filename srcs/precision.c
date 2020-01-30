@@ -67,7 +67,8 @@ char *get_precision(t_placeholder *place, char *ans)
 	{
 		free(ans);
 		place->flags &= ~FLG_HASH;//вроде как убирается только хеш
-		//place->flags &= FLG_NULL; так было
+		if (place->type.flag == '%')
+			place->flags &= FLG_NULL;
 		return (ft_strnew(1));
 	}
 	else if ((place->type.flag == 'd' || place->type.flag == 'i' || place->type.flag == 'o'

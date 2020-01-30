@@ -100,8 +100,6 @@ char			*to_str_logic(t_placeholder place, va_list ap)
 
 	ans = NULL;
 	//type
-	if (place.type.flag == '%')
-		return (place.type.fun(ap));
 	if (place.type.flag != 'm' && place.length.flag[0] == 'm')
 		ans = check_flag(place.type.fun(ap), &place);
 	else if (place.length.fun != NULL)
