@@ -32,14 +32,28 @@ int	set_type(t_placeholder *placeholder, const char *format)
 	return (0);
 }
 
+int 	check_spaceback(char *str)
+{
+	size_t i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] == ' ')
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
 char	*get_sign(t_placeholder placeholder, char *str)
 {
 	if (placeholder.sign != 0)
 	{
-		if (placeholder.width == 0 ||
+		if (placeholder.width == 0 || !check_spaceback(str) ||
 			(placeholder.precision >= placeholder.width && placeholder.width != 0))
 			return (ft_stradd_front(str, ft_strlen(str) + 1, '-', placeholder.type.flag));
-		else if (placeholder.width != 0)
+		else
 			return (ft_strcat_front(str, "-", placeholder.width - 1, 1));
 	}
 	return (str);
