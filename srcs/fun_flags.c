@@ -74,7 +74,7 @@ char	*flags_hash(char *str, t_placeholder place)
 	if (*str == '0' && *(str + 1) == '\0' && place.width < 1)
 		return (str);
 	if (place.type.flag == 'o')
-	{
+	{//FAIL
 		if (place.precision > place.width)
 			return (str);
 		if (only_zero(str) && place.precision != -1)

@@ -15,9 +15,14 @@
 
 int	main(void)
 {
-	printf("%#-8.5o", 0);
+	printf("%#08.5o", 34);
 	printf("$\n");
-	ft_printf("%#-8.5o", 0);
+	ft_printf("%#08.5o", 34);
+	printf("$\n\n");
+
+	printf("%#-3o", 0);
+	printf("$\n");
+	ft_printf("%#-3o", 0);
 	printf("$\n\n");
 	return (0);
 }
