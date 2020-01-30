@@ -86,9 +86,7 @@ char	*flags_hash(char *str, t_placeholder place)
 	}
 	else if (place.type.flag == 'X' && !only_zero(str))
 	{
-		if (place.width != 0 && place.width == (int)ft_strlen(str))
-			str = ft_strcat_front(str, "0X", place.width - 1, 2);
-		else if ((place.flags & FLG_ZERO) == 0)
+		if ((place.flags & FLG_ZERO) == 0 || str[0] != '0')
 			str = ft_stradd_front(str, ft_strlen(str) + 2, '0', place.type.flag);
 		str[1] = 'X';
 	}
