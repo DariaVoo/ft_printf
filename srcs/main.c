@@ -15,9 +15,9 @@
 
 int	main(void)
 {
-	printf("%.3s%.2s", "holla", "bitch");
+	printf("%#-3o", 0);
 	printf("$\n");
-	ft_printf("%.3s%.2s", "holla", "bitch");
+	ft_printf("%#-3o", 0);
 	printf("$\n\n");
 
 
