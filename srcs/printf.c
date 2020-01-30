@@ -90,6 +90,8 @@ char	*get_width(t_placeholder place, char *ans)
 		else if ((size_t) place.width > ft_strlen(ans)
 				 && (place.flags & FLG_MINUS) == 0 && ((place.flags & FLG_ZERO) == 0 || place.type.flag == 's'))
 			ans = ft_stradd_front(ans, place.width, ' ', place.type.flag);
+		else if ((place.flags & FLG_ZERO) == FLG_ZERO && place.precision != -1)//like kostil
+			ans = ft_stradd_front(ans, place.width, ' ', place.type.flag);
 	}
 	return (ans);
 }

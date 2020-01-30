@@ -44,7 +44,9 @@ char	*flags_zero(char *str, t_placeholder place)
 	{
 		if (place.width == 0)
 			return (str);
-		if (place.sign == 0 && (place.flags & FLG_SPACE) == 0 && (place.flags & FLG_PLUS) == 0)
+		if (place.precision != -1)//kostil
+			return (ft_stradd_front(str, place.precision, '0', place.type.flag));
+		else if (place.sign == 0 && (place.flags & FLG_SPACE) == 0 && (place.flags & FLG_PLUS) == 0)
 			return (ft_stradd_front(str, place.width, '0', place.type.flag));
 		else
 			return (ft_stradd_front(str, place.width - 1, '0', place.type.flag));
@@ -71,13 +73,13 @@ char	*flags_hash(char *str, t_placeholder place)
 {
 	if (*str == '0' && *(str + 1) == '\0')
 		return (str);
-	if (place.type.flag == 'o')
+	if (place.type.flag == 'o' && !only_zero(str))
+	{
 		if (place.precision > place.width)
 			return (str);
-		else if (place.width == 0)
-			return (ft_stradd_front(str, ft_strlen(str) + 1, '0', place.type.flag));
 		else
-			return (ft_strcat_front(str, "0", place.width - 1, 1));
+			return (ft_stradd_front(str, ft_strlen(str) + 1, '0', place.type.flag));
+	}
 	else if (place.type.flag == 'x' && !only_zero(str))
 	{
 		if ((place.flags & FLG_ZERO) == 0 || str[0] != '0')

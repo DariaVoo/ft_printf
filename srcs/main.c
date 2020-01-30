@@ -15,11 +15,10 @@
 
 int	main(void)
 {
-	printf("%#03x", 698334);
+	printf("%#-8.5o", 0);
 	printf("$\n");
-	ft_printf("%#03x", 698334);
+	ft_printf("%#-8.5o", 0);
 	printf("$\n\n");
-
 	return (0);
 }
 

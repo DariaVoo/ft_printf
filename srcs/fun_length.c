@@ -66,7 +66,7 @@ char	*length_hh(va_list ap, char typeflag)
 	if (typeflag == 'u')
 		return (ft_itoabase((unsigned char)va_arg(ap, unsigned int), 10));
 	else if (typeflag == 'o')
-		return (ft_itoabase((signed char)va_arg(ap, unsigned int), 8));
+		return (ft_itoabase((unsigned char)va_arg(ap, unsigned int), 8));
 	else if (typeflag == 'x')
 		return (ft_itoahex((unsigned char)va_arg(ap, unsigned int), 'l'));
 	else if (typeflag == 'X')
