@@ -75,7 +75,7 @@ char *get_precision(t_placeholder *place, char *ans)
 			  || place->type.flag == 'u' || place->type.flag == 'x' || place->type.flag == 'X')
 			 && (place->precision > 0 && *ans != '\0'))
 	{
-		place->flags &= ~FLG_ZERO;
+		//place->flags &= ~FLG_ZERO;
 		if ((size_t)place->precision > ft_strlen(ans))
 			ans = ft_stradd_front(ans, place->precision, '0', place->type.flag);
 	}

@@ -74,13 +74,14 @@ char	*flags_hash(char *str, t_placeholder place)
 	if (*str == '0' && *(str + 1) == '\0' && place.width < 1)
 		return (str);
 	if (place.type.flag == 'o')
-	{//FAIL
-		if (place.precision > place.width)
+	{
+		if ((place.precision > place.width && place.width != 0) || (place.flags & FLG_ZERO) == FLG_ZERO
+			|| (place.precision == (int)ft_strlen(str) && str[0] == '0'))
 			return (str);
 		if (only_zero(str) && place.precision != -1)
 			return (ft_stradd_front(str, place.precision, '0', place.type.flag));
-		else if ((place.flags & FLG_ZERO) == 0)
-			return (ft_stradd_front(str, ft_strlen(str) + 1, '0', place.type.flag));
+		else
+				return (ft_stradd_front(str, ft_strlen(str) + 1, '0', place.type.flag));
 	}
 	else if (place.type.flag == 'x' && !only_zero(str))
 	{
