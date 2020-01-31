@@ -15,11 +15,6 @@
 
 int	main(void)
 {
-	printf("{%*d}", -5, 42);
-	printf("$\n");
-	ft_printf("{%*d}", -5, 42);
-	printf("$\n\n");
-
 	printf("{%*3d}", 5, 0);
 	printf("$\n");
 	ft_printf("{%*3d}", 5, 0);

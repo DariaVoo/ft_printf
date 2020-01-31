@@ -102,7 +102,9 @@ int	set_width(t_placeholder *placeholder, const char *format, va_list ap)
 {
 	int w;
 	int k;
+	int star;
 
+	k = 0;
 	if (*format == '*')
 	{
 		if (*(format + 1) == '.')
@@ -117,11 +119,14 @@ int	set_width(t_placeholder *placeholder, const char *format, va_list ap)
 			else
 				placeholder->width = w;
 		}
-		return (1);
+		if (!ft_isdigit(*(format + 1)))
+			return (1);
+		else
+			k += 1;
+		format++;
 	}
 	if ((w = ft_atoi(format)) > 0)
 	{
-		k = 0;
 		placeholder->width = w;
 		while (w > 0)
 		{
