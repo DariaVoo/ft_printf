@@ -89,7 +89,8 @@ char	*flags_hash(char *str, t_placeholder place)
 	if (place.type.flag == 'o')
 	{
 		if ((place.flags & FLG_ZERO) == FLG_ZERO
-			&& (place.width < (int)ft_strlen(str) && place.width >= place.precision))
+			&& ((place.width <= (int)ft_strlen(str) && str[0] != '0' && place.width >= place.precision)
+			|| (str[0] != '0' && place.width > (int)ft_strlen(str))))
 			return (ft_stradd_front(str, ft_strlen(str) + 1, '0', place.type.flag));
 		if ((place.precision > place.width && place.width != 0) || (place.flags & FLG_ZERO) == FLG_ZERO
 			|| (place.precision == (int)ft_strlen(str) && str[0] == '0')
