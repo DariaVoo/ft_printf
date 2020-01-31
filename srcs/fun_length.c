@@ -26,7 +26,7 @@ char	*length_l(va_list ap, char typeflag)
 		return (ft_itoahex(va_arg(ap, unsigned long int), 'l'));
 	else if (typeflag == 'X')
 		return (ft_itoahex(va_arg(ap, unsigned long int), 'u'));
-	return (NULL);
+	return (ft_strnew(1));
 }
 
 char	*length_ll(va_list ap, char typeflag)
@@ -41,7 +41,7 @@ char	*length_ll(va_list ap, char typeflag)
 		return (ft_itoahex(va_arg(ap, unsigned long long int), 'l'));
 	else if (typeflag == 'X')
 		return (ft_itoahex(va_arg(ap, unsigned long long int), 'u'));
-	return (NULL);
+	return (ft_strnew(1));
 }
 
 char	*length_h(va_list ap, char typeflag)
@@ -56,7 +56,7 @@ char	*length_h(va_list ap, char typeflag)
 		return (ft_itoahex((unsigned short)va_arg(ap, unsigned int), 'l'));
 	else if (typeflag == 'X')
 		return (ft_itoahex((unsigned short)va_arg(ap, unsigned int), 'u'));
-	return (NULL);
+	return (ft_strnew(1));
 }
 
 char	*length_hh(va_list ap, char typeflag)
@@ -71,7 +71,7 @@ char	*length_hh(va_list ap, char typeflag)
 		return (ft_itoahex((unsigned char)va_arg(ap, unsigned int), 'l'));
 	else if (typeflag == 'X')
 		return (ft_itoahex((unsigned char)va_arg(ap, unsigned int), 'u'));
-	return (NULL);
+	return (ft_strnew(1));
 }
 
 char	*length_L(va_list ap, char typeflag)
@@ -113,7 +113,7 @@ char	*length_z(va_list ap, char typeflag)
 		return (ft_itoahex(va_arg(ap, size_t), 'l'));
 	else if (typeflag == 'X')
 		return (ft_itoahex(va_arg(ap, size_t), 'u'));
-	return (NULL);
+	return (ft_strnew(1));
 }
 
 char	*length_j(va_list ap, char typeflag)
@@ -128,5 +128,5 @@ char	*length_j(va_list ap, char typeflag)
 		return (ft_itoahex(va_arg(ap, intmax_t), 'l'));
 	else if (typeflag == 'X')
 		return (ft_itoahex(va_arg(ap, intmax_t), 'u'));
-	return (NULL);
+	return (ft_strnew(1));
 }
