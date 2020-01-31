@@ -115,16 +115,17 @@ char	*ft_p(va_list ap)
 	char *str;
 
 	str = ft_itoahex((unsigned long long)va_arg(ap, void *), 'l');
-	if (*str == '0')
-	{
-		free(str);
-		str = ft_strnew(5);
-		str = ft_strcpy(str, "(nil)\0");
-	}
-	else
-	{
-		str = ft_stradd_front(str, ft_strlen(str) + 2, '0', 'p');
-		str[1] = 'x';
-	}
+	/*
+	 * LINUX
+	 * if (*str == '0')
+	 * {
+	 * free(str);
+	 * str = ft_strnew(5);
+	 * str = ft_strcpy(str, "(nil)\0");
+	 * }
+	 * else
+	{*/
+	str = ft_stradd_front(str, ft_strlen(str) + 2, '0', 'p');
+	str[1] = 'x';
 	return (str);
 }

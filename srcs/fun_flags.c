@@ -14,6 +14,8 @@
 
 char 	*flags_minus(char *str, t_placeholder place)
 {
+	if (*str == '\0' && place.type.flag == 'c')
+		return (str);
 	return (ft_stradd_back(str, place.width, ' ', place.type.flag));
 }
 
