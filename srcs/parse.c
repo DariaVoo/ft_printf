@@ -102,20 +102,20 @@ int	set_width(t_placeholder *placeholder, const char *format, va_list ap)
 {
 	int w;
 	int k;
-	int star;
 
 	k = 0;
 	if (*format == '*')
 	{
-		if (*(format + 1) == '.')
-			placeholder->precision = va_arg(ap, int);
-		else
+		if ((w = va_arg(ap, int)) < 0)
 		{
-			if ((w = va_arg(ap, int)) < 0)
-			{
+		//	placeholder->flags |= FLG_MINUS;
+			if (*(format + 1) == '.')
+				placeholder->precision = w * (-1);
+			else
 				placeholder->width = w * (-1);
-				placeholder->flags |= FLG_MINUS;
-			}
+		} else {
+			if (*(format + 1) == '.')
+				placeholder->precision = w;
 			else
 				placeholder->width = w;
 		}
@@ -150,15 +150,13 @@ int	set_precision(t_placeholder *placeholder, const char *format, va_list ap)
 		format++;
 		if (*format == '*')
 		{
-			placeholder->precision = va_arg(ap, int);
-			p = placeholder->precision;
-			while (p > 0)
+			if ((p = va_arg(ap, int)) < 0)
 			{
-				p /= 10;
-				k++;
+			//	placeholder->flags |= FLG_MINUS;
+				p *= -1;
 			}
-			if (p == 0 && *format == '0')
-				k++;
+			placeholder->precision = p;
+			k++;
 		}
 		else if ((p = ft_atoi(format)) >= 0)
 		{

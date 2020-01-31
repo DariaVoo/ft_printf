@@ -15,14 +15,14 @@
 
 int	main(void)
 {
-	printf("{%*3d}", 5, 0);
+	printf("{%05.*d}", -15, 42);
 	printf("$\n");
-	ft_printf("{%*3d}", 5, 0);
+	ft_printf("{%05.*d}", -15, 42);
 	printf("$\n\n");
 
-	printf("%");
+	printf("{%*c}", -15, 0);
 	printf("$\n");
-	ft_printf("%");
+	ft_printf("{%*c}", -15, 0);
 	printf("$\n\n");
 	return (0);
 }
