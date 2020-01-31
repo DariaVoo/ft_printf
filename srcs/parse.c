@@ -105,10 +105,18 @@ int	set_width(t_placeholder *placeholder, const char *format, va_list ap)
 
 	if (*format == '*')
 	{
-		if (*(format + 1) != '.')
-			placeholder->width = va_arg(ap, int);
-		else
+		if (*(format + 1) == '.')
 			placeholder->precision = va_arg(ap, int);
+		else
+		{
+			if ((w = va_arg(ap, int)) < 0)
+			{
+				placeholder->width = w * (-1);
+				placeholder->flags |= FLG_MINUS;
+			}
+			else
+				placeholder->width = w;
+		}
 		return (1);
 	}
 	if ((w = ft_atoi(format)) > 0)
