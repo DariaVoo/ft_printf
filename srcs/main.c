@@ -15,9 +15,9 @@
 
 int	main(void)
 {
-	printf("%5p", 0);
+	printf("%05%");
 	printf("$\n");
-	ft_printf("%5p", 0);
+	ft_printf("%05%");
 	printf("$\n\n");
 
 	printf("%p", NULL);

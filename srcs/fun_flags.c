@@ -41,7 +41,7 @@ char	*flags_space(char *str, t_placeholder place)
 
 char	*flags_zero(char *str, t_placeholder place)
 {
-	if (place.type.flag == 'd' || place.type.flag == 'i' || place.type.flag == 'o'
+	if (place.type.flag == 'd' || place.type.flag == 'i' || place.type.flag == 'o' || place.type.flag == '%'
 			|| place.type.flag == 'u' || place.type.flag == 'x' || place.type.flag == 'X')
 	{
 		if (place.width == 0)
