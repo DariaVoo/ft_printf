@@ -60,8 +60,8 @@ char			*check_flag(char *str, t_placeholder *place)
 {
 	if (place->type.flag == 'c' && *str != '\0')
 		place->flags &= ~FLG_ZERO;
-	//if (*str == '\0' && place->type.flag == 'c')
-	//	place->flags &= FLG_NULL;
+	if (*str == '\0' && place->type.flag == 'c')
+		place->flags &= ~(FLG_SPACE | FLG_MINUS);
 	else if (place->type.flag == 'f' && (*str == 'n' || *str == 'i'
 			|| *(str + 1) == 'i' || *(str + 1) == 'n'))
 	{

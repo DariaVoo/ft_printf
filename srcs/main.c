@@ -15,16 +15,25 @@
 
 int	main(void)
 {
-	printf("%05%");
+	printf("%");
 	printf("$\n");
-	ft_printf("%05%");
+	ft_printf("%");
 	printf("$\n\n");
 
-	printf("%p", NULL);
+	printf("%.0p, %.p", 0, 0);
 	printf("$\n");
-	ft_printf("%p", NULL);
+	ft_printf("%.0p, %.p", 0, 0);
 	printf("$\n\n");
 
+	printf("{%*d}", -5, 42);
+	printf("$\n");
+	ft_printf("{%*d}", -5, 42);
+	printf("$\n\n");
+
+	printf("{%*3d}", 5, 0);
+	printf("$\n");
+	ft_printf("{%*3d}", 5, 0);
+	printf("$\n\n");
 	return (0);
 }
 
