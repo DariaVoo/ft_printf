@@ -64,7 +64,12 @@ char *get_precision(t_placeholder *place, char *ans)
 	if (place->type.flag == 'f')
 		return (get_precision_float(place, ans));
 	if (place->type.flag == 'p' && ans[2] == '0')
-		ans = ft_strcut(ans, 2);
+	{
+		if (place->precision == 0)
+			ans = ft_strcut(ans, 2);
+		else
+			ans = ft_stradd_back(ans, place->precision + 2, '0', place->type.flag);
+	}
 	else if (place->precision == 0 && *ans == '0')
 	{
 		free(ans);
