@@ -61,7 +61,7 @@ char			*check_flag(char *str, t_placeholder *place)
 	if (place->type.flag == 'c' && *str != '\0')
 		place->flags &= ~FLG_ZERO;
 	if (*str == '\0' && place->type.flag == 'c')
-		place->flags &= ~(FLG_SPACE | FLG_MINUS);
+		place->flags &= ~(FLG_SPACE | FLG_PLUS);
 	else if (place->type.flag == 'f' && (*str == 'n' || *str == 'i'
 			|| *(str + 1) == 'i' || *(str + 1) == 'n'))
 	{
@@ -79,6 +79,8 @@ char			*check_flag(char *str, t_placeholder *place)
 
 char	*get_width(t_placeholder place, char *ans)
 {
+	if (place.type.flag == 'c' && ans[0] == '\0' && (place.flags &= FLG_MINUS) == FLG_MINUS)
+		return (ans);
 	//set sign
 	if ((place.flags & FLG_PLUS) == 0 && (place.flags & FLG_SPACE) == 0)
 		ans = get_sign(place, ans);

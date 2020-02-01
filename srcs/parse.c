@@ -108,7 +108,7 @@ int	set_width(t_placeholder *placeholder, const char *format, va_list ap)
 	{
 		if ((w = va_arg(ap, int)) < 0)
 		{
-		//	placeholder->flags |= FLG_MINUS;
+			placeholder->flags |= FLG_MINUS;
 			if (*(format + 1) == '.')
 				placeholder->precision = w * (-1);
 			else
@@ -153,7 +153,9 @@ int	set_precision(t_placeholder *placeholder, const char *format, va_list ap)
 			if ((p = va_arg(ap, int)) < 0)
 			{
 			//	placeholder->flags |= FLG_MINUS;
-				p *= -1;
+				//p *= -1;
+				if (placeholder->width != 0)
+					p = placeholder->width;
 			}
 			placeholder->precision = p;
 			k++;

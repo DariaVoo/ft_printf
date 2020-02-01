@@ -15,19 +15,19 @@
 
 int	main(void)
 {
-	printf("%d",printf("%"));
+	printf("{%*c}", -15, 0);
 	printf("$\n");
-	printf("%d", ft_printf("%"));
+	ft_printf("{%*c}", -15, 0);
+	printf("$\n\n");
+
+	printf("%d",printf("{%*d}", -5, 42));
+	printf("$\n");
+	printf("%d", ft_printf("{%*d}", -5, 42));
 	printf("$\n\n");
 
 	printf("{%05.*d}", -15, 42);
 	printf("$\n");
 	ft_printf("{%05.*d}", -15, 42);
-	printf("$\n\n");
-
-	printf("{%*c}", -15, 0);
-	printf("$\n");
-	ft_printf("{%*c}", -15, 0);
 	printf("$\n\n");
 	return (0);
 }
@@ -36,7 +36,8 @@ int	main(void)
 	printf("$\n");
 	//ft_printf("% ");
 	printf("$\n");
-	/*printf("%5+dxx", -42);
+
+	*printf("%5+dxx", -42);
 	printf("$\n");
 	printf("%5+d", -42);
 	printf("$\n");
@@ -53,10 +54,10 @@ int	main(void)
 
 	printf("%05c\n", 42);
 	ft_printf("%05c", 42);
-	/*
+
 	printf("%010s is a string\n", "this");
 	ft_printf("%010s is a string", "this");
-/*	long double nan = 0.0 / 0.0;
+	long double nan = 0.0 / 0.0;
 
 	printf("%Lf\n", 0.0 / 0.0);//втф
 	ft_printf("%Lf\n", 0.0 / 0.0);
@@ -81,10 +82,10 @@ int	main(void)
 	double a = 20;
 	printf("%.0f\n", a);
 	ft_printf("%.0f\n", a);
-	/*
+
 	printf("{%*3d}\n", 5, 0);
 	ft_printf("{%*3d}\n", 5, 0);
-	/*
+
 	printf("%*.*d\n", 0, 3, 0);
 	ft_printf("%*.*d\n", 0, 3, 0);
 	printf("%#.3o\n", 1);
@@ -117,7 +118,7 @@ int	main(void)
 	//ft_printf("@moulitest: %#.d$ %#.0d$\n\n", 0, 0);
 	//ft_printf("%5.0x$\n", 0);
 	//ft_printf("%c", 0);
-	/*
+
 	printf("%-5.2s is a string\n", "");
 	ft_printf("%-5.2s is a string\n", "");
 
@@ -258,7 +259,7 @@ int	main(void)
 	ft_printf("16 lX: %lX\n", lui);
 	ft_printf("8 lo: %lo\n", lui);
 
-	/**easy test
+	**easy test
 	ft_printf("kekeke\n");
 	ft_printf("10 u: %u\n", ui);
 	ft_printf("16 x: %x\n", ui);
