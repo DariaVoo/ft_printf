@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   colors.h                                           :+:      :+:    :+:   */
+/*   ft_strtolower.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: snorcros <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/06 15:02:09 by snorcros          #+#    #+#             */
-/*   Updated: 2019/10/06 15:02:13 by snorcros         ###   ########.fr       */
+/*   Created: 2020/02/01 18:10:26 by snorcros          #+#    #+#             */
+/*   Updated: 2020/02/01 18:13:07 by snorcros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COLORS_H
-# define COLORS_H
+#include "libft.h"
 
-# define BLACK "\033[30;1m"
-# define PURPLE "\033[36;1m"
-# define RED "\033[31;1m"
-# define GREEN "\033[32;1m"
-# define YELLOW "\033[33;1m"
-# define BLUE "\033[34;1m"
-# define MAGENTA "\033[35;1m"
-# define CYAN "\033[36;1m"
-# define WHITE "\033[37;1m"
-# define EOC "\033[6;0m"
-
-typedef struct s_color
+char	*ft_strtolower(char *str)
 {
-	char *color_name;
-	char *macros;
-}				t_color;
-#endif
+	size_t i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		str[i] = ft_tolower(str[i]);
+		i++;
+	}
+	return (str);
+}

@@ -17,6 +17,7 @@ t_funtype		types[] =
 		{'b', ft_b},
 		{'p', ft_p},
 		{'f', ft_f},
+		{'C', ft_C},
 		{'m', NULL}
 };
 
@@ -32,7 +33,6 @@ t_funlenght		lengths[] =
 		{"m", NULL}
 };
 
-
 t_funflags		flags[] =
 {
 		{ FLG_ZERO,'0', flags_zero},
@@ -42,4 +42,21 @@ t_funflags		flags[] =
 		{ FLG_MINUS, '-', flags_minus},
 		{ FLG_NULL, 'm', NULL}
 };
+
+/*
+t_color 		colors[] =
+		{
+				{"black", BLACK},
+				{"purple", PURPLE},
+				{"red", RED},
+				{"green", GREEN},
+				{"yellow", YELLOW},
+				{"blue", BLUE},
+				{"magenta", MAGENTA},
+				{"cyan", CYAN},
+				{"white", WHITE},
+				{"eoc", EOC},
+				{"zero", EOC},
+		};
+		*/
 #endif

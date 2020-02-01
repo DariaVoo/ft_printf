@@ -82,6 +82,7 @@ add_executable(ft_printf
         libft/ft_strstr.c
         libft/ft_strsub.c
         libft/ft_strtrim.c
+        libft/ft_strtolower.c
         libft/ft_swap_char.c
         libft/ft_swap_int.c
         libft/ft_tolower.c

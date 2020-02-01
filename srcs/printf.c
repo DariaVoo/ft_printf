@@ -74,6 +74,8 @@ char			*check_flag(char *str, t_placeholder *place)
 		place->sign = 1;
 		return (delete_sign(str));
 	}
+	else if (place->type.flag == 'C')
+		place->flags &= FLG_NULL;
 	return (str);
 }
 

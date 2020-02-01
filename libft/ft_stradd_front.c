@@ -6,13 +6,14 @@
 /*   By: snorcros <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/09 12:31:30 by snorcros          #+#    #+#             */
-/*   Updated: 2019/09/12 22:00:13 by snorcros         ###   ########.fr       */
+/*   Updated: 2020/02/01 18:15:41 by snorcros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_stradd_front(char *str, size_t len, char c, char type)
+char	*ft_stradd_front(char *str, size_t len,
+		char c, char type)
 {
 	char	*ans;
 	size_t	len_str;
@@ -24,7 +25,7 @@ char	*ft_stradd_front(char *str, size_t len, char c, char type)
 	ans = ft_memset(ans, c, len - len_str);
 	if (str)
 		ans = ft_strcat(ans, str);
-	if (type != 's' && type != 'c')//delete
+	if (type != 's' && type != 'c')
 		free(str);
 	return (ans);
 }

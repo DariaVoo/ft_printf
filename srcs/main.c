@@ -9,29 +9,17 @@
 /*   Updated: 2019/11/07 11:16:50 by snorcros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*
+
 #include "libftprintf.h"
 #include <stdio.h>
 
 int	main(void)
 {
-	printf("{%*c}", -15, 0);
-	printf("$\n");
-	ft_printf("{%*c}", -15, 0);
-	printf("$\n\n");
-
-	printf("%d",printf("{%*d}", -5, 42));
-	printf("$\n");
-	printf("%d", ft_printf("{%*d}", -5, 42));
-	printf("$\n\n");
-
-	printf("{%05.*d}", -15, 42);
-	printf("$\n");
-	ft_printf("{%05.*d}", -15, 42);
-	printf("$\n\n");
+	ft_printf("%C now is red %C ifs EOF %C is BLUE %C is green\n"
+		   "", "red", "eof", "blue", "green");
 	return (0);
 }
-*/
+
 /*ft_printf("% h");
 	printf("$\n");
 	//ft_printf("% ");
