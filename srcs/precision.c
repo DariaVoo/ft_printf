@@ -56,6 +56,8 @@ char *get_precision_float(t_placeholder *place, char *ans)
 	return (ft_strcut(ans, place->precision + count_digit));
 }
 
+
+
 char *get_precision(t_placeholder *place, char *ans)
 {
 	if (place->type.flag == 'c' || (place->type.flag == 'o' &&
@@ -63,12 +65,24 @@ char *get_precision(t_placeholder *place, char *ans)
 		return (ans);
 	if (place->type.flag == 'f')
 		return (get_precision_float(place, ans));
-	if (place->type.flag == 'p' && ans[2] == '0')
+	if (place->type.flag == 'p')
 	{
-		if (place->precision == 0)
-			ans = ft_strcut(ans, 2);
+		if (ans[2] == '0')
+		{
+			if (place->precision == 0)
+				ans = ft_strcut(ans, 2);
+			else
+				ans = ft_stradd_back(ans, place->precision + 2, '0', place->type.flag);
+		}
 		else
-			ans = ft_stradd_back(ans, place->precision + 2, '0', place->type.flag);
+		{
+			if ((size_t)place->precision > ft_strlen(ans) - 2)
+			{
+				ans[1] = '0';
+				ans = ft_stradd_front(ans, place->precision + 2, '0', place->type.flag);
+				ans[1] = 'x';
+			}
+		}
 	}
 	else if (place->precision == 0 && *ans == '0')
 	{

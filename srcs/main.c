@@ -9,7 +9,7 @@
 /*   Updated: 2019/11/07 11:16:50 by snorcros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
+/*
 #include "libftprintf.h"
 #include <stdio.h>
 
@@ -31,7 +31,7 @@ int	main(void)
 	printf("$\n\n");
 	return (0);
 }
-
+*/
 /*ft_printf("% h");
 	printf("$\n");
 	//ft_printf("% ");
