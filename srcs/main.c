@@ -15,9 +15,9 @@
 
 int	main(void)
 {
-	printf("%2.9p", 1234);
+	printf("%d",printf("%"));
 	printf("$\n");
-	ft_printf("%2.9p", 1234);
+	printf("%d", ft_printf("%"));
 	printf("$\n\n");
 
 	printf("{%05.*d}", -15, 42);

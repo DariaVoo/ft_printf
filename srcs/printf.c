@@ -164,6 +164,8 @@ int				ft_printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
+			if (*format == '\0')
+				return (0);
 			place = parse(ap, &format);
 			if (ft_strcmp(place.length.flag, "non") == 0)
 				return (place.width);
