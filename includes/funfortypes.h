@@ -17,7 +17,7 @@ t_funtype		types[] =
 		{'b', ft_b},
 		{'p', ft_p},
 		{'f', ft_f},
-		{'C', ft_C},
+		{'C', ft_colour},
 		{'m', NULL}
 };
 

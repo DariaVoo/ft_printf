@@ -6,13 +6,14 @@
 /*   By: snorcros <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/12 12:42:33 by snorcros          #+#    #+#             */
-/*   Updated: 2019/11/07 10:43:50 by snorcros         ###   ########.fr       */
+/*   Updated: 2020/02/01 20:19:36 by snorcros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-t_placeholder	check_place(t_placeholder *place, const char **format, int shamt)
+t_placeholder	check_place(t_placeholder *place,
+												const char **format, int shamt)
 {
 	int	count;
 
@@ -21,7 +22,7 @@ t_placeholder	check_place(t_placeholder *place, const char **format, int shamt)
 		count = shamt;
 		//count += write(1, "%", 1);
 		*format += count;
-		while (*(*format) != '\0') // && *(*format) != '%')
+		while (*(*format) != '\0')
 		{
 			count += ft_putchar(*(char *)*format);
 			*format += 1;
@@ -69,7 +70,8 @@ char			*check_flag(char *str, t_placeholder *place)
 		place->precision = 0;
 	}
 	else if (*str == '-' && place->type.flag != 's' && place->type.flag != 'f'
-		&& place->type.flag != 'c' && (place->flags != 0 || place->precision != -1))
+			&& place->type.flag != 'c' &&
+			(place->flags != 0 || place->precision != -1))
 	{
 		place->sign = 1;
 		return (delete_sign(str));
@@ -81,7 +83,8 @@ char			*check_flag(char *str, t_placeholder *place)
 
 char	*get_width(t_placeholder place, char *ans)
 {
-	if (place.type.flag == 'c' && ans[0] == '\0' && (place.flags &= FLG_MINUS) == FLG_MINUS)
+	if (place.type.flag == 'c' && ans[0] == '\0'
+								&& (place.flags &= FLG_MINUS) == FLG_MINUS)
 		return (ans);
 	//set sign
 	if ((place.flags & FLG_PLUS) == 0 && (place.flags & FLG_SPACE) == 0)
@@ -89,10 +92,12 @@ char	*get_width(t_placeholder place, char *ans)
 	//set width
 	if (place.width != 0)
 	{
-		if (ft_strlen(ans) == 0  && place.type.flag == 'c' && (place.flags &= FLG_MINUS) == 0)
+		if (ft_strlen(ans) == 0  && place.type.flag == 'c'
+											&& (place.flags &= FLG_MINUS) == 0)
 			ans = ft_stradd_front(ans, place.width - 1, ' ', place.type.flag);
 		else if ((size_t) place.width > ft_strlen(ans)
-				 && (place.flags & FLG_MINUS) == 0 && ((place.flags & FLG_ZERO) == 0 || place.type.flag == 's'))
+				 && (place.flags & FLG_MINUS) == 0 &&
+				 ((place.flags & FLG_ZERO) == 0 || place.type.flag == 's'))
 			ans = ft_stradd_front(ans, place.width, ' ', place.type.flag);
 		else if ((place.flags & FLG_ZERO) == FLG_ZERO && place.precision != -1)//like kostil
 			ans = ft_stradd_front(ans, place.width, ' ', place.type.flag);
@@ -137,7 +142,8 @@ int				print_this(t_placeholder place, char *str)
 	if (place.type.flag == 'c' && str[i] == '\0' &&
 		((i < place.width && place.width != 0) || *str == '\0'))
 		count += write(1, "\0", 1);
-	if (place.type.flag == 'c' && str[i] == '\0' && (place.flags &= FLG_MINUS) == FLG_MINUS)
+	if (place.type.flag == 'c' && str[i] == '\0'
+									&& (place.flags &= FLG_MINUS) == FLG_MINUS)
 	{
 		while (i < place.width - 1)
 		{
@@ -173,7 +179,8 @@ int				ft_printf(const char *format, ...)
 			place = parse(ap, &format);
 			if (ft_strcmp(place.length.flag, "non") == 0)
 				return (place.width);
-			else if (placeholder_isempty(place) || (place.type.flag == 'm' && place.length.flag[0] != 'm'))
+			else if (placeholder_isempty(place) || (place.type.flag == 'm'
+											&& place.length.flag[0] != 'm'))
 				return (-1);
 			else if (place.type.flag == 'm')
 				break ;

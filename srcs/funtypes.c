@@ -6,7 +6,7 @@
 /*   By: snorcros <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/17 17:14:01 by snorcros          #+#    #+#             */
-/*   Updated: 2019/12/07 14:36:20 by snorcros         ###   ########.fr       */
+/*   Updated: 2020/02/01 20:01:16 by snorcros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,11 +60,11 @@ char	*ft_s(va_list ap)
 	return (str);
 }
 
-char	*ft_C(va_list ap)
+char	*ft_colour(va_list ap)
 {
-	char 	*str;
-	char 	*buf;
-	size_t 	i;
+	char	*str;
+	char	*buf;
+	size_t	i;
 
 	i = 0;
 	buf = va_arg(ap, char *);
@@ -106,8 +106,8 @@ char	*ft_b(va_list ap)
 
 char	*ft_f(va_list ap)
 {
-	long double number;
-	char 		*str;
+	long double	number;
+	char		*str;
 
 	number =  va_arg(ap, double);
 	if (number != number)
@@ -135,15 +135,16 @@ char	*ft_p(va_list ap)
 
 	str = ft_itoahex((unsigned long long)va_arg(ap, void *), 'l');
 	/*
-	 * LINUX
-	 * if (*str == '0')
+	 ** LINUX
+	 **if (*str == '0')
 	 * {
 	 * free(str);
 	 * str = ft_strnew(5);
 	 * str = ft_strcpy(str, "(nil)\0");
 	 * }
 	 * else
-	{*/
+	 *
+	*/
 	str = ft_stradd_front(str, ft_strlen(str) + 2, '0', 'p');
 	str[1] = 'x';
 	return (str);

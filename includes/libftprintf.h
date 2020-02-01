@@ -55,7 +55,7 @@ typedef struct s_funflags
 
 int				ft_printf(const char *format, ...);
 
-t_placeholder	new_placeholder();
+t_placeholder	new_placeholder(void);
 int				placeholder_isempty(t_placeholder place);
 int				placeholder_isnotempty(t_placeholder place);
 char			*delete_sign(char *str);
@@ -83,7 +83,7 @@ char			*ft_u(va_list ap);
 char 			*ft_b(va_list ap);
 char			*ft_p(va_list ap);
 char			*ft_f(va_list ap);
-char			*ft_C(va_list ap);
+char			*ft_colour(va_list ap);
 char			*ft_percent(va_list ap);
 
 char			*length_l(va_list ap, char typeflag);

@@ -6,7 +6,7 @@
 /*   By: snorcros <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 14:35:38 by snorcros          #+#    #+#             */
-/*   Updated: 2019/12/07 14:35:43 by snorcros         ###   ########.fr       */
+/*   Updated: 2020/02/01 19:56:00 by snorcros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*length_l(va_list ap, char typeflag)
 {
-	if (typeflag == 'i' || typeflag == 'd')//error
+	if (typeflag == 'i' || typeflag == 'd')
 		return (ft_itoa_signed(va_arg(ap, long int), 10));
 	if (typeflag == 'u')
 		return (ft_itoabase(va_arg(ap, unsigned long int), 10));
@@ -31,7 +31,7 @@ char	*length_l(va_list ap, char typeflag)
 
 char	*length_ll(va_list ap, char typeflag)
 {
-	if (typeflag == 'i' || typeflag == 'd')//error
+	if (typeflag == 'i' || typeflag == 'd')
 		return (ft_itoa_signed(va_arg(ap, long int), 10));
 	if (typeflag == 'u')
 		return (ft_itoabase(va_arg(ap, unsigned long long int), 10));
@@ -76,20 +76,22 @@ char	*length_hh(va_list ap, char typeflag)
 
 char	*length_L(va_list ap, char typeflag)
 {
-	long double number;
-	char 		*str;
+	long double	number;
+	char		*str;
 
-	number =  va_arg(ap, long double);
-	if (typeflag == 'f') {
-		if (number != number) {
-
+	number = va_arg(ap, long double);
+	if (typeflag == 'f')
+	{
+		if (number != number)
+		{
 			str = ft_strnew(5);
 			if (number > 0)
 				return (ft_strcpy(str, "nan\0"));
 			else
 				return (ft_strcpy(str, "-nan\0"));
-
-		} else if (number != 0 && number * 10 == number) {
+		}
+		else if (number != 0 && number * 10 == number)
+		{
 			str = ft_strnew(5);
 			if (number > 0)
 				return (ft_strcpy(str, "inf\0"));
@@ -103,7 +105,7 @@ char	*length_L(va_list ap, char typeflag)
 
 char	*length_z(va_list ap, char typeflag)
 {
-	if (typeflag == 'i' || typeflag == 'd')//error
+	if (typeflag == 'i' || typeflag == 'd')
 		return (ft_itoa_signed(va_arg(ap, size_t), 10));
 	if (typeflag == 'u')
 		return (ft_itoabase(va_arg(ap, size_t), 10));
@@ -118,7 +120,7 @@ char	*length_z(va_list ap, char typeflag)
 
 char	*length_j(va_list ap, char typeflag)
 {
-	if (typeflag == 'i' || typeflag == 'd')//error
+	if (typeflag == 'i' || typeflag == 'd')
 		return (ft_itoa_signed(va_arg(ap, intmax_t), 10));
 	if (typeflag == 'u')
 		return (ft_itoabase(va_arg(ap, intmax_t), 10));
