@@ -16,6 +16,7 @@
 int	main(void)
 {
 	ft_printf("%Cnow is red %C ifs cYaN %C is BLUE %C is green\n", "red", "cYaN", "blue", "green");
+	ft_printf("%Cnow is  yellow %C ifs  %C is  %C is magenta\n", "YEllow", "black","white",  "magenta");
 	return (0);
 }
 

@@ -43,6 +43,4 @@ t_funflags		flags[] =
 		{ FLG_NULL, 'm', NULL}
 };
 
-
-
 #endif
