@@ -29,4 +29,19 @@ typedef struct s_color
 	char *color_name;
 	char *macros;
 }				t_color;
+
+t_color 		colors[] =
+		{
+				{"black", BLACK},
+				{"purple", PURPLE},
+				{"red", RED},
+				{"green", GREEN},
+				{"yellow", YELLOW},
+				{"blue", BLUE},
+				{"magenta", MAGENTA},
+				{"cyan", CYAN},
+				{"white", WHITE},
+				{"eoc", EOC},
+				{"zero", EOC},
+		};
 #endif

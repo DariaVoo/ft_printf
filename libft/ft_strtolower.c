@@ -14,12 +14,14 @@
 
 char	*ft_strtolower(char *str)
 {
-	size_t i;
+	char 	buf;
+	size_t	i;
 
 	i = 0;
 	while (str[i] != '\0')
 	{
-		str[i] = ft_tolower(str[i]);
+		buf = ft_tolower(str[i]);
+		str[i] = buf;
 		i++;
 	}
 	return (str);

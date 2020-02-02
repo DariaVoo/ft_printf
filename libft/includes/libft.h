@@ -22,6 +22,7 @@
 # define FD_MAX    10240
 
 char				*ft_strtolower(char *str);
+char				*ft_strcreate(char	*str);
 char				*ft_itoadouble(long double n);
 void				free_table(void **arr, int position);
 int					get_next_line(const int fd, char **line);

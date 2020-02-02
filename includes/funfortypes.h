@@ -43,20 +43,6 @@ t_funflags		flags[] =
 		{ FLG_NULL, 'm', NULL}
 };
 
-/*
-t_color 		colors[] =
-		{
-				{"black", BLACK},
-				{"purple", PURPLE},
-				{"red", RED},
-				{"green", GREEN},
-				{"yellow", YELLOW},
-				{"blue", BLUE},
-				{"magenta", MAGENTA},
-				{"cyan", CYAN},
-				{"white", WHITE},
-				{"eoc", EOC},
-				{"zero", EOC},
-		};
-		*/
+
+
 #endif

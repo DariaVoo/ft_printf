@@ -27,7 +27,7 @@ SRC = ft_atoi.c		ft_bzero.c		ft_memccpy.c	ft_memchr.c		ft_lstmerge.c\
 	  ft_qsort.c	ft_lstsize.c	ft_lstlast.c	ft_lsti.c		ft_lstreverse.c\
 	  free_table.c  ft_itoabase.c   ft_itoahex.c    ft_itoa_signed.c ft_itoadouble.c\
 	  ft_stradd_front.c ft_stradd_back.c    ft_strreplace.c ft_strcat_front.c ft_strcut.c\
-	  ft_strtolower.c
+	  ft_strtolower.c   ft_strcreate.c
 
 SRC0 = ft_atoi.o	ft_bzero.o		ft_memccpy.o	ft_memchr.o		ft_lstmerge.o\
 	  ft_memcmp.o	ft_memcpy.o		ft_memmove.o 	ft_memset.o		ft_lstremove_if.o\

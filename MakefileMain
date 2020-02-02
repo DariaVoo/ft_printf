@@ -11,11 +11,11 @@
 # **************************************************************************** #
 
 NAME = out 
-SRCS := srcs/*.c
+SRCS := main.c
 OBJS := *.o
 INClUDES := includes/
 CFLAGS = -Wall -Wextra -Werror
-LIB_FLAG := -L ./libft/libft.a 
+LIB_FLAG := -L ./ft_printf/ft_printf.a
 
 all: $(NAME)
 
@@ -23,18 +23,18 @@ $(NAME): lib $(OBJS)
 	gcc $(CFLAGS) -o $(NAME) $(OBJS) -I $(INCLUDES) $(LIB_FLAG)
 
 $(OBJS):
-	gcc $(CFLAGS) -c $(SRCS) -I includes/ -I libft/includes/
+	gcc $(CFLAGS) -c $(SRCS) -I includes/ -I ft_printf/includes/
 
 lib:
-	make -C libft
+	make -C ft_printf
 
 clean:
 	@rm -f $(OBJS)
-	@make -C libft clean
+	@make -C ft_printf clean
 
 fclean: clean
 	@rm -f $(NAME)
-	@make -C libft fclean
+	@make -C ft_printf fclean
 
 re: fclean $(NAME)
 

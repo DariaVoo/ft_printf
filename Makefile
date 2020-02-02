@@ -32,7 +32,7 @@ SRC_LIBFT_LST = ft_atoi.c		ft_bzero.c		ft_memccpy.c	ft_memchr.c		ft_lstmerge.c\
 		  ft_qsort.c	ft_lstsize.c	ft_lstlast.c	ft_lsti.c		ft_lstreverse.c\
 		  free_table.c  ft_itoabase.c   ft_itoahex.c    ft_itoa_signed.c ft_strcut.c\
 		  ft_stradd_front.c ft_stradd_back.c    ft_strreplace.c ft_strcat_front.c\
-		  ft_itoadouble.c ft_strtolower.c
+		  ft_itoadouble.c ft_strtolower.c   ft_strcreate.c
 
 LIBFT_DIR = libft/
 HEADER_LIBFT = $(LIBFT_DIR)includes
@@ -46,7 +46,7 @@ LIBFT_HEADERS = $(addprefix $(LIBFT_HEADERS_DIR), $(LIBFT_HEADERS_LIST))
 
 #ft_printf
 SRC_PRINTF_LST =	fun_flags.c	fun_length.c	funtypes.c	parse.c	placeholder.c	printf.c\
-                    precision.c
+                    precision.c type_color.c
 
 PRINTF_DIR = srcs/
 SRC_PRINTF = $(addprefix $(PRINTF_DIR), $(SRC_PRINTF_LST))

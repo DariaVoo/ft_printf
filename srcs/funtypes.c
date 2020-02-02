@@ -60,25 +60,6 @@ char	*ft_s(va_list ap)
 	return (str);
 }
 
-char	*ft_colour(va_list ap)
-{
-	char	*str;
-	char	*buf;
-	size_t	i;
-
-	i = 0;
-	buf = va_arg(ap, char *);
-	buf = ft_strtolower(buf);
-	str = ft_strnew(10);
-	/*while (colors[i].color_name[0] != 'z')
-	{
-		if (ft_strcmp(colors[i].color_name, buf) == 0)
-			str = ft_strcpy(str, colors[i].macros);
-		i++;
-	}*/
-	return (str);
-}
-
 char	*ft_x(va_list ap)
 {
 	return (ft_itoahex(va_arg(ap, unsigned int), 'l'));

@@ -9,17 +9,16 @@
 /*   Updated: 2019/11/07 11:16:50 by snorcros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*
+
 #include "libftprintf.h"
 #include <stdio.h>
 
 int	main(void)
 {
-	ft_printf("%C now is red %C ifs EOF %C is BLUE %C is green\n"
-		   "", "red", "eof", "blue", "green");
+	ft_printf("%Cnow is red %C ifs cYaN %C is BLUE %C is green\n", "red", "cYaN", "blue", "green");
 	return (0);
 }
-*/
+
 /*ft_printf("% h");
 	printf("$\n");
 	//ft_printf("% ");
