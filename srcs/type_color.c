@@ -17,5 +17,7 @@ char	*ft_colour(va_list ap)
 			str = ft_strcpy(str, colors[i].macros);
 		i++;
 	}
+	if (buf)
+		free(buf);
 	return (str);
 }
