@@ -15,8 +15,14 @@
 
 int	main(void)
 {
-	ft_printf("%Cnow is red %C ifs cYaN %C is BLUE %C is green\n", "red", "cYaN", "blue", "green");
-	ft_printf("%Cnow is  yellow %C ifs  %C is  %C is magenta\n", "YEllow", "black","white",  "magenta");
+	ft_printf("%D\n",1580567454);
+	ft_printf("%T\n\n",1580567454);
+	ft_printf("%D\n",1580724661);
+	ft_printf("%T\n\n",1580724661);
+	ft_printf("%D\n",349078995);
+	ft_printf("%T\n\n",349078995);
+	//ft_printf("%Cnow is red %C ifs cYaN %C is BLUE %C is green\n", "red", "cYaN", "blue", "green");
+	//ft_printf("%Cnow is  yellow %C ifs  %C is  %C is magenta\n", "YEllow", "black","white",  "magenta");
 	return (0);
 }
 

@@ -45,7 +45,7 @@ SRC0 = ft_atoi.o	ft_bzero.o		ft_memccpy.o	ft_memchr.o		ft_lstmerge.o\
 	  ft_qsort.o	ft_lstsize.o	ft_lstlast.o	ft_lsti.o		ft_lstreverse.o\
 	  free_table.o  ft_itoabase.o   ft_itoahex.o    ft_itoa_signed.o ft_strcut.o\
 	  ft_stradd_front.o ft_stradd_back.o ft_strreplace.o ft_strcat_front.o ft_itoadouble.o\
-	  ft_strtolower.o
+	  ft_strtolower.o   ft_strcreate.o
 
 HEADER = includes
 

@@ -18,6 +18,8 @@ t_funtype		types[] =
 		{'p', ft_p},
 		{'f', ft_f},
 		{'C', ft_colour},
+		{'D', ft_unix_to_isodate},
+		{'T', ft_unix_to_isotime},
 		{'m', NULL}
 };
 
