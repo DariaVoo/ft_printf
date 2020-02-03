@@ -17,9 +17,6 @@ t_funtype		types[] =
 		{'b', ft_b},
 		{'p', ft_p},
 		{'f', ft_f},
-		{'C', ft_colour},
-		{'D', ft_unix_to_isodate},
-		{'T', ft_unix_to_isotime},
 		{'m', NULL}
 };
 
@@ -35,6 +32,7 @@ t_funlenght		lengths[] =
 		{"m", NULL}
 };
 
+
 t_funflags		flags[] =
 {
 		{ FLG_ZERO,'0', flags_zero},
@@ -44,5 +42,4 @@ t_funflags		flags[] =
 		{ FLG_MINUS, '-', flags_minus},
 		{ FLG_NULL, 'm', NULL}
 };
-
 #endif

@@ -13,7 +13,7 @@
 #ifndef LIBFTPRINTF_H
 # define LIBFTPRINTF_H
 #include "libft.h"
-#include "unixtime.h"
+#include "colors.h"
 #include <stdarg.h>
 #include <inttypes.h>
 
@@ -55,7 +55,7 @@ typedef struct s_funflags
 
 int				ft_printf(const char *format, ...);
 
-t_placeholder	new_placeholder(void);
+t_placeholder	new_placeholder();
 int				placeholder_isempty(t_placeholder place);
 int				placeholder_isnotempty(t_placeholder place);
 char			*delete_sign(char *str);
@@ -83,7 +83,7 @@ char			*ft_u(va_list ap);
 char 			*ft_b(va_list ap);
 char			*ft_p(va_list ap);
 char			*ft_f(va_list ap);
-char			*ft_colour(va_list ap);
+char			*ft_Z(va_list ap);
 char			*ft_percent(va_list ap);
 
 char			*length_l(va_list ap, char typeflag);

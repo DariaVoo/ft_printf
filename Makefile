@@ -6,7 +6,7 @@
 #    By: snorcros <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/13 13:19:23 by snorcros          #+#    #+#              #
-#    Updated: 2020/02/01 18:19:04 by snorcros         ###   ########.fr        #
+#    Updated: 2019/12/07 15:34:18 by snorcros         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,8 +31,7 @@ SRC_LIBFT_LST = ft_atoi.c		ft_bzero.c		ft_memccpy.c	ft_memchr.c		ft_lstmerge.c\
 		  ft_lstnew.c	ft_lstdelone.c	ft_lstdel.c		ft_lstadd.c		ft_lstiter.c \
 		  ft_qsort.c	ft_lstsize.c	ft_lstlast.c	ft_lsti.c		ft_lstreverse.c\
 		  free_table.c  ft_itoabase.c   ft_itoahex.c    ft_itoa_signed.c ft_strcut.c\
-		  ft_stradd_front.c ft_stradd_back.c    ft_strreplace.c ft_strcat_front.c\
-		  ft_itoadouble.c ft_strtolower.c   ft_strcreate.c
+		  ft_stradd_front.c ft_stradd_back.c    ft_strreplace.c ft_strcat_front.c ft_itoadouble.c
 
 LIBFT_DIR = libft/
 HEADER_LIBFT = $(LIBFT_DIR)includes
@@ -46,7 +45,7 @@ LIBFT_HEADERS = $(addprefix $(LIBFT_HEADERS_DIR), $(LIBFT_HEADERS_LIST))
 
 #ft_printf
 SRC_PRINTF_LST =	fun_flags.c	fun_length.c	funtypes.c	parse.c	placeholder.c	printf.c\
-                    precision.c type_color.c    type_unixtime.c unixtime.c
+                    precision.c
 
 PRINTF_DIR = srcs/
 SRC_PRINTF = $(addprefix $(PRINTF_DIR), $(SRC_PRINTF_LST))
@@ -54,7 +53,7 @@ OBJ_DIR = objects/
 OBJ_LST = $(patsubst %.c, %.o, $(SRC_PRINTF_LST))
 OBJ_PRINTF	= $(addprefix $(OBJ_DIR), $(OBJ_LST))
 
-HEADERS_LST = colors.h  funfortypes.h   libftprintf.h   unixtime.h
+HEADERS_LST = colors.h  funfortypes.h   libftprintf.h
 HEADERS = $(addprefix $(INCLUDES), $(HEADERS_LST))
 
 all: $(NAME)

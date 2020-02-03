@@ -6,7 +6,7 @@
 /*   By: snorcros <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/04 15:31:03 by snorcros          #+#    #+#             */
-/*   Updated: 2020/02/01 19:16:49 by snorcros         ###   ########.fr       */
+/*   Updated: 2019/10/12 12:53:47 by snorcros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@
 # define BUFF_SIZE 500
 # define FD_MAX    10240
 
-char				*ft_strtolower(char *str);
-char				*ft_strcreate(char	*str);
 char				*ft_itoadouble(long double n);
 void				free_table(void **arr, int position);
 int					get_next_line(const int fd, char **line);
@@ -45,8 +43,7 @@ char				*ft_strrchr(const char *s, int c);
 char				*ft_strstr(const char *haystack, const char *needle);
 char				*ft_strnstr(const char *haystack,
 								const char *needle, size_t len);
-char				*ft_strcat_front(char *dest, const char *src,
-								size_t size_buf, size_t len2);
+char				*ft_strcat_front(char *dest, const char *src, size_t size_buf, size_t len2);
 int					ft_strcmp(const char *s1, const char *s2);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 int					ft_atoi(const char *str);

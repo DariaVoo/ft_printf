@@ -6,7 +6,7 @@
 /*   By: snorcros <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 14:36:35 by snorcros          #+#    #+#             */
-/*   Updated: 2020/02/01 20:07:00 by snorcros         ###   ########.fr       */
+/*   Updated: 2019/12/07 14:36:37 by snorcros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	set_type(t_placeholder *placeholder, const char *format)
 	return (0);
 }
 
-int		check_spaceback(char *str)
+int 	check_spaceback(char *str)
 {
 	size_t i;
 
@@ -51,27 +51,23 @@ char	*get_sign(t_placeholder placeholder, char *str)
 	if (placeholder.sign != 0)
 	{
 		if (placeholder.width == 0 || !check_spaceback(str) ||
-				(placeholder.precision >= placeholder.width
-				&& placeholder.width != 0))
-			return (ft_stradd_front(str, ft_strlen(str) + 1,
-												'-', placeholder.type.flag));
+			(placeholder.precision >= placeholder.width && placeholder.width != 0))
+			return (ft_stradd_front(str, ft_strlen(str) + 1, '-', placeholder.type.flag));
 		else
 			return (ft_strcat_front(str, "-", placeholder.width - 1, 1));
 	}
 	return (str);
 }
 
-int		set_flags(t_placeholder *placeholder, const char *format)
+int	set_flags(t_placeholder *placeholder, const char *format)
 {
-	size_t	i;
+	size_t i;
 	int		count_flags;
 
 	i = 0;
 	count_flags = 0;
-	while (flags[i].flag != 'm')
-	{
-		if (flags[i].flag == *format)
-		{
+	while (flags[i].flag != 'm') {
+		if (flags[i].flag == *format) {
 			placeholder->flags |= flags[i].inint;
 			format++;
 			i = 0;
@@ -101,6 +97,7 @@ char	*get_flags(t_placeholder placeholder, char *str)
 	return (str);
 }
 
+
 int	set_width(t_placeholder *placeholder, const char *format, va_list ap)
 {
 	int w;
@@ -116,9 +113,7 @@ int	set_width(t_placeholder *placeholder, const char *format, va_list ap)
 				placeholder->precision = w * (-1);
 			else
 				placeholder->width = w * (-1);
-		}
-		else
-		{
+		} else {
 			if (*(format + 1) == '.')
 				placeholder->precision = w;
 			else
@@ -157,6 +152,8 @@ int	set_precision(t_placeholder *placeholder, const char *format, va_list ap)
 		{
 			if ((p = va_arg(ap, int)) < 0)
 			{
+			//	placeholder->flags |= FLG_MINUS;
+				//p *= -1;
 				if (placeholder->width != 0)
 					p = placeholder->width;
 			}

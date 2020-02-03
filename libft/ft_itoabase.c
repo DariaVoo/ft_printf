@@ -6,7 +6,7 @@
 /*   By: snorcros <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/17 17:10:51 by snorcros          #+#    #+#             */
-/*   Updated: 2020/02/01 19:22:13 by snorcros         ###   ########.fr       */
+/*   Updated: 2019/11/17 17:10:58 by snorcros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static int		ft_count_digits(unsigned long long n, unsigned int base)
 {
-	int					count;
-	unsigned long long	buf;
+	int	count;
+	unsigned long long buf;
 
 	count = 0;
 	buf = n;

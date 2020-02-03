@@ -6,7 +6,7 @@
 /*   By: snorcros <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/17 17:11:11 by snorcros          #+#    #+#             */
-/*   Updated: 2020/02/01 19:21:17 by snorcros         ###   ########.fr       */
+/*   Updated: 2019/11/17 17:11:16 by snorcros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ char			*ft_itoahex(unsigned long long n, char tcase)
 	size_t	i;
 
 	count = ft_count_digits(n);
+
 	str_n = ft_strnew(count);
 	if (!str_n)
 		return (NULL);
