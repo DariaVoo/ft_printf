@@ -7,6 +7,7 @@ include_directories(includes)
 include_directories(libft/includes)
 
 add_executable(ft_printf
+        includes/unixtime.h
         includes/colors.h
         includes/funfortypes.h
         includes/libft.h
@@ -98,6 +99,9 @@ add_executable(ft_printf
         srcs/funtypes.c
         srcs/precision.c
         srcs/main.c
+        srcs/type_color.c
+        srcs/type_unixtime.c
+        srcs/unixtime.c
         srcs/parse.c
         srcs/fun_flags.c
         srcs/placeholder.c

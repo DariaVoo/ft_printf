@@ -44,8 +44,8 @@ LIBFT_HEADERS_DIR = $(LIBFT_DIR)includes/
 LIBFT_HEADERS = $(addprefix $(LIBFT_HEADERS_DIR), $(LIBFT_HEADERS_LIST))
 
 #ft_printf
-SRC_PRINTF_LST =	fun_flags.c	fun_length.c	funtypes.c	parse.c	placeholder.c	printf.c\
-                    precision.c
+SRC_PRINTF_LST =	fun_flags.c	fun_length.c funtypes.c	parse.c	placeholder.c	printf.c\
+                    precision.c type_unixtime.c unixtime.c
 
 PRINTF_DIR = srcs/
 SRC_PRINTF = $(addprefix $(PRINTF_DIR), $(SRC_PRINTF_LST))
@@ -53,7 +53,7 @@ OBJ_DIR = objects/
 OBJ_LST = $(patsubst %.c, %.o, $(SRC_PRINTF_LST))
 OBJ_PRINTF	= $(addprefix $(OBJ_DIR), $(OBJ_LST))
 
-HEADERS_LST = colors.h  funfortypes.h   libftprintf.h
+HEADERS_LST = colors.h  funfortypes.h   libftprintf.h unixtime.h
 HEADERS = $(addprefix $(INCLUDES), $(HEADERS_LST))
 
 all: $(NAME)

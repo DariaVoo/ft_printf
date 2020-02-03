@@ -13,9 +13,20 @@
 #include "libftprintf.h"
 #include <stdio.h>
 
-int	main(void)
+int	main(void)type_color.c
 {
-	printf("{%*c}", -15, 0);
+	ft_printf("%D\n",1580567454);
+	ft_printf("%T\n\n",1580567454);
+	ft_printf("%D\n",1580724661);
+	ft_printf("%T\n\n",1580724661);
+	ft_printf("%D\n",349078995);
+	ft_printf("%T\n\n",349078995);
+	ft_printf("%Cnow is red %C ifs cYaN %C is BLUE %C is green\n", "red", "cYaN", "blue", "green");
+	ft_printf("%Cnow is  yellow %C ifs  %C is  %C is magenta\n", "YEllow", "black","white",  "magenta");
+	return (0);
+}
+*/
+/*	printf("{%*c}", -15, 0);
 	printf("$\n");
 	ft_printf("{%*c}", -15, 0);
 	printf("$\n\n");
@@ -29,10 +40,7 @@ int	main(void)
 	printf("$\n");
 	ft_printf("{%05.*d}", -15, 42);
 	printf("$\n\n");
-	return (0);
-}
-*/
-/*ft_printf("% h");
+ft_printf("% h");
 	printf("$\n");
 	//ft_printf("% ");
 	printf("$\n");
