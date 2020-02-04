@@ -77,7 +77,7 @@ char			*ft_c(va_list ap);
 char			*ft_d(va_list ap);
 char 			*ft_s(va_list ap);
 char 			*ft_x(va_list ap);
-char 			*ft_X(va_list ap);
+char 			*ft_upx(va_list ap);
 char 			*ft_o(va_list ap);
 char			*ft_u(va_list ap);
 char 			*ft_b(va_list ap);

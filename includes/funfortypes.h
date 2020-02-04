@@ -11,7 +11,7 @@ t_funtype		types[] =
 		{'i', ft_d},
 		{'s', ft_s},
 		{'x', ft_x},
-		{'X', ft_X},
+		{'X', ft_upx},
 		{'o', ft_o},
 		{'u', ft_u},
 		{'b', ft_b},

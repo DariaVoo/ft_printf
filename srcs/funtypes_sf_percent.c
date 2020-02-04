@@ -1,27 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   funtypes.c                                         :+:      :+:    :+:   */
+/*   funtypes_f_percent.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: snorcros <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/17 17:14:01 by snorcros          #+#    #+#             */
-/*   Updated: 2019/12/07 14:36:20 by snorcros         ###   ########.fr       */
+/*   Created: 2020/02/04 19:46:54 by snorcros          #+#    #+#             */
+/*   Updated: 2020/02/04 19:46:55 by snorcros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-
-char	*ft_c(va_list ap)
-{
-	char *ans;
-
-	if (!(ans = ft_strnew(2)))
-		return (NULL);
-	ans[0] = (char)va_arg(ap, int);
-	ans[1] = '\0';
-	return (ans);
-}
 
 char	*ft_percent(va_list ap)
 {
@@ -32,11 +21,6 @@ char	*ft_percent(va_list ap)
 	ans[0] = '%';
 	ans[1] = '\0';
 	return (ans);
-}
-
-char	*ft_d(va_list ap)
-{
-	return (ft_itoa(va_arg(ap, int)));
 }
 
 char	*ft_s(va_list ap)
@@ -60,37 +44,12 @@ char	*ft_s(va_list ap)
 	return (str);
 }
 
-char	*ft_x(va_list ap)
-{
-	return (ft_itoahex(va_arg(ap, unsigned int), 'l'));
-}
-
-char	*ft_X(va_list ap)
-{
-	return (ft_itoahex(va_arg(ap, unsigned int), 'u'));
-}
-
-char	*ft_o(va_list ap)
-{
-	return (ft_itoabase(va_arg(ap, unsigned int), (unsigned int)8));
-}
-
-char	*ft_u(va_list ap)
-{
-	return (ft_itoabase(va_arg(ap, unsigned int), (unsigned int)10));
-}
-
-char	*ft_b(va_list ap)
-{
-	return (ft_itoabase(va_arg(ap, unsigned int), (unsigned int)2));
-}
-
 char	*ft_f(va_list ap)
 {
 	long double number;
-	char 		*str;
+	char		*str;
 
-	number =  va_arg(ap, double);
+	number = va_arg(ap, double);
 	if (number != number)
 	{
 		str = ft_strnew(5);
@@ -108,24 +67,4 @@ char	*ft_f(va_list ap)
 			return (ft_strcpy(str, "-inf\0"));
 	}
 	return (ft_itoadouble(number));
-}
-
-char	*ft_p(va_list ap)
-{
-	char *str;
-
-	str = ft_itoahex((unsigned long long)va_arg(ap, void *), 'l');
-	/*
-	 * LINUX
-	 * if (*str == '0')
-	 * {
-	 * free(str);
-	 * str = ft_strnew(5);
-	 * str = ft_strcpy(str, "(nil)\0");
-	 * }
-	 * else
-	{*/
-	str = ft_stradd_front(str, ft_strlen(str) + 2, '0');
-	str[1] = 'x';
-	return (str);
 }
