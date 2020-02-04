@@ -101,4 +101,6 @@ char 			*flags_hash(char *str, t_placeholder place);
 char 			*flags_minus(char *str, t_placeholder place);
 char			*get_flags(t_placeholder placeholder, char *str);
 
+int				star_width(t_placeholder *placeholder, const char *format, va_list ap);
+int				star_precision(t_placeholder *placeholder, va_list ap);
 #endif

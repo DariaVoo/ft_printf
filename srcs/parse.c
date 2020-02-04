@@ -6,14 +6,14 @@
 /*   By: snorcros <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 14:36:35 by snorcros          #+#    #+#             */
-/*   Updated: 2019/12/07 14:36:37 by snorcros         ###   ########.fr       */
+/*   Updated: 2020/02/04 21:21:48 by snorcros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 #include "funfortypes.h"
 
-int	set_type(t_placeholder *placeholder, const char *format)
+int		set_type(t_placeholder *placeholder, const char *format)
 {
 	size_t i;
 
@@ -32,42 +32,17 @@ int	set_type(t_placeholder *placeholder, const char *format)
 	return (0);
 }
 
-int 	check_spaceback(char *str)
+int		set_flags(t_placeholder *placeholder, const char *format)
 {
-	size_t i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] == ' ')
-			return (1);
-		i++;
-	}
-	return (0);
-}
-
-char	*get_sign(t_placeholder placeholder, char *str)
-{
-	if (placeholder.sign != 0)
-	{
-		if (placeholder.width == 0 || !check_spaceback(str) ||
-			(placeholder.precision >= placeholder.width && placeholder.width != 0))
-			return (ft_stradd_front(str, ft_strlen(str) + 1, '-'));
-		else
-			return (ft_strcat_front(str, "-", placeholder.width - 1, 1));
-	}
-	return (str);
-}
-
-int	set_flags(t_placeholder *placeholder, const char *format)
-{
-	size_t i;
+	size_t	i;
 	int		count_flags;
 
 	i = 0;
 	count_flags = 0;
-	while (flags[i].flag != 'm') {
-		if (flags[i].flag == *format) {
+	while (flags[i].flag != 'm')
+	{
+		if (flags[i].flag == *format)
+		{
 			placeholder->flags |= flags[i].inint;
 			format++;
 			i = 0;
@@ -97,86 +72,7 @@ char	*get_flags(t_placeholder placeholder, char *str)
 	return (str);
 }
 
-
-int	set_width(t_placeholder *placeholder, const char *format, va_list ap)
-{
-	int w;
-	int k;
-
-	k = 0;
-	if (*format == '*')
-	{
-		if ((w = va_arg(ap, int)) < 0)
-		{
-			placeholder->flags |= FLG_MINUS;
-			if (*(format + 1) == '.')
-				placeholder->precision = w * (-1);
-			else
-				placeholder->width = w * (-1);
-		} else {
-			if (*(format + 1) == '.')
-				placeholder->precision = w;
-			else
-				placeholder->width = w;
-		}
-		if (!ft_isdigit(*(format + 1)))
-			return (1);
-		else
-			k += 1;
-		format++;
-	}
-	if ((w = ft_atoi(format)) > 0)
-	{
-		placeholder->width = w;
-		while (w > 0)
-		{
-			w /= 10;
-			k++;
-		}
-		return (k);
-	}
-	return (0);
-}
-
-int	set_precision(t_placeholder *placeholder, const char *format, va_list ap)
-{
-	int p;
-	int k;
-
-	k = 0;
-	if (*format == '.')
-	{
-		k++;
-		format++;
-		if (*format == '*')
-		{
-			if ((p = va_arg(ap, int)) < 0)
-			{
-			//	placeholder->flags |= FLG_MINUS;
-				//p *= -1;
-				if (placeholder->width != 0)
-					p = placeholder->width;
-			}
-			placeholder->precision = p;
-			k++;
-		}
-		else if ((p = ft_atoi(format)) >= 0)
-		{
-			placeholder->precision = p;
-			while (p > 0)
-			{
-				p /= 10;
-				k++;
-			}
-			if (p == 0 && *format == '0')
-				k++;
-		}
-		return (k);
-	}
-	return (0);
-}
-
-int	set_length(t_placeholder *placeholder, const char *format)
+int		set_length(t_placeholder *placeholder, const char *format)
 {
 	size_t i;
 

@@ -96,9 +96,14 @@ add_executable(ft_printf
         libft/ft_strcut.c
         libft/ft_itoadouble.c
         srcs/fun_length.c
-        srcs/funtypes.c
+        srcs/funtypes_cdx_upx_o.c
+        srcs/funtypes_sf_percent.c
+        srcs/funtypes_ubp.c
         srcs/precision.c
         srcs/flag_hash.c
+        srcs/bonus_star.c
+        srcs/set_precision_width.c
+        srcs/get_flag_sign.c
         srcs/length_bonus.c
         srcs/main.c
         srcs/type_color.c
