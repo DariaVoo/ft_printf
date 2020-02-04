@@ -38,3 +38,17 @@ char		*get_sign(t_placeholder placeholder, char *str)
 	}
 	return (str);
 }
+
+char			*delete_sign(char *str)
+{
+	size_t i;
+
+	i = 0;
+	while (str[i + 1] != '\0')
+	{
+		str[i] = str[i + 1];
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
+}

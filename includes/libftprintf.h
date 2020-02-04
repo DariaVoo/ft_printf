@@ -55,7 +55,7 @@ typedef struct s_funflags
 
 int				ft_printf(const char *format, ...);
 
-t_placeholder	new_placeholder();
+t_placeholder	new_placeholder(void);
 int				placeholder_isempty(t_placeholder place);
 int				placeholder_isnotempty(t_placeholder place);
 char			*delete_sign(char *str);

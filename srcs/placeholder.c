@@ -6,13 +6,13 @@
 /*   By: snorcros <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 14:36:48 by snorcros          #+#    #+#             */
-/*   Updated: 2019/12/07 14:36:50 by snorcros         ###   ########.fr       */
+/*   Updated: 2020/02/04 21:29:51 by snorcros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-t_placeholder new_placeholder()
+t_placeholder	new_placeholder(void)
 {
 	t_placeholder buf;
 
@@ -36,18 +36,4 @@ int				placeholder_isnotempty(t_placeholder place)
 {
 	return ((place.flags != FLG_NULL || place.precision != -1
 			|| place.width != 0 || place.sign != 0) && place.type.flag == 'm');
-}
-
-char	*delete_sign(char *str)
-{
-	size_t i;
-
-	i = 0;
-	while (str[i + 1] != '\0')
-	{
-		str[i] = str[i + 1];
-		i++;
-	}
-	str[i] = '\0';
-	return (str);
 }
