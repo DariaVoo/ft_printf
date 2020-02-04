@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoadouble.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: snorcros <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/02/04 18:30:57 by snorcros          #+#    #+#             */
+/*   Updated: 2020/02/04 18:31:45 by snorcros         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 static int		ft_count_digits(long double n)
 {
-	int	count;
-	unsigned long long buf;
+	int					count;
+	unsigned long long	buf;
 
 	count = 0;
 	buf = n;
@@ -22,7 +34,7 @@ static int		ft_count_digits(long double n)
 	return (count);
 }
 
-static int		ft_count_digits_mantiss(long  double n)
+static int		ft_count_digits_mantiss(long double n)
 {
 	int			count;
 	long double buf;
@@ -43,10 +55,10 @@ static int		ft_count_digits_mantiss(long  double n)
 	return (count);
 }
 
-static char			*get_int(long double n, char *str_n, int count_digits)
+static char		*get_int(long double n, char *str_n, int count_digits)
 {
-	size_t i;
-	unsigned long long buf;
+	size_t				i;
+	unsigned long long	buf;
 
 	i = count_digits - 1;
 	buf = n;
@@ -65,10 +77,10 @@ static char			*get_int(long double n, char *str_n, int count_digits)
 	return (str_n);
 }
 
-static char 			*get_mantiss(long double n, char *str_n, int count_digits)
+static char		*get_mantiss(long double n, char *str_n, int count_digits)
 {
 	size_t	i;
-	int buf;
+	int		buf;
 
 	i = count_digits;
 	if (n < 0)
