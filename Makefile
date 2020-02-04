@@ -45,7 +45,7 @@ LIBFT_HEADERS = $(addprefix $(LIBFT_HEADERS_DIR), $(LIBFT_HEADERS_LIST))
 
 #ft_printf
 SRC_PRINTF_LST =	fun_flags.c	fun_length.c funtypes.c	parse.c	placeholder.c	printf.c\
-                    precision.c type_unixtime.c unixtime.c  type_color.c
+                    precision.c type_unixtime.c unixtime.c  type_color.c flag_hash.c
 
 PRINTF_DIR = srcs/
 SRC_PRINTF = $(addprefix $(PRINTF_DIR), $(SRC_PRINTF_LST))

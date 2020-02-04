@@ -98,6 +98,7 @@ add_executable(ft_printf
         srcs/fun_length.c
         srcs/funtypes.c
         srcs/precision.c
+        srcs/flag_hash.c
         srcs/main.c
         srcs/type_color.c
         srcs/type_unixtime.c
