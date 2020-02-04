@@ -83,7 +83,6 @@ char			*ft_u(va_list ap);
 char 			*ft_b(va_list ap);
 char			*ft_p(va_list ap);
 char			*ft_f(va_list ap);
-char			*ft_Z(va_list ap);
 char			*ft_colour(va_list ap);
 char			*ft_percent(va_list ap);
 
@@ -91,7 +90,7 @@ char			*length_l(va_list ap, char typeflag);
 char			*length_ll(va_list ap, char typeflag);
 char			*length_h(va_list ap,  char typeflag);
 char			*length_hh(va_list ap, char typeflag);
-char			*length_L(va_list ap, char typeflag);
+char			*length_upl(va_list ap, char typeflag);
 char			*length_z(va_list ap, char typeflag);
 char			*length_j(va_list ap, char typeflag);
 

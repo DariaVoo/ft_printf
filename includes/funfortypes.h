@@ -29,7 +29,7 @@ t_funlenght		lengths[] =
 		{"hh", length_hh},
 		{"l", length_l},
 		{"h", length_h},
-		{"L", length_L},
+		{"L", length_upl},
 		{"z", length_z},
 		{"j", length_j},
 		{"m", NULL}
