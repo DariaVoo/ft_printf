@@ -39,7 +39,7 @@ char *get_precision_float(t_placeholder *place, char *ans)
 	if (place->precision == 0)
 		return (ft_strcut(ans, count_digit - 1));
 	else if ((size_t)place->precision > str_len_mantiss(ans))
-		return (ft_stradd_back(ans, place->precision + count_digit, '0', place->type.flag));
+		return (ft_stradd_back(ans, place->precision + count_digit, '0'));
 	if (ans[place->precision + count_digit] >= '5')
 	{
 		i = 1;
@@ -72,14 +72,14 @@ char *get_precision(t_placeholder *place, char *ans)
 			if (place->precision == 0)
 				ans = ft_strcut(ans, 2);
 			else
-				ans = ft_stradd_back(ans, place->precision + 2, '0', place->type.flag);
+				ans = ft_stradd_back(ans, place->precision + 2, '0');
 		}
 		else
 		{
 			if ((size_t)place->precision > ft_strlen(ans) - 2)
 			{
 				ans[1] = '0';
-				ans = ft_stradd_front(ans, place->precision + 2, '0', place->type.flag);
+				ans = ft_stradd_front(ans, place->precision + 2, '0');
 				ans[1] = 'x';
 			}
 		}
@@ -98,7 +98,7 @@ char *get_precision(t_placeholder *place, char *ans)
 	{
 		//place->flags &= ~FLG_ZERO;
 		if ((size_t)place->precision > ft_strlen(ans))
-			ans = ft_stradd_front(ans, place->precision, '0', place->type.flag);
+			ans = ft_stradd_front(ans, place->precision, '0');
 	}
 	else if (place->type.flag == 's' && place->precision >= 0)
 		ans = ft_strcut(ans, place->precision);

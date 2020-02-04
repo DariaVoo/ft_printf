@@ -6,13 +6,13 @@
 /*   By: snorcros <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/09 12:31:30 by snorcros          #+#    #+#             */
-/*   Updated: 2019/09/12 22:00:13 by snorcros         ###   ########.fr       */
+/*   Updated: 2020/02/04 17:41:08 by snorcros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_stradd_back(char *str, size_t len, char c, char type)
+char	*ft_stradd_back(char *str, size_t len, char c)
 {
 	char	*ans;
 	size_t	i;
@@ -28,7 +28,6 @@ char	*ft_stradd_back(char *str, size_t len, char c, char type)
 		ans[i] = c;
 		i++;
 	}
-	if (type != 's' && type != 'c')
-		free(str);
+	free(str);
 	return (ans);
 }

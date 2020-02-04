@@ -16,7 +16,7 @@ char 	*flags_minus(char *str, t_placeholder place)
 {
 	if (*str == '\0' && place.type.flag == 'c')
 		return (str);
-	return (ft_stradd_back(str, place.width, ' ', place.type.flag));
+	return (ft_stradd_back(str, place.width, ' '));
 }
 
 char	*flags_plus(char *str, t_placeholder place)
@@ -24,9 +24,9 @@ char	*flags_plus(char *str, t_placeholder place)
 	if (place.type.flag == '%' || place.type.flag == 'u' || *str == '-')
 		return (str);
 	if (place.sign == 0)
-		return (ft_stradd_front(str, ft_strlen(str) + 1, '+', place.type.flag));
+		return (ft_stradd_front(str, ft_strlen(str) + 1, '+'));
 	else
-		return (ft_stradd_front(str, ft_strlen(str) + 1, '-', place.type.flag));
+		return (ft_stradd_front(str, ft_strlen(str) + 1, '-'));
 }
 
 char	*flags_space(char *str, t_placeholder place)
@@ -34,9 +34,9 @@ char	*flags_space(char *str, t_placeholder place)
 	if (place.type.flag == '%' || place.type.flag == 'u' || *str == '-')
 		return (str);
 	if (place.sign == 0)
-		return (ft_stradd_front(str, ft_strlen(str) + 1, ' ', place.type.flag));
+		return (ft_stradd_front(str, ft_strlen(str) + 1, ' '));
 	else
-		return (ft_stradd_front(str, ft_strlen(str) + 1, '-', place.type.flag));
+		return (ft_stradd_front(str, ft_strlen(str) + 1, '-'));
 }
 
 char	*flags_zero(char *str, t_placeholder place)
@@ -47,11 +47,11 @@ char	*flags_zero(char *str, t_placeholder place)
 		if (place.width == 0)
 			return (str);
 		if (place.precision != -1)//kostil
-			return (ft_stradd_front(str, place.precision, '0', place.type.flag));
+			return (ft_stradd_front(str, place.precision, '0'));
 		else if (place.sign == 0 && (place.flags & FLG_SPACE) == 0 && (place.flags & FLG_PLUS) == 0)
-			return (ft_stradd_front(str, place.width, '0', place.type.flag));
+			return (ft_stradd_front(str, place.width, '0'));
 		else
-			return (ft_stradd_front(str, place.width - 1, '0', place.type.flag));
+			return (ft_stradd_front(str, place.width - 1, '0'));
 	}
 	else
 		return (str);
@@ -93,28 +93,28 @@ char	*flags_hash(char *str, t_placeholder place)
 		if ((place.flags & FLG_ZERO) == FLG_ZERO
 			&& ((place.width <= (int)ft_strlen(str) && str[0] != '0' && place.width >= place.precision)
 			|| (str[0] != '0' && place.width > (int)ft_strlen(str))))
-			return (ft_stradd_front(str, ft_strlen(str) + 1, '0', place.type.flag));
+			return (ft_stradd_front(str, ft_strlen(str) + 1, '0'));
 		if ((place.precision > place.width && place.width != 0) || (place.flags & FLG_ZERO) == FLG_ZERO
 			|| (place.precision == (int)ft_strlen(str) && str[0] == '0')
 			|| (only_zero_and_space(str) && place.precision == -1))
 			return (str);
 		if (only_zero(str) && place.precision != -1)
-			return (ft_stradd_front(str, place.precision, '0', place.type.flag));
+			return (ft_stradd_front(str, place.precision, '0'));
 		else
-			return (ft_stradd_front(str, ft_strlen(str) + 1, '0', place.type.flag));
+			return (ft_stradd_front(str, ft_strlen(str) + 1, '0'));
 	}
 	else if (place.type.flag == 'x' && !only_zero(str))
 	{
 		if ((place.flags & FLG_ZERO) == 0 || str[0] != '0'
 		|| place.precision > place.width || place.width > (int)ft_strlen(str))
-			str = ft_stradd_front(str, ft_strlen(str) + 2, '0', place.type.flag);
+			str = ft_stradd_front(str, ft_strlen(str) + 2, '0');
 		str[1] = 'x';
 	}
 	else if (place.type.flag == 'X' && !only_zero(str))
 	{
 		if ((place.flags & FLG_ZERO) == 0 || str[0] != '0'
 		|| place.precision > place.width || place.width > (int)ft_strlen(str))
-			str = ft_stradd_front(str, ft_strlen(str) + 2, '0', place.type.flag);
+			str = ft_stradd_front(str, ft_strlen(str) + 2, '0');
 		str[1] = 'X';
 	}
 	return (str);

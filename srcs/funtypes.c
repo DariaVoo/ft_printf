@@ -125,7 +125,7 @@ char	*ft_p(va_list ap)
 	 * }
 	 * else
 	{*/
-	str = ft_stradd_front(str, ft_strlen(str) + 2, '0', 'p');
+	str = ft_stradd_front(str, ft_strlen(str) + 2, '0');
 	str[1] = 'x';
 	return (str);
 }
