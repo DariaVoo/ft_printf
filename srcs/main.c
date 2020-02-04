@@ -9,12 +9,42 @@
 /*   Updated: 2019/11/07 11:16:50 by snorcros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
+/*
 #include "libftprintf.h"
 #include <stdio.h>
 
 int	main(void)
 {
+
+	printf("% -5.0f", -7.3);
+	printf("$\n");
+	ft_printf("% -5.0f", -7.3);
+	printf("$\n\n");
+
+	printf("% -5.1f", -7.3);
+	printf("$\n");
+	ft_printf("% -5.1f", -7.3);
+	printf("$\n\n");
+
+	printf("% -5.3f", -7.3);
+	printf("$\n");
+	ft_printf("% -5.3f", -7.3);
+	printf("$\n\n");
+
+	printf("% -5.6f", -7.3);
+	printf("$\n");
+	ft_printf("% -5.6f", -7.3);
+	printf("$\n\n");
+
+	printf("% -05.0f", -7.3);
+	printf("$\n");
+	ft_printf("% -05.0f", -7.3);
+	printf("$\n\n");
+	return (0);
+}
+**/
+/*
+ 	//BONUS
 	ft_printf("%D\n",1580567454);
 	ft_printf("%T\n\n",1580567454);
 	ft_printf("%D\n",1580724661);
@@ -23,10 +53,9 @@ int	main(void)
 	ft_printf("%T\n\n",349078995);
 	ft_printf("%know is red %k ifs cYaN %k is BLUE %k is green\n", "red", "cYaN", "blue", "green");
 	ft_printf("%know is  yellow %k ifs  %k is  %k is magenta\n", "YEllow", "black","white",  "magenta");
-	return (0);
-}
 
-/*	printf("{%*c}", -15, 0);
+	*
+	printf("{%*c}", -15, 0);
 	printf("$\n");
 	ft_printf("{%*c}", -15, 0);
 	printf("$\n\n");

@@ -37,7 +37,7 @@ char *get_precision_float(t_placeholder *place, char *ans)
 
 	count_digit = strcount_digit(ans);
 	if (place->precision == 0)
-		return (ft_strcut(ans, count_digit));
+		return (ft_strcut(ans, count_digit - 1));
 	else if ((size_t)place->precision > str_len_mantiss(ans))
 		return (ft_stradd_back(ans, place->precision + count_digit, '0', place->type.flag));
 	if (ans[place->precision + count_digit] >= '5')
