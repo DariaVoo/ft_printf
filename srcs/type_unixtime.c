@@ -1,7 +1,18 @@
-#include "libftprintf.h"
-//#include "unixtime.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   type_unixtime.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: snorcros <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/02/05 16:23:59 by snorcros          #+#    #+#             */
+/*   Updated: 2020/02/05 16:26:15 by snorcros         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-static char 	*ft_joinmalloc(char *s1, char *s2)
+#include "libftprintf.h"
+
+static char		*ft_joinmalloc(char *s1, char *s2)
 {
 	char *ans;
 
@@ -11,7 +22,7 @@ static char 	*ft_joinmalloc(char *s1, char *s2)
 	return (ans);
 }
 
-static char 	*ft_joinmalloc1(char *s1,const char *s2)
+static char		*ft_joinmalloc1(char *s1, const char *s2)
 {
 	char *ans;
 
@@ -20,16 +31,16 @@ static char 	*ft_joinmalloc1(char *s1,const char *s2)
 	return (ans);
 }
 
-char	*ft_unix_to_isodate(va_list ap)
+char			*ft_unix_to_isodate(va_list ap)
 {
 	t_utime	ut;
-	char 	*strdate;
+	char	*strdate;
 
-	ut =  unix_to_struct(va_arg(ap, int));
+	ut = unix_to_struct(va_arg(ap, int));
 	if (ut.month < 10)
-		strdate = ft_joinmalloc1(ft_itoa(ut.year),"-0");
+		strdate = ft_joinmalloc1(ft_itoa(ut.year), "-0");
 	else
-		strdate = ft_joinmalloc1(ft_itoa(ut.year),"-");
+		strdate = ft_joinmalloc1(ft_itoa(ut.year), "-");
 	strdate = ft_joinmalloc(strdate, ft_itoa(ut.month));
 	if (ut.day > 10)
 		strdate = ft_joinmalloc1(strdate, "-");
@@ -39,11 +50,10 @@ char	*ft_unix_to_isodate(va_list ap)
 	return (strdate);
 }
 
-
-char	*ft_unix_to_isotime(va_list ap)
+char			*ft_unix_to_isotime(va_list ap)
 {
-	t_utime ut;
-	char *strdate;
+	t_utime	ut;
+	char	*strdate;
 
 	ut = unix_to_struct(va_arg(ap, int));
 	if (ut.minute < 10)
@@ -58,4 +68,3 @@ char	*ft_unix_to_isotime(va_list ap)
 	strdate = ft_joinmalloc(strdate, ft_itoa(ut.second));
 	return (strdate);
 }
-
