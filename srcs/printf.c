@@ -6,7 +6,7 @@
 /*   By: snorcros <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/12 12:42:33 by snorcros          #+#    #+#             */
-/*   Updated: 2019/11/07 10:43:50 by snorcros         ###   ########.fr       */
+/*   Updated: 2020/02/05 15:43:57 by snorcros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,15 +43,14 @@ char			*check_flag(char *str, t_placeholder *place)
 		place->precision = 0;
 	}
 	else if (*str == '-' && place->type.flag != 's' && place->type.flag != 'f'
-		&& place->type.flag != 'c' && (place->flags != 0 || place->precision != -1))
+			&& place->type.flag != 'c'
+			&& (place->flags != 0 || place->precision != -1))
 	{
 		place->sign = 1;
 		return (delete_sign(str));
 	}
 	return (str);
 }
-
-
 
 char			*to_str_logic(t_placeholder place, va_list ap)
 {
@@ -86,50 +85,13 @@ int				print_this(t_placeholder place, char *str)
 	if (place.type.flag == 'c' && str[i] == '\0' &&
 		((i < place.width && place.width != 0) || *str == '\0'))
 		count += write(1, "\0", 1);
-	if (place.type.flag == 'c' && str[i] == '\0' && (place.flags &= FLG_MINUS) == FLG_MINUS)
-	{
+	if (place.type.flag == 'c' && str[i] == '\0'
+								&& (place.flags &= FLG_MINUS) == FLG_MINUS)
 		while (i < place.width - 1)
 		{
 			count += write(1, " ", 1);
 			i++;
 		}
-	}
 	free(str);
-	return (count);
-}
-
-int				ft_printf(const char *format, ...)
-{
-	int				count;
-	va_list			ap;
-	t_placeholder	place;
-	char			*ans;
-
-	count = 0;
-	va_start(ap, format);
-	while (*format != '\0')
-	{
-		while (*format != '%' && *format != '\0')
-		{
-			count += ft_putchar(*format);
-			format++;
-		}
-		if (*format == '%')
-		{
-			format++;
-			if (*format == '\0')
-				return (0);
-			place = parse(ap, &format);
-			if (ft_strcmp(place.length.flag, "non") == 0)
-				return (place.width);
-			else if (placeholder_isempty(place) || (place.type.flag == 'm' && place.length.flag[0] != 'm'))
-				return (-1);
-			else if (place.type.flag == 'm')
-				break ;
-			ans = to_str_logic(place, ap);
-			count += print_this(place, ans);
-		}
-	}
-	va_end(ap);
 	return (count);
 }

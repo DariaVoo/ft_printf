@@ -112,4 +112,5 @@ add_executable(ft_printf
         srcs/parse.c
         srcs/fun_flags.c
         srcs/placeholder.c
+        srcs/printf_logic.c
         srcs/printf.c)
