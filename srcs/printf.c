@@ -51,43 +51,20 @@ char			*check_flag(char *str, t_placeholder *place)
 	return (str);
 }
 
-char	*get_width(t_placeholder place, char *ans)
-{
-	if (place.type.flag == 'c' && ans[0] == '\0' && (place.flags &= FLG_MINUS) == FLG_MINUS)
-		return (ans);
-	//set sign
-	if ((place.flags & FLG_PLUS) == 0 && (place.flags & FLG_SPACE) == 0)
-		ans = get_sign(place, ans);
-	//set width
-	if (place.width != 0)
-	{
-		if (ft_strlen(ans) == 0  && place.type.flag == 'c' && (place.flags &= FLG_MINUS) == 0)
-			ans = ft_stradd_front(ans, place.width - 1, ' ');
-		else if ((size_t) place.width > ft_strlen(ans)
-				 && (place.flags & FLG_MINUS) == 0 && ((place.flags & FLG_ZERO) == 0 || place.type.flag == 's'))
-			ans = ft_stradd_front(ans, place.width, ' ');
-		else if ((place.flags & FLG_ZERO) == FLG_ZERO && place.precision != -1)//like kostil
-			ans = ft_stradd_front(ans, place.width, ' ');
-	}
-	return (ans);
-}
+
 
 char			*to_str_logic(t_placeholder place, va_list ap)
 {
 	char *ans;
 
 	ans = NULL;
-	//type
 	if (place.type.flag != 'm' && place.length.flag[0] == 'm')
 		ans = check_flag(place.type.fun(ap), &place);
 	else if (place.length.fun != NULL)
 		ans = check_flag(place.length.fun(ap, place.type.flag), &place);
-	//precision
 	if (place.precision != -1)
 		ans = get_precision(&place, ans);
-	//flags
-	ans = get_flags(place, ans);//here
-	//width and set sign
+	ans = get_flags(place, ans);
 	ans = get_width(place, ans);
 	return (ans);
 }
