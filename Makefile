@@ -48,7 +48,6 @@ SRC_PRINTF_LST =	fun_flags.c	fun_length.c length_bonus.c parse.c	placeholder.c	p
                     precision.c type_unixtime.c unixtime.c  type_color.c flag_hash.c\
                     funtypes_ubp.c funtypes_cdx_upx_o.c funtypes_sf_percent.c\
                     bonus_star.c get_flag_sign.c set_precision_width.c\
-                    printf_logic.c
 
 PRINTF_DIR = srcs/
 SRC_PRINTF = $(addprefix $(PRINTF_DIR), $(SRC_PRINTF_LST))

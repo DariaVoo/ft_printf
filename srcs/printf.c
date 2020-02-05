@@ -6,7 +6,7 @@
 /*   By: snorcros <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/12 12:42:33 by snorcros          #+#    #+#             */
-/*   Updated: 2020/02/05 15:43:57 by snorcros         ###   ########.fr       */
+/*   Updated: 2020/02/05 15:44:46 by snorcros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,5 +93,34 @@ int				print_this(t_placeholder place, char *str)
 			i++;
 		}
 	free(str);
+	return (count);
+}
+
+int				ft_printf(const char *format, ...)
+{
+	int				count;
+	va_list			ap;
+	t_placeholder	place;
+	char			*ans;
+
+	count = 0;
+	va_start(ap, format);
+	while (*format != '\0')
+	{
+		while (*format != '%' && *format != '\0')
+			count += ft_putchar(*(format++));
+		if (*format == '%' && *(++format) != '\0')
+		{
+			place = parse(ap, &format);
+			if (placeholder_isempty(place)
+				|| (place.type.flag == 'm' && place.length.flag[0] != 'm'))
+				return (-1);
+			else if (place.type.flag == 'm')
+				break ;
+			ans = to_str_logic(place, ap);
+			count += print_this(place, ans);
+		}
+	}
+	va_end(ap);
 	return (count);
 }

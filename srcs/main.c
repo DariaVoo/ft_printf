@@ -15,7 +15,13 @@
 
 int	main(void)
 {
-
+	printf("%d",printf("%"));
+	printf("$\n");
+	printf("%d",ft_printf("%"));
+	printf("$\n\n");
+	return (0);
+}*/
+	/*
 	printf("% -5.0f", -7.3);
 	printf("$\n");
 	ft_printf("% -5.0f", -7.3);
@@ -40,10 +46,7 @@ int	main(void)
 	printf("$\n");
 	ft_printf("% -05.0f", -7.3);
 	printf("$\n\n");
-	return (0);
-}
-
-/*
+*
  	//BONUS
 	ft_printf("%D\n",1580567454);
 	ft_printf("%T\n\n",1580567454);
