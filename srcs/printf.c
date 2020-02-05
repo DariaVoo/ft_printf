@@ -12,48 +12,22 @@
 
 #include "libftprintf.h"
 
-t_placeholder	check_place(t_placeholder *place, const char **format, int shamt)
-{
-	int	count;
-
-	if (placeholder_isnotempty(*place) && *(*format + shamt) != '\0')
-	{
-		count = shamt;
-		//count += write(1, "%", 1);
-		*format += count;
-		while (*(*format) != '\0') // && *(*format) != '%')
-		{
-			count += ft_putchar(*(char *)*format);
-			*format += 1;
-		}
-		place->width = count;
-		place->length.flag = "non";
-	}
-	else
-		*format += shamt;
-	return (*place);
-}
-
 t_placeholder	parse(va_list ap, const char **format)
 {
 	t_placeholder	place;
-	size_t 			shamt;
 
-	shamt = 0;
 	place = new_placeholder();
 	if (set_type(&place, *format))
 	{
 		*format += 1;
 		return (place);
 	}
-	shamt += set_flags(&place, *format);
-	shamt += set_width(&place, *format + shamt, ap);
-	shamt += set_precision(&place, *format + shamt, ap);
-	shamt += set_length(&place, *format + shamt);
-	shamt += set_type(&place, *format + shamt);
-	*format += shamt;
+	*format += set_flags(&place, *format);
+	*format += set_width(&place, *format, ap);
+	*format += set_precision(&place, *format, ap);
+	*format += set_length(&place, *format);
+	*format += set_type(&place, *format);
 	return (place);
-	//return check_place(&place, format, shamt);
 }
 
 char			*check_flag(char *str, t_placeholder *place)
