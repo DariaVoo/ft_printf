@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   unixtime.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: snorcros <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/02/05 16:27:21 by snorcros          #+#    #+#             */
+/*   Updated: 2020/02/05 16:27:39 by snorcros         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libftprintf.h"
 
 t_utime	new_unixtime(void)
@@ -15,13 +27,10 @@ t_utime	new_unixtime(void)
 
 void	set_unixtotime(t_utime *utime, int unix_time)
 {
-	//DATE
 	utime->year += unix_time / 31556926;
 	unix_time %= 31556926;
-
 	utime->month += unix_time / 2629743;
 	unix_time %= 2629743;
-
 	utime->day += unix_time / 86400;
 	unix_time %= 86400;
 	utime->hour += unix_time / 3600;
@@ -30,7 +39,6 @@ void	set_unixtotime(t_utime *utime, int unix_time)
 	unix_time %= 60;
 	utime->second += unix_time;
 }
-
 
 t_utime	unix_to_struct(int unix_time)
 {
