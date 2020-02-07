@@ -6,7 +6,7 @@
 /*   By: snorcros <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/06 15:02:09 by snorcros          #+#    #+#             */
-/*   Updated: 2019/10/06 15:02:13 by snorcros         ###   ########.fr       */
+/*   Updated: 2020/02/05 17:00:01 by snorcros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,25 +24,24 @@
 # define WHITE "\033[37;1m"
 # define EOC "\033[6;0m"
 
-
-typedef struct s_color
+typedef struct	s_color
 {
 	char *color_name;
 	char *macros;
 }				t_color;
 
-t_color 		colors[] =
-		{
-				{"black", BLACK},
-				{"purple", PURPLE},
-				{"red", RED},
-				{"green", GREEN},
-				{"yellow", YELLOW},
-				{"blue", BLUE},
-				{"magenta", MAGENTA},
-				{"cyan", CYAN},
-				{"white", WHITE},
-				{"eoc", EOC},
-				{"zero", EOC},
-		};
+t_color			g_colors[] =
+{
+	{"black", BLACK},
+	{"purple", PURPLE},
+	{"red", RED},
+	{"green", GREEN},
+	{"yellow", YELLOW},
+	{"blue", BLUE},
+	{"magenta", MAGENTA},
+	{"cyan", CYAN},
+	{"white", WHITE},
+	{"eoc", EOC},
+	{"zero", EOC},
+};
 #endif
