@@ -4,11 +4,11 @@
 Format string refers to a control parameter used by a class of functions in the input/output libraries of C
 Formatting takes place via placeholders within the format string.
 
-**Syntax of fomat placeholder:**
+## **Syntax of fomat placeholder:**
 ```
 	%[flags][width][.precision][length]type
 ```
-**Flags:**
+### **Flags:**
 
 `-  (minus)`	Left-align the output of this placeholder. (The default is to right-align the output.)
 
@@ -23,17 +23,17 @@ Formatting takes place via placeholders within the format string.
 `#  (hash)`		For f type, the output always contains a decimal point.
 			For o, x, X types, the text 0, 0x, 0X, respectively, is prepended to non-zero numbers.
 
-**Width field:**
+### **Width field:**
 
 The Width field specifies a minimum number of characters to output.
 The width field may be omitted, or a numeric integer value, or a dynamic value when passed as another argument when indicated by an asterisk `*`.
 
-**Precision field:**
+### **Precision field:**
 
 The Precision field specifies a maximum limit on the output, depending on the particular formatting type. For floating point numeric types, it specifies the number of digits to the right of the decimal point that the output should be rounded. For the string type, it limits the number of characters that should be output, after which the string is truncated.
 The precision field may be omitted, or a numeric integer value, or a dynamic value when passed as another argument when indicated by an asterisk `*`.
 
-**Length field:**
+### **Length field:**
 
 `hh`	For integer types, causes printf to expect an int-sized integer argument which was promoted from a *char.*
 
@@ -50,7 +50,7 @@ The precision field may be omitted, or a numeric integer value, or a dynamic val
 `j`	For integer types, causes printf to expect a *intmax_t*-sized integer argument.
 
 
-**Type field**
+### **Type field**
 
 `%`	Prints a literal % character.
 
